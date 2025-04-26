@@ -13,6 +13,10 @@ namespace OtoSatisWebApp.Models
         }
 
         public DbSet<AltBayi> AltBayiler { get; set; }
+        public DbSet<Kategori> Kategoriler { get; set; }
+        public DbSet<Marka> Markalar { get; set; }
+        public DbSet<Urun> Urunler { get; set; }
+        public DbSet<Uye> Uyeler { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Alt Bayi Giriş</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Alt Bayi ID:</label>
+        @Html.TextBox("altBayiID", null, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Segment:</label>
+        @Html.TextBox("segment", null, new { @class = "form-control" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+}
+
+@if (ViewBag.Hata != null)
+{
+    <div class="alert alert-danger">@ViewBag.Hata</div>
+}

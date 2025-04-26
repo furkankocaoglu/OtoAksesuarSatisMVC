@@ -4,8 +4,9 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using OtoSatisWebApp.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OtoSatisWebApp.Models.OtoSatisDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<OtoSatisDB>
     {
         public Configuration()
         {
@@ -13,7 +14,7 @@
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(OtoSatisWebApp.Models.OtoSatisDB context)
+        protected override void Seed(OtoSatisDB context)
         {
             //  This method will be called after migrating to the latest version.
 
