@@ -103,7 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\UyePanel\UyePanelAreaRegistration.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\HomePanelController.cs" />
+    <Compile Include="Areas\YoneticiPanel\Controllers\KategoriController.cs" />
+    <Compile Include="Areas\YoneticiPanel\Controllers\SistemController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\YoneticiGirisController.cs" />
     <Compile Include="Areas\YoneticiPanel\Data\YoneticiLoginViewModel.cs" />
     <Compile Include="Areas\YoneticiPanel\Filters\YoneticiLoginRequiredFilterAttribute.cs" />
@@ -129,6 +132,11 @@
     <Content Include="Areas\YoneticiPanel\Views\YoneticiGiris\Index.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\HomePanel\Index.cshtml" />
+    <Content Include="Areas\UyePanel\Views\web.config" />
+    <Content Include="Areas\YoneticiPanel\Views\Kategori\Index.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Kategori\Create.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Kategori\_Create.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Kategori\Edit.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -139,7 +147,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\UyePanel\Controllers\" />
+    <Folder Include="Areas\UyePanel\Data\" />
+    <Folder Include="Areas\UyePanel\Views\Shared\" />
     <Folder Include="Areas\YoneticiPanel\Assets\" />
+    <Folder Include="Areas\YoneticiPanel\Views\Sistem\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>

@@ -19,5 +19,7 @@ namespace OtoAksesuarSatisWebAp.Models
         public bool Durum { get; set; } = true;
         public bool Silinmis { get; set; } = false;
 
+        public ICollection<Urun> Urunler { get; set; }
+
     }
 }

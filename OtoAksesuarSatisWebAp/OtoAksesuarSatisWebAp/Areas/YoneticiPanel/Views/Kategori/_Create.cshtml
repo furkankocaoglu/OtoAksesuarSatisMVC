@@ -1,0 +1,24 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Kategori
+@{
+    ViewBag.Title = "_Create";
+    Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="formContainer">
+    @using (Html.BeginForm("Create", "Kategori", FormMethod.Post))
+    {
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+        <div class="row">
+            <label>Isim</label>
+            @Html.EditorFor(x => x.KategoriAdi, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.KategoriAdi, "", new { @class = "validationmesage" })
+        </div>
+        <div class="row">
+            <button type="submit" class="formbutton">Kategori Ekle</button>
+        </div>
+    }
+</div>
+

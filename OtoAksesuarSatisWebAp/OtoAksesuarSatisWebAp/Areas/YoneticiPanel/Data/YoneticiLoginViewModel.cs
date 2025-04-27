@@ -16,7 +16,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Data
 
         [Display(Name = "Şifre")]
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "şifre alanı boş bırakılamaz")]
+        [Required(ErrorMessage = "Şifre alanı boş bırakılamaz")]
         [StringLength(maximumLength: 30, MinimumLength = 5, ErrorMessage = "Bu alan 5 - 30 karakter arasında olabilir")]
         public string Sifre { get; set; }
     }

@@ -18,5 +18,7 @@ namespace OtoAksesuarSatisWebAp.Models
         [Display(Name = "Durum")]
         public bool Durum { get; set; } = true;
         public bool Silinmis { get; set; } = false;
+
+        public virtual ICollection<Urun> Urunler { get; set; }
     }
 }
