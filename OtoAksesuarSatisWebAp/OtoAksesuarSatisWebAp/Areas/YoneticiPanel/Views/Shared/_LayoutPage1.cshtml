@@ -1,0 +1,25 @@
+﻿@using OtoAksesuarSatisWebAp.Models;
+@{
+    Yonetici y = new Yonetici();
+    if (Session["YoneticiSession"] != null)
+    {
+        y = Session["YoneticiSession"] as Yonetici;
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h1>SELAM</h1>
+        <a href="@Url.Action("Index","Home")">Anasayfa</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
