@@ -16,20 +16,28 @@
 <body>
     <div>
         <h1>Hoşgeldiniz...</h1>
-            <a href="#" style="color:gray">@y.YoneticiIsim</a>
-            <a href="@Url.Action("LogOut","YoneticiGiris")">Çıkış Yap</a>
+        <a href="#" style="color:gray">@y.YoneticiIsim</a>
+        <a href="@Url.Action("LogOut","YoneticiGiris")">Çıkış Yap</a>
+        <a href="@Url.Action("Index","HomePanel")">Anasayfa</a>
+        <br />
+        <br />
     </div>
     <div>
         <label>Kategori İşlemleri</label>
-        <a href="@Url.Action("Index","HomePanel")">Anasayfa</a>
         <a href="@Url.Action("Create","Kategori")">Kategori Ekle</a>
         <a href="@Url.Action("Index","Kategori")">Kategori Listele</a>
-        <label>Marka</label>
-        <a href="@Url.Action("Index","Brand")">Marka Listele</a>
-        <a href="@Url.Action("Create","Brand")">Marka Ekle</a>
-        <label>Ürün</label>
-        <a href="@Url.Action("Index","Product")">Ürün Listele</a>
-        <a href="@Url.Action("Create","Product")">Ürün Ekle</a>
+        <br />
+        <br />
+        <label>Marka İşlemleri</label>
+        <a href="@Url.Action("Create","Marka")">Marka Ekle</a>
+        <a href="@Url.Action("Index","Marka")">Marka Listele</a>
+        <br />
+        <br />
+        <label>Ürün İşlemleri</label>
+        <a href="@Url.Action("Create","Urun")">Ürün Ekle</a>
+        <a href="@Url.Action("Index","Urun")">Ürün Listele</a>
+        <br />
+        <br />
     </div>
     <div>
         @RenderBody()

@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\YoneticiPanel\Assets\Images\KS4fSTQC7T.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -106,7 +107,9 @@
     <Compile Include="Areas\UyePanel\UyePanelAreaRegistration.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\HomePanelController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\KategoriController.cs" />
+    <Compile Include="Areas\YoneticiPanel\Controllers\MarkaController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\SistemController.cs" />
+    <Compile Include="Areas\YoneticiPanel\Controllers\UrunController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\YoneticiGirisController.cs" />
     <Compile Include="Areas\YoneticiPanel\Data\YoneticiLoginViewModel.cs" />
     <Compile Include="Areas\YoneticiPanel\Filters\YoneticiLoginRequiredFilterAttribute.cs" />
@@ -137,6 +140,13 @@
     <Content Include="Areas\YoneticiPanel\Views\Kategori\Create.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Kategori\_Create.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Kategori\Edit.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Marka\Index.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Marka\Create.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Marka\Edit.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Urun\Index.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Urun\Create.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Sistem\Error.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\Urun\Edit.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -150,8 +160,10 @@
     <Folder Include="Areas\UyePanel\Controllers\" />
     <Folder Include="Areas\UyePanel\Data\" />
     <Folder Include="Areas\UyePanel\Views\Shared\" />
-    <Folder Include="Areas\YoneticiPanel\Assets\" />
-    <Folder Include="Areas\YoneticiPanel\Views\Sistem\" />
+    <Folder Include="Areas\YoneticiPanel\Assets\CSS\" />
+    <Folder Include="Assets\CSS\" />
+    <Folder Include="Assets\ProductImages\" />
+    <Folder Include="Assets\SiteImages\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>

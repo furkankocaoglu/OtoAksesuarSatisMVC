@@ -1,0 +1,29 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Marka
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="pagetitle">
+    <h2>Marka Düzenle</h2>
+</div>
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(x => x.MarkaID)
+        @Html.HiddenFor(x => x.Silinmis)
+
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+        <div class="row">
+            <label>Isim</label>
+            @Html.EditorFor(x => x.MarkaAdi, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.MarkaAdi, "", new { @class = "validationmesage" })
+        </div>
+        <div class="row">
+            <button type="submit" class="formbutton">Güncelle</button>
+        </div>
+    }
+</div>
+
