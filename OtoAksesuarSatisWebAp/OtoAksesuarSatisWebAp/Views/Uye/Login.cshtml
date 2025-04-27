@@ -1,0 +1,54 @@
+﻿@model OtoAksesuarSatisWebAp.Models.ViewModels.MemberLoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+}
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row" style="text-align:center">
+            <h2>Giriş Yap</h2>
+        </div>
+        <div class="row" style="text-align:center">
+            Lütfen bilgileri eksiksiz doldurun
+        </div>
+        if (TempData["info"] != null)
+        {
+            <div class="validation-summary-success">
+                @TempData["info"]
+                @{
+                    TempData["info"] = null;
+                }
+            </div>
+        }
+        if (ViewBag.basarisiz != null)
+        {
+            <div class="validation-summary-errors">
+                @ViewBag.basarisiz
+            </div>
+        }
+        if (ViewBag.basarili != null)
+        {
+            <div class="validation-summary-success">
+                @ViewBag.basarili
+            </div>
+        }
+
+        <div class="row">
+            @Html.EditorFor(x => x.Eposta, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "Mail Adresiniz" } })
+            @Html.ValidationMessageFor(x => x.Eposta, "", new { @class = "validationmesage" })
+        </div>
+        <div class="row">
+            @Html.EditorFor(x => x.Sifre, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "Şifreniz" } })
+            @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Giriş Yap" class="loginButton" />
+        </div>
+    }
+</div>
+
+

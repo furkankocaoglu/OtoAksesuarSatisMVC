@@ -114,6 +114,9 @@
     <Compile Include="Areas\YoneticiPanel\Data\YoneticiLoginViewModel.cs" />
     <Compile Include="Areas\YoneticiPanel\Filters\YoneticiLoginRequiredFilterAttribute.cs" />
     <Compile Include="Areas\YoneticiPanel\YoneticiPanelAreaRegistration.cs" />
+    <Compile Include="Controllers\AnaSayfaController.cs" />
+    <Compile Include="Controllers\UyeController.cs" />
+    <Compile Include="Filters\UyeLoginRequiredFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     <Content Include="Areas\YoneticiPanel\Views\Sistem\Error.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Urun\Edit.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared1\_LayoutPage1.cshtml" />
+    <Content Include="Views\Uye\Register.cshtml" />
+    <Content Include="Views\Uye\Login.cshtml" />
+    <Content Include="Views\AnaSayfa\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -164,7 +171,6 @@
     <Folder Include="Assets\CSS\" />
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
