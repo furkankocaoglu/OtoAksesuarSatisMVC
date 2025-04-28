@@ -17,6 +17,7 @@ namespace OtoAksesuarSatisWebAp.Models
         public DbSet<Kategori> Kategoriler { get; set; }
         public DbSet<Urun> Urunler { get; set; }
         public DbSet<Uye> Uyeler { get; set; }
+        public DbSet<Favori> Favoriler { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

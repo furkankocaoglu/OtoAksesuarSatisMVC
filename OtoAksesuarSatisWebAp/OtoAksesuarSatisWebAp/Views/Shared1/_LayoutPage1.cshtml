@@ -24,20 +24,25 @@
         @if (Session["uye"] != null)
         {
             <div class="topbarRight">
-                
+
                 <div>
                     <a href="@Url.Action("LogOut","Uye")">Çıkış Yap</a>
+                    <a href="@Url.Action("Index","Favori")">Favoriler</a>
                 </div>
                 <div class="clearfix"></div>
             </div>
         }
         else
         {
-    <div class="topbarRight">
-        <a href="@Url.Action("Login","Uye")">Giriş Yap</a>
-        <a href="@Url.Action("Register","Uye")">Üye Ol</a>
-    </div>
+            <div class="topbarRight">
+                <a href="@Url.Action("Login","Uye")">Giriş Yap</a>
+                <a href="@Url.Action("Register","Uye")">Üye Ol</a>
+            </div>
         }
+    </div>
+    <div class="categoryBar">
+        <h4> Kategoriler </h4>
+        @Html.Action("_Index", "Menu")
     </div>
     <div>
         @RenderBody()

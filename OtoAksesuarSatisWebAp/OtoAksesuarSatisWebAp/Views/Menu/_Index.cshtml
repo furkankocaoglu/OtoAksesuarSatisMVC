@@ -1,0 +1,9 @@
+﻿@using OtoAksesuarSatisWebAp.Models
+
+@model IEnumerable<Kategori>
+
+@foreach (Kategori item in Model)
+{
+    <a href="@Url.Action("Kategori","Home", new {id = item.KategoriID})">@item.KategoriAdi</a>
+}
+
