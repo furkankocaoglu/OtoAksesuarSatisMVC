@@ -38,17 +38,3 @@ else
     </div>
 }
 
-
-<h3>Yorum Yapmak İstediğiniz Ürünler</h3>
-<div class="productList">
-    @foreach (var urun in ViewBag.Urunler as List<OtoAksesuarSatisWebAp.Models.Urun>) 
-    {
-        if (ViewBag.SiparisliUrunIds.Contains(urun.UrunID))
-        {
-            <div class="productItem">
-                <p>@urun.UrunAdi</p>
-                <a href="@Url.Action("Create", "Yorum", new { urunId = urun.UrunID })" class="btn btn-primary">Yorum Yap</a>
-            </div>
-        }
-    }
-</div>

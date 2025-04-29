@@ -43,7 +43,7 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
             return View(yorumlar);
         }
         [HttpGet]
-        public ActionResult Create(int urunId)
+        public ActionResult Create(int? urunId)
         {
             var uye = Session["uye"] as Uye;
             if (uye == null)
@@ -51,19 +51,33 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
                 return RedirectToAction("Login", "Uye");
             }
 
-            
+            if (urunId == null)
+            {
+                TempData["mesaj"] = "Geçersiz ürün.";
+                return RedirectToAction("Index", "Siparis");
+            }
+
             var satinAlindiMi = db.Siparisler
                                   .Any(s => s.UrunID == urunId && s.UyeID == uye.UyeID && s.Silinmis == false);
 
             if (!satinAlindiMi)
             {
                 TempData["mesaj"] = "Bu ürünü satın almadığınız için yorum yapamazsınız.";
-                return RedirectToAction("Index", "Siparis"); 
+                return RedirectToAction("Index", "Siparis");
+            }
+
+            var dahaOnceYorumYapildiMi = db.Yorumlar
+                                           .Any(y => y.UrunID == urunId && y.UyeID == uye.UyeID && y.Silinmis == false);
+
+            if (dahaOnceYorumYapildiMi)
+            {
+                TempData["mesaj"] = "Bu ürüne zaten yorum yaptınız.";
+                return RedirectToAction("Index", "Siparis");
             }
 
             var yorum = new Yorum
             {
-                UrunID = urunId,
+                UrunID = urunId.Value,
                 UyeID = uye.UyeID
             };
 

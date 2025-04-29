@@ -14,25 +14,36 @@
         @TempData["mesaj"]
     </div>
 }
+@{
+    var yorumYapilmisUrunler = ViewBag.YorumYapilmisUrunler as List<int>;
+    var yorumYapilabilirSiparisler = Model.Where(s => !yorumYapilmisUrunler.Contains(s.UrunID)).ToList();
+}
 
-@if (!Model.Any())
+@if (!yorumYapilabilirSiparisler.Any())
 {
     <div class="alert alert-info">
-        Siparişiniz bulunmamaktadır.
+        Yorum yapabileceğiniz bir siparişiniz bulunmamaktadır.
     </div>
 }
 else
 {
-    <div class="orderList">
-        @foreach (var item in Model)
+    <table class="table">
+        <tr>
+            <th>Ürün</th>
+            <th>Tarih</th>
+            <th>Toplam</th>
+            <th>İşlem</th>
+        </tr>
+        @foreach (var item in yorumYapilabilirSiparisler)
         {
-            <div class="orderItem">
-                <p>Ürün: @item.Urun.UrunAdi</p>
-                <p>Miktar: @item.Miktar</p>
-                <p>Toplam Fiyat: @item.ToplamFiyat ₺</p>
-                <p>Sipariş Tarihi: @item.SiparisTarihi.ToString("dd/MM/yyyy")</p>
-                <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })" class="btn btn-danger">Siparişi Sil</a>
-            </div>
+            <tr>
+                <td>@item.Urun.UrunAdi</td>
+                <td>@item.SiparisTarihi.ToShortDateString()</td>
+                <td>@item.ToplamFiyat ₺</td>
+                <td>
+                    <a href="@Url.Action("Create", "Yorum", new { urunId = item.UrunID })">Yorum Yap</a>
+                </td>
+            </tr>
         }
-    </div>
+    </table>
 }

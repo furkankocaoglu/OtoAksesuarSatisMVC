@@ -105,7 +105,9 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\UyePanel\Controllers\AnaSayfaController.cs" />
+    <Compile Include="Areas\UyePanel\Controllers\FavController.cs" />
     <Compile Include="Areas\UyePanel\Controllers\SiparisController.cs" />
+    <Compile Include="Areas\UyePanel\Controllers\UyeController.cs" />
     <Compile Include="Areas\UyePanel\Controllers\YorumController.cs" />
     <Compile Include="Areas\UyePanel\Data\UyeLoginViewModel.cs" />
     <Compile Include="Areas\UyePanel\UyePanelAreaRegistration.cs" />
@@ -167,6 +169,9 @@
     <Content Include="Areas\UyePanel\Views\Yorum\Create.cshtml" />
     <Content Include="Areas\UyePanel\Views\Yorum\Edit.cshtml" />
     <Content Include="Areas\UyePanel\Views\Siparis\Index.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Siparis\ToplamSiparis.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Uye\Profil.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Fav\RedirectToFavori.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared1\_LayoutPage1.cshtml" />
     <Content Include="Views\Uye\Register.cshtml" />

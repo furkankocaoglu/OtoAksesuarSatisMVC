@@ -1,0 +1,33 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Uye
+
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
+}
+
+<h2>Üye Bilgileriniz</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Isim)</th>
+        <td>@Model.Isim</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Soyisim)</th>
+        <td>@Model.Soyisim</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Mail)</th>
+        <td>@Model.Mail</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.KayitTarihi)</th>
+        <td>@Model.KayitTarihi.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.AktifMi)</th>
+        <td>@(Model.AktifMi ? "Aktif" : "Pasif")</td>
+    </tr>
+</table>
+
+

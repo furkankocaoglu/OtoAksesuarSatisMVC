@@ -24,7 +24,28 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
                                .Where(s => s.UyeID == uye.UyeID && s.Silinmis == false)
                                .ToList();
 
+            var yorumYapilmisUrunler = db.Yorumlar
+                                         .Where(y => y.UyeID == uye.UyeID && y.Silinmis == false)
+                                         .Select(y => y.UrunID)
+                                         .ToList();
+
+            ViewBag.YorumYapilmisUrunler = yorumYapilmisUrunler;
+
             return View(siparisler);
+        }
+        public ActionResult ToplamSiparis()
+        {
+            var uye = Session["uye"] as Uye;
+            if (uye == null)
+            {
+                return RedirectToAction("Login", "Uye");
+            }
+
+            int siparisSayisi = db.Siparisler.Count(s => s.UyeID == uye.UyeID && s.Silinmis == false);
+
+            ViewBag.SiparisSayisi = siparisSayisi;
+
+            return View(siparisSayisi);
         }
         public ActionResult Delete(int? id)
         {
