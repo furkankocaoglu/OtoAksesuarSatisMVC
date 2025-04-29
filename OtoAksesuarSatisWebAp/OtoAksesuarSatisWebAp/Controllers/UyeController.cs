@@ -91,7 +91,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
         {
 
             Session["uye"] = null;
-            return RedirectToAction("Login", "Uye");
+            return RedirectToAction("Index", "AnaSayfa");
         }
     }
 }

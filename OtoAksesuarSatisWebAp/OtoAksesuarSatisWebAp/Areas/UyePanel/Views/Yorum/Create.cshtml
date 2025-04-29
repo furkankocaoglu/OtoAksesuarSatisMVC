@@ -1,0 +1,35 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Yorum
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
+}
+<div class="pagetitle">
+    <h2>Yorum Ekle</h2>
+</div>
+
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+
+        <div class="row">
+            <label>Ürün ID</label>
+            @Html.EditorFor(x => x.UrunID, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.UrunID, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <label>Yorum</label>
+            @Html.TextAreaFor(x => x.YorumMetni, new { @class = "textbox", rows = 5 })
+            @Html.ValidationMessageFor(x => x.YorumMetni, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <button type="submit" class="formbutton">Yorum Ekle</button>
+        </div>
+    }
+</div>
+

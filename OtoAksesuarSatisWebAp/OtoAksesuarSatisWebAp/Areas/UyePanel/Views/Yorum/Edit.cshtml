@@ -1,0 +1,35 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Yorum
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
+}
+<div class="pagetitle">
+    <h2>Yorum Düzenle</h2>
+</div>
+
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(x => x.YorumID)
+        @Html.HiddenFor(x => x.UyeID)
+        @Html.HiddenFor(x => x.UrunID)
+        @Html.HiddenFor(x => x.Silinmis)
+        @Html.HiddenFor(x => x.Durum)
+
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+
+        <div class="row">
+            <label>Yorum</label>
+            @Html.TextAreaFor(x => x.YorumMetni, new { @class = "textbox", rows = 5 })
+            @Html.ValidationMessageFor(x => x.YorumMetni, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <button type="submit" class="formbutton">Güncelle</button>
+        </div>
+    }
+</div>
+

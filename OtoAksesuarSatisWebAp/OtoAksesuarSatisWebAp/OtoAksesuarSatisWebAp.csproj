@@ -104,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\UyePanel\Controllers\AnaSayfaController.cs" />
+    <Compile Include="Areas\UyePanel\Controllers\SiparisController.cs" />
+    <Compile Include="Areas\UyePanel\Controllers\YorumController.cs" />
+    <Compile Include="Areas\UyePanel\Data\UyeLoginViewModel.cs" />
     <Compile Include="Areas\UyePanel\UyePanelAreaRegistration.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\HomePanelController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\KategoriController.cs" />
@@ -128,11 +132,13 @@
     <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Marka.cs" />
     <Compile Include="Models\OtoAksesuarSatisDB.cs" />
+    <Compile Include="Models\Siparis.cs" />
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\Uye.cs" />
     <Compile Include="Models\ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="Models\ViewModels\OdemeViewModel.cs" />
     <Compile Include="Models\Yonetici.cs" />
+    <Compile Include="Models\Yorum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +161,12 @@
     <Content Include="Areas\YoneticiPanel\Views\Urun\Create.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Sistem\Error.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\Urun\Edit.cshtml" />
+    <Content Include="Areas\UyePanel\Views\_LayoutPage1.cshtml" />
+    <Content Include="Areas\UyePanel\Views\AnaSayfa\Index.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Yorum\Index.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Yorum\Create.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Yorum\Edit.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Siparis\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared1\_LayoutPage1.cshtml" />
     <Content Include="Views\Uye\Register.cshtml" />
@@ -172,8 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\UyePanel\Controllers\" />
-    <Folder Include="Areas\UyePanel\Data\" />
     <Folder Include="Areas\UyePanel\Views\Shared\" />
     <Folder Include="Areas\YoneticiPanel\Assets\CSS\" />
     <Folder Include="Assets\CSS\" />

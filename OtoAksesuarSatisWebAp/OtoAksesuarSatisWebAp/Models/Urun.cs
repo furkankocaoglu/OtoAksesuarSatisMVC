@@ -46,5 +46,7 @@ namespace OtoAksesuarSatisWebAp.Models
         public bool AktifMi { get; set; } = true;
 
         public bool Silinmis { get; set; } = false;
+
+        public ICollection<Yorum> Yorumlar { get; set; }
     }
 }

@@ -26,7 +26,7 @@
                 <img src="~/Assets/ProductImages/@item.Urun.ResimYolu" width="56" />
             </td>
             <td>
-                <a href="@Url.Action("","")">@item.Urun.UrunAdi</a>
+                <a href="@Url.Action("Detail","DetayUrun")">@item.Urun.UrunAdi</a>
             </td>
 
             <td>
@@ -35,7 +35,7 @@
                 <strong style="color: #7e0490"> @item.Urun.Fiyat ₺</strong>
             </td>
             <td>
-                <a href="@Url.Action("Remove","Favori", new {id = item.FavoriID})">Favorilerimden Çıkart</a>
+                <a href="@Url.Action("Remove","Favori", new {id = item.FavoriID})">Favorilerimden Kaldır</a>
             </td>
         </tr>
     }

@@ -1,0 +1,33 @@
+﻿@using OtoAksesuarSatisWebAp.Models;
+@{
+    Uye u = new Uye();
+    if (Session["uye"] != null)
+    {
+        u = Session["uye"] as Uye;
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h1>Üye Paneline Hoşgeldiniz...</h1>
+        <a href="@Url.Action("Index","AnaSayfa")">AnaSayfa</a>
+        <a href="@Url.Action("Index","Siparis")">Siparişlerim</a>
+    </div>
+    <div>
+        <a href="#" style="color:gray">@u.Isim</a>
+        <a href="@Url.Action("Index","Yorum")">Yorum Listele</a>
+        <a href="@Url.Action("Create","Yorum")">Yorum Ekle</a>
+        <br />
+        <br />
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<OtoAksesuarSatisWebAp.Models.Siparis>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
+}
+<div class="pagetitle">
+    <h2>Siparişlerim</h2>
+</div>
+
+@if (TempData["mesaj"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["mesaj"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Siparişiniz bulunmamaktadır.
+    </div>
+}
+else
+{
+    <div class="orderList">
+        @foreach (var item in Model)
+        {
+            <div class="orderItem">
+                <p>Ürün: @item.Urun.UrunAdi</p>
+                <p>Miktar: @item.Miktar</p>
+                <p>Toplam Fiyat: @item.ToplamFiyat ₺</p>
+                <p>Sipariş Tarihi: @item.SiparisTarihi.ToString("dd/MM/yyyy")</p>
+                <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })" class="btn btn-danger">Siparişi Sil</a>
+            </div>
+        }
+    </div>
+}

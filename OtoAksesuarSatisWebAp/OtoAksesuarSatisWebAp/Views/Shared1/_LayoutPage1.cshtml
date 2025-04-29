@@ -11,12 +11,18 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title> Oto Aksesuar Satış Platformu @ViewBag.Title</title>
+    @RenderSection("styles", false)
 </head>
 <body>
     <div>
-        <h1>Hoşgeldiniz...</h1>
-        <a href="#" style="color:gray">@u.Isim</a>
+        <h3>
+            <a href="@Url.Action("Index", "AnaSayfa")" style="text-decoration:none; color:blue;">
+                OTO AKSESUAR SATIŞ PLATFORMU
+            </a>
+        </h3>
+        <a href="#" style="color:darkblue">@u.Isim</a>
+
         <br />
         <br />
     </div>
@@ -24,7 +30,6 @@
         @if (Session["uye"] != null)
         {
             <div class="topbarRight">
-
                 <div>
                     <a href="@Url.Action("LogOut","Uye")">Çıkış Yap</a>
                     <a href="@Url.Action("Index","Favori")">Favoriler</a>
@@ -35,13 +40,12 @@
         else
         {
             <div class="topbarRight">
-                <a href="@Url.Action("Login","Uye")">Giriş Yap</a>
+                <a href="@Url.Action("Login","Uye")">Hoşgeldiniz, Giriş Yap</a>
                 <a href="@Url.Action("Register","Uye")">Üye Ol</a>
             </div>
         }
     </div>
     <div class="categoryBar">
-        <h4> Kategoriler </h4>
         @Html.Action("_Index", "Menu")
     </div>
     <div>
