@@ -1,0 +1,57 @@
+﻿@model OtoAksesuarSatisWebAp.Models.Uye
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="pagetitle">
+    <h2>Üye Düzenle</h2>
+</div>
+
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(x => x.UyeID)
+        @Html.HiddenFor(x => x.Silinmis)
+
+        if (ViewBag.mesaj != null)
+        {
+            <label class="validationmesage">@ViewBag.mesaj</label>
+        }
+
+        <div class="row">
+            <label>İsim</label>
+            @Html.EditorFor(x => x.Isim, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.Isim, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <label>Soyisim</label>
+            @Html.EditorFor(x => x.Soyisim, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.Soyisim, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <label>E-Posta</label>
+            @Html.EditorFor(x => x.Mail, new { htmlAttributes = new { @class = "textbox" } })
+            @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <label>Şifre</label>
+            @Html.PasswordFor(x => x.Sifre, new { @class = "textbox" })
+            @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <label>Durum (Aktif/Pasif)</label>
+            @Html.CheckBoxFor(x => x.AktifMi)
+            @Html.ValidationMessageFor(x => x.AktifMi, "", new { @class = "validationmesage" })
+        </div>
+
+        <div class="row">
+            <button type="submit" class="formbutton">Güncelle</button>
+        </div>
+    }
+</div>
+

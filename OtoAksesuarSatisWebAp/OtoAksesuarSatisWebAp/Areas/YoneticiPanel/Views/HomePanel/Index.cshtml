@@ -5,3 +5,37 @@
 }
 
 <h2>HomePanel Index</h2>
+<h2>Admin Paneli</h2>
+
+@if (ViewBag.Urunler != null)
+{
+    if (ViewBag.Urunler is string message)
+    {
+        <div>@message</div>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var urun in ViewBag.Urunler)
+                {
+                    <tr>
+                        <td>@urun.UrunAdi</td>
+                        <td>@urun.Fiyat</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Güncelleme Butonu -->
+        <form method="post" action="@Url.Action("UpdateXml", "HomePanel")">
+            <button type="submit">XML Verilerini Güncelle</button>
+        </form>
+    }
+}

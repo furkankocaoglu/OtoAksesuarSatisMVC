@@ -2,9 +2,11 @@
 using OtoAksesuarSatisWebAp.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
 {
@@ -28,13 +30,52 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 Yonetici y = db.Yoneticiler.FirstOrDefault(x => x.Eposta == model.Eposta && x.Sifre == model.Sifre);
                 if (y != null)
                 {
                     if (y.AktifMi)
                     {
+                        
                         Session["YoneticiSession"] = y;
-                        return RedirectToAction("Index", "HomePanel");
+
+                        
+                        var segment = y.YoneticiIsim.ToLower(); 
+
+                        
+                        string xmlKlasorYolu = @"C:\BayilikXML\";
+                        if (!Directory.Exists(xmlKlasorYolu)) Directory.CreateDirectory(xmlKlasorYolu);
+
+                       
+                        string xmlPath = Path.Combine(xmlKlasorYolu, $"{segment}.xml");
+
+                       
+                        if (System.IO.File.Exists(xmlPath))
+                        {
+                            XDocument xmlDoc = XDocument.Load(xmlPath);
+
+                            
+                            var urunler = xmlDoc.Descendants("urun")
+                                .Select(x => new Urun
+                                {
+                                    UrunAdi = x.Element("UrunAdi")?.Value,
+                                    Fiyat = Convert.ToDecimal(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", ".")),
+                                    StokMiktari = int.Parse(x.Element("Stok")?.Value),
+                                    Aciklama = x.Element("Aciklama")?.Value,
+                                    ResimYolu = x.Element("Resim")?.Value,
+                                    EklenmeTarihi = DateTime.Parse(x.Element("EklenmeZamani")?.Value)
+                                }).ToList();
+
+                            
+                            Session["Urunler"] = urunler;
+
+                            
+                            return RedirectToAction("Index", "HomePanel");
+                        }
+                        else
+                        {
+                            ViewBag.mesaj = "XML dosyasına ulaşılamadı.";
+                        }
                     }
                     else
                     {
@@ -49,6 +90,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
 
             return View(model);
         }
+
         public ActionResult LogOut()
         {
             

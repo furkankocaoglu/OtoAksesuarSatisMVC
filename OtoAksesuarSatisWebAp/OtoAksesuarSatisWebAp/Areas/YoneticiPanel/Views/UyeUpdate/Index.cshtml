@@ -1,0 +1,45 @@
+﻿@model IEnumerable<OtoAksesuarSatisWebAp.Models.Uye>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2>Üye Listesi</h2>
+
+@if (TempData["mesaj"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["mesaj"]
+    </div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>E-Posta</th>
+            <th>Kayıt Tarihi</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var uye in Model)
+        {
+            <tr>
+                <td>@uye.UyeID</td>
+                <td>@uye.Isim</td>
+                <td>@uye.Soyisim</td>
+                <td>@uye.Mail</td>
+                <td>@uye.KayitTarihi.ToShortDateString()</td>
+                <td>@(uye.AktifMi ? "Aktif" : "Pasif")</td>
+                <td>
+                    <a href="@Url.Action("Edit","UyeUpdate", new {id = uye.UyeID})" class="editbutton">Düzenle</a>
+                    <a href="@Url.Action("Delete","UyeUpdate", new {id = uye.UyeID})" class="deletebutton">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

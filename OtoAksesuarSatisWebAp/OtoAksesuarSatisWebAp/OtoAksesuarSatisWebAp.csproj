@@ -116,6 +116,7 @@
     <Compile Include="Areas\YoneticiPanel\Controllers\MarkaController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\SistemController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\UrunController.cs" />
+    <Compile Include="Areas\YoneticiPanel\Controllers\UyeUpdateController.cs" />
     <Compile Include="Areas\YoneticiPanel\Controllers\YoneticiGirisController.cs" />
     <Compile Include="Areas\YoneticiPanel\Data\YoneticiLoginViewModel.cs" />
     <Compile Include="Areas\YoneticiPanel\Filters\YoneticiLoginRequiredFilterAttribute.cs" />
@@ -172,6 +173,8 @@
     <Content Include="Areas\UyePanel\Views\Siparis\ToplamSiparis.cshtml" />
     <Content Include="Areas\UyePanel\Views\Uye\Profil.cshtml" />
     <Content Include="Areas\UyePanel\Views\Fav\RedirectToFavori.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\UyeUpdate\Index.cshtml" />
+    <Content Include="Areas\YoneticiPanel\Views\UyeUpdate\Edit.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared1\_LayoutPage1.cshtml" />
     <Content Include="Views\Uye\Register.cshtml" />
