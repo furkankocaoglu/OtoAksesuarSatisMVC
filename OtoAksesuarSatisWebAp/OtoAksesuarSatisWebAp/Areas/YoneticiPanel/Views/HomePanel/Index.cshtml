@@ -7,6 +7,13 @@
 <h2>HomePanel Index</h2>
 <h2>Admin Paneli</h2>
 
+@if (TempData["Mesaj"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mesaj"]
+    </div>
+}
+
 @if (ViewBag.Urunler != null)
 {
     if (ViewBag.Urunler is string message)
@@ -15,7 +22,7 @@
     }
     else
     {
-        <table>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Ürün Adı</th>
@@ -23,19 +30,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var urun in ViewBag.Urunler)
+                @foreach (var urun in (List<OtoAksesuarSatisWebAp.Models.Urun>)ViewBag.Urunler)
                 {
                     <tr>
                         <td>@urun.UrunAdi</td>
-                        <td>@urun.Fiyat</td>
+                        <td>@urun.Fiyat.ToString("C2")</td>
                     </tr>
                 }
             </tbody>
         </table>
 
-        <!-- Güncelleme Butonu -->
-        <form method="post" action="@Url.Action("UpdateXml", "HomePanel")">
-            <button type="submit">XML Verilerini Güncelle</button>
+        <form method="post" action="@Url.Action("UrunleriAktar", "HomePanel", new { area = "YoneticiPanel" })">
+            <button type="submit" class="btn btn-success">XML Verilerini Aktar</button>
         </form>
     }
 }
