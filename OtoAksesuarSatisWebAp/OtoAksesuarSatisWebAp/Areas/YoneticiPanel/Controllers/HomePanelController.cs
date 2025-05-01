@@ -13,7 +13,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
     public class HomePanelController : Controller
     {
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
-
+        //sadasfdmsfsssssssssssssssssssssssssssssssssssssssssssssss
         public ActionResult Index()
         {
            
