@@ -16,7 +16,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
         //sadasfdmsfsssssssssssssssssssssssssssssssssssssssssssssss
         public ActionResult Index()
         {
-           
+
             var yonetici = Session["YoneticiSession"] as Yonetici;
 
             if (yonetici == null)
@@ -47,17 +47,17 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 return RedirectToAction("Index", "YoneticiGiris");
             }
 
-            string bayiTipi = yonetici.YoneticiIsim; 
+            string bayiTipi = yonetici.YoneticiIsim;
             string xmlDosyaYolu = $@"C:\BayilikXML\{bayiTipi}.xml";
 
             if (!System.IO.File.Exists(xmlDosyaYolu))
             {
                 TempData["Mesaj"] = "XML dosyası bulunamadı.";
-                return RedirectToAction("Index","HomePanel");
+                return RedirectToAction("Index", "HomePanel");
             }
 
             var xmlDoc = XDocument.Load(xmlDosyaYolu);
-            
+
             var xmlUrunler = xmlDoc.Descendants("urun")
                 .Select(x => new
                 {
@@ -68,37 +68,38 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     Fiyat = decimal.TryParse(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", "."), out var fiyat) ? fiyat : 0,
                     Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
                     Aciklama = x.Element("Aciklama")?.Value ?? "Açıklama yok",
-                    Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg", 
-                    EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var eklenmeZamani) ? eklenmeZamani : DateTime.MinValue
+                    Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
+                    // EklenmeZamani için geçerli tarih kontrolü
+                    EklenmeZamani = string.IsNullOrEmpty(x.Element("EklenmeZamani")?.Value)
+    ? DateTime.MinValue
+    : DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var eklenmeZamani)
+        ? (eklenmeZamani < DateTime.MinValue || eklenmeZamani > DateTime.MaxValue
+            ? DateTime.MinValue // Geçersiz tarihler için fallback
+            : eklenmeZamani)
+        : DateTime.MinValue
                 }).ToList();
 
             int eklenen = 0;
 
             foreach (var x in xmlUrunler)
             {
-                
                 var kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriAdi == x.KategoriAdi);
                 if (kategori == null)
                 {
-                    
                     kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriID == 11);
                     if (kategori == null)
                     {
-                        
                         TempData["Mesaj"] = "Kategori bulunamadı ve ID 11 olan kategori veritabanında yok.";
                         continue;
                     }
                 }
 
-               
                 var marka = db.Markalar.FirstOrDefault(m => m.MarkaAdi == x.MarkaAdi);
                 if (marka == null)
                 {
-                    
                     marka = db.Markalar.FirstOrDefault(m => m.MarkaID == 6);
                     if (marka == null)
                     {
-                        
                         TempData["Mesaj"] = "Marka bulunamadı ve ID 6 olan marka veritabanında yok.";
                         continue;
                     }
@@ -107,7 +108,6 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 bool urunVarMi = db.Urunler.Any(u => u.UrunAdi == x.UrunAdi && u.Fiyat == x.Fiyat);
                 if (urunVarMi) continue;
 
-                
                 var urun = new Urun
                 {
                     UrunAdi = x.UrunAdi,
@@ -118,11 +118,10 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     EklenmeTarihi = x.EklenmeZamani,
                     AktifMi = true,
                     Silinmis = false,
-                    KategoriID = kategori.KategoriID, 
-                    MarkaID = marka.MarkaID 
+                    KategoriID = kategori.KategoriID,
+                    MarkaID = marka.MarkaID
                 };
 
-                
                 db.Urunler.Add(urun);
                 eklenen++;
             }
@@ -131,7 +130,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
 
             if (eklenen == 0)
             {
-                TempData["Mesaj"] = "Zaten tüm ürünler başarıyla aktarıldı.";
+                TempData["Mesaj"] = "Zaten tüm ürünler başarıyla aktarıldı. Yeni gelen ürün yok!";
             }
             else
             {
@@ -144,6 +143,6 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
     }
 
 
-    
-    
+
+
 }

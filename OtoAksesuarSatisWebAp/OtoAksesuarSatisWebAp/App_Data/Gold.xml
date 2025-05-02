@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urunler>
+  <urun>
+    <UrunAdi>Jant kapağı</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺700,00</Fiyat>
+    <Stok>25</Stok>
+    <Aciklama>Jant kapağıJant kapağı</Aciklama>
+    <Resim>C:\Users\user\Downloads\MusicodeLogo (1).png</Resim>
+    <EklenmeZamani>2025-04-23 22:07:57</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunAdi>Akü</UrunAdi>
+    <Kategori>Elektronik ve Navigasyon</Kategori>
+    <Fiyat>₺700.000,00</Fiyat>
+    <Stok>50</Stok>
+    <Aciklama>AküAküAkü</Aciklama>
+    <Resim>C:\Users\user\Downloads\MusicodeLogo (1).png</Resim>
+    <EklenmeZamani>2025-04-23 22:08:49</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>7</UrunID>
+    <UrunAdi>Akü</UrunAdi>
+    <Kategori>Elektronik ve Navigasyon</Kategori>
+    <Fiyat>₺700.000,00</Fiyat>
+    <Stok>50</Stok>
+    <Aciklama>AküAküAkü</Aciklama>
+    <Resim>C:\Users\user\Downloads\MusicodeLogo (1).png</Resim>
+    <EklenmeZamani>2025-04-23 22:18:08</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>8</UrunID>
+    <UrunAdi>Araç çakmaklığı</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺1.200,00</Fiyat>
+    <Stok>500</Stok>
+    <Aciklama>Araç çakmaklığıAraç çakmaklığıAraç çakmaklığı</Aciklama>
+    <Resim>C:\Users\user\Downloads\MusicodeLogo.png</Resim>
+    <EklenmeZamani>2025-04-23 22:20:05</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>9</UrunID>
+    <UrunAdi>Yarasa ayna kapakları </UrunAdi>
+    <Kategori>Ayna Kapakları</Kategori>
+    <Fiyat>₺2.200,00</Fiyat>
+    <Stok>50</Stok>
+    <Aciklama>Yarasa ayna kapakları </Aciklama>
+    <Resim>C:\Users\user\Downloads\MusicodeLogo.png</Resim>
+    <EklenmeZamani>2025-04-24 19:09:29</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>10</UrunID>
+    <UrunAdi>AA</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺65,00</Fiyat>
+    <Stok>12</Stok>
+    <Aciklama>AAAA</Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 00:19:18</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>11</UrunID>
+    <UrunAdi>11</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺121.212,00</Fiyat>
+    <Stok>11</Stok>
+    <Aciklama>121212</Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 00:26:58</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>12</UrunID>
+    <UrunAdi>aa</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺12.321,00</Fiyat>
+    <Stok>111</Stok>
+    <Aciklama>312312</Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 00:32:02</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>20</UrunID>
+    <UrunAdi>mayon</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺60.000,00</Fiyat>
+    <Stok>55</Stok>
+    <Aciklama></Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 01:19:42</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>21</UrunID>
+    <UrunAdi>ahmet</UrunAdi>
+    <Kategori>Güvenlik Aksesuarları2</Kategori>
+    <Fiyat>₺760,00</Fiyat>
+    <Stok>12</Stok>
+    <Aciklama>ahmetahmetahmet</Aciklama>
+    <Resim>C:\Users\user\Desktop\foti\The_Automobile_Association_logo.svg.png</Resim>
+    <EklenmeZamani>2025-04-25 02:45:23</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>22</UrunID>
+    <UrunAdi>2112</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺550,00</Fiyat>
+    <Stok>121</Stok>
+    <Aciklama>21122112</Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 20:48:43</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>23</UrunID>
+    <UrunAdi>sincap</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺500,00</Fiyat>
+    <Stok>85</Stok>
+    <Aciklama></Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-04-25 20:57:26</EklenmeZamani>
+    <GuncellenmeZamani>2025-04-27 04:16:12</GuncellenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>24</UrunID>
+    <UrunAdi>selam</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Fiyat>₺5.000,00</Fiyat>
+    <Stok>55</Stok>
+    <Aciklama>10001000</Aciklama>
+    <Resim>C:\Users\user\Desktop\sağ tık sil düzenle.PNG</Resim>
+    <EklenmeZamani>2025-04-25 21:07:37</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>25</UrunID>
+    <UrunAdi>Damaca</UrunAdi>
+    <Kategori>Araç Dış Aksesuarları</Kategori>
+    <Fiyat>₺7.700,00</Fiyat>
+    <Stok>500</Stok>
+    <Aciklama>DamacaDamaca</Aciklama>
+    <Resim>C:\Users\user\Desktop\foti\The_Automobile_Association_logo.svg.png</Resim>
+    <EklenmeZamani>2025-04-27 04:15:06</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>26</UrunID>
+    <UrunAdi>Silecek Suyu </UrunAdi>
+    <Kategori>Temizlik ve Bakım</Kategori>
+    <Fiyat>₺825,00</Fiyat>
+    <Stok>500</Stok>
+    <Aciklama>Silecek Suyu </Aciklama>
+    <Resim>C:\Users\user\Desktop\Ekran Alıntısı.PNG</Resim>
+    <EklenmeZamani>2025-04-30 07:00:46</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>27</UrunID>
+    <UrunAdi>2121</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Marka>Pioneer</Marka>
+    <Fiyat>₺616,00</Fiyat>
+    <Stok>222</Stok>
+    <Aciklama>sadsadsaf</Aciklama>
+    <Resim>C:\Users\user\Desktop\Ekran Alıntısı.PNG</Resim>
+    <EklenmeZamani>2025-05-01 03:44:36</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>28</UrunID>
+    <UrunAdi>hhhh</UrunAdi>
+    <Kategori>Jantlar ve Lastikler
+
+</Kategori>
+    <Marka>Michelin</Marka>
+    <Fiyat>₺990,00</Fiyat>
+    <Stok>232</Stok>
+    <Aciklama>dasdsaf</Aciklama>
+    <Resim>C:\Users\user\Desktop\Ekran Alıntısı.PNG</Resim>
+    <EklenmeZamani>2025-05-01 03:48:24</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>30</UrunID>
+    <UrunAdi>sadsadsaf</UrunAdi>
+    <Kategori>Araç Dış Aksesuarları</Kategori>
+    <Marka>MANN-FILTER</Marka>
+    <Fiyat>₺1.100,00</Fiyat>
+    <Stok>2113</Stok>
+    <Aciklama>sadsafaf</Aciklama>
+    <Resim>C:\Users\user\Desktop\Ekran Alıntısı.PNG</Resim>
+    <EklenmeZamani>2025-05-01 03:51:09</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>32</UrunID>
+    <UrunAdi>Ayna silecek suyu </UrunAdi>
+    <Kategori>Elektronik ve Navigasyon</Kategori>
+    <Marka>MANN-FILTER</Marka>
+    <Fiyat>₺605,00</Fiyat>
+    <Stok>550</Stok>
+    <Aciklama>asdasd</Aciklama>
+    <Resim>C:\Users\user\Desktop\Ekran Alıntısı.PNG</Resim>
+    <EklenmeZamani>2025-05-01 04:21:34</EklenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>33</UrunID>
+    <UrunAdi>Araç çakmaklığı</UrunAdi>
+    <Kategori>Araç İç Aksesuarları</Kategori>
+    <Marka>Rival</Marka>
+    <Fiyat>55,00</Fiyat>
+    <Stok>500</Stok>
+    <Aciklama>Araç çakmaklığıAraç çakmaklığıAraç çakmaklığı</Aciklama>
+    <Resim>C:\Users\user\Desktop\foti\The_Automobile_Association_logo.svg.png</Resim>
+    <EklenmeZamani>2025-05-01 04:38:01</EklenmeZamani>
+    <GuncellenmeZamani>2025-05-01 17:02:38</GuncellenmeZamani>
+  </urun>
+  <urun>
+    <UrunID>34</UrunID>
+    <UrunAdi>121212</UrunAdi>
+    <Kategori>Araç İç Aksesuarları</Kategori>
+    <Marka>MANN-FILTER</Marka>
+    <Fiyat>605,00</Fiyat>
+    <Stok>21</Stok>
+    <Aciklama>12121</Aciklama>
+    <Resim></Resim>
+    <EklenmeZamani>2025-05-01 08:14:13</EklenmeZamani>
+  </urun>
+</urunler>

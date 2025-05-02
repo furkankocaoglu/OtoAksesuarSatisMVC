@@ -30,31 +30,27 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 Yonetici y = db.Yoneticiler.FirstOrDefault(x => x.Eposta == model.Eposta && x.Sifre == model.Sifre);
                 if (y != null)
                 {
                     if (y.AktifMi)
                     {
-                        
+                        // Yöneticiyi oturumda başlat
                         Session["YoneticiSession"] = y;
 
-                        
-                        var segment = y.YoneticiIsim.ToLower(); 
-
-                        
+                        // XML dosyası yolu
+                        var segment = y.YoneticiIsim.ToLower();
                         string xmlKlasorYolu = @"C:\BayilikXML\";
                         if (!Directory.Exists(xmlKlasorYolu)) Directory.CreateDirectory(xmlKlasorYolu);
 
-                       
                         string xmlPath = Path.Combine(xmlKlasorYolu, $"{segment}.xml");
 
-                       
+                        // XML dosyasını kontrol et ve içeriğini oku
                         if (System.IO.File.Exists(xmlPath))
                         {
                             XDocument xmlDoc = XDocument.Load(xmlPath);
 
-                            
+                            // Ürünleri XML'den al ve Session'a kaydet
                             var urunler = xmlDoc.Descendants("urun")
                                 .Select(x => new Urun
                                 {
@@ -63,13 +59,12 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                                     StokMiktari = int.Parse(x.Element("Stok")?.Value),
                                     Aciklama = x.Element("Aciklama")?.Value,
                                     ResimYolu = x.Element("Resim")?.Value,
-                                    EklenmeTarihi = DateTime.Parse(x.Element("EklenmeZamani")?.Value)
+                                    EklenmeTarihi = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var eklenmeZamani)
+                                                    ? eklenmeZamani
+                                                    : DateTime.MinValue
                                 }).ToList();
 
-                            
                             Session["Urunler"] = urunler;
-
-                            
                             return RedirectToAction("Index", "HomePanel");
                         }
                         else

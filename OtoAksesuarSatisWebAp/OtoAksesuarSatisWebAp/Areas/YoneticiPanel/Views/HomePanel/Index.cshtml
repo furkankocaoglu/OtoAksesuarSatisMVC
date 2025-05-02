@@ -16,32 +16,25 @@
 
 @if (ViewBag.Urunler != null)
 {
-    if (ViewBag.Urunler is string message)
-    {
-        <div>@message</div>
-    }
-    else
-    {
-        <table class="table table-bordered">
-            <thead>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var urun in (List<OtoAksesuarSatisWebAp.Models.Urun>)ViewBag.Urunler)
+            {
                 <tr>
-                    <th>Ürün Adı</th>
-                    <th>Fiyat</th>
+                    <td>@urun.UrunAdi</td>
+                    <td> @urun.Fiyat.ToString("₺#,0")  <!-- Burada fiyatı binlik ayırıcı ile ve kuruşları olmadan yazdırıyoruz --></td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var urun in (List<OtoAksesuarSatisWebAp.Models.Urun>)ViewBag.Urunler)
-                {
-                    <tr>
-                        <td>@urun.UrunAdi</td>
-                        <td>@urun.Fiyat.ToString("C2")</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
 
-        <form method="post" action="@Url.Action("UrunleriAktar", "HomePanel", new { area = "YoneticiPanel" })">
-            <button type="submit" class="btn btn-success">XML Verilerini Aktar</button>
-        </form>
-    }
+    <form method="post" action="@Url.Action("UrunleriAktar", "HomePanel", new { area = "YoneticiPanel" })">
+        <button type="submit" class="btn btn-success">XML Verilerini Aktar</button>
+    </form>
 }
