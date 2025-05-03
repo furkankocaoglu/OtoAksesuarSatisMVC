@@ -2,6 +2,7 @@
 using OtoAksesuarSatisWebAp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -61,52 +62,36 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
             var xmlUrunler = xmlDoc.Descendants("urun")
                 .Select(x => new
                 {
-                    UrunID = int.TryParse(x.Element("UrunID")?.Value, out var urunId) ? urunId : 0,
                     UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
-                    KategoriAdi = x.Element("Kategori")?.Value ?? "Bilinmeyen Kategori",
-                    MarkaAdi = x.Element("Marka")?.Value ?? "Bilinmeyen Marka",
+                    KategoriAdi = x.Element("Kategori")?.Value ?? "Genel",
+                    MarkaAdi = x.Element("Marka")?.Value ?? "Markasız",
                     Fiyat = decimal.TryParse(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", "."), out var fiyat) ? fiyat : 0,
                     Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
-                    Aciklama = x.Element("Aciklama")?.Value ?? "Açıklama yok",
+                    Aciklama = x.Element("Aciklama")?.Value ?? "",
                     Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
-                    // EklenmeZamani için geçerli tarih kontrolü
-                    EklenmeZamani = string.IsNullOrEmpty(x.Element("EklenmeZamani")?.Value)
-    ? DateTime.MinValue
-    : DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var eklenmeZamani)
-        ? (eklenmeZamani < DateTime.MinValue || eklenmeZamani > DateTime.MaxValue
-            ? DateTime.MinValue // Geçersiz tarihler için fallback
-            : eklenmeZamani)
-        : DateTime.MinValue
+                    EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var tarih) ? tarih : DateTime.Now
                 }).ToList();
 
             int eklenen = 0;
 
             foreach (var x in xmlUrunler)
             {
-                var kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriAdi == x.KategoriAdi);
-                if (kategori == null)
-                {
-                    kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriID == 11);
-                    if (kategori == null)
-                    {
-                        TempData["Mesaj"] = "Kategori bulunamadı ve ID 11 olan kategori veritabanında yok.";
-                        continue;
-                    }
-                }
+                var kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriAdi == x.KategoriAdi)
+                    ?? db.Kategoriler.FirstOrDefault(k => k.KategoriID == 1);
 
-                var marka = db.Markalar.FirstOrDefault(m => m.MarkaAdi == x.MarkaAdi);
-                if (marka == null)
-                {
-                    marka = db.Markalar.FirstOrDefault(m => m.MarkaID == 6);
-                    if (marka == null)
-                    {
-                        TempData["Mesaj"] = "Marka bulunamadı ve ID 6 olan marka veritabanında yok.";
-                        continue;
-                    }
-                }
+                var marka = db.Markalar.FirstOrDefault(m => m.MarkaAdi == x.MarkaAdi)
+                    ?? db.Markalar.FirstOrDefault(m => m.MarkaID == 1);
 
-                bool urunVarMi = db.Urunler.Any(u => u.UrunAdi == x.UrunAdi && u.Fiyat == x.Fiyat);
-                if (urunVarMi) continue;
+                if (kategori == null || marka == null) continue;
+
+                string xmlUrunAdi = x.UrunAdi.Trim().ToLower();
+                bool urunVarMi = db.Urunler.Any(u => u.UrunAdi.Trim().ToLower() == xmlUrunAdi);
+
+                if (urunVarMi)
+                {
+                    Debug.WriteLine($"Ürün zaten var: {x.UrunAdi}");
+                    continue;
+                }
 
                 var urun = new Urun
                 {
@@ -126,21 +111,30 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 eklenen++;
             }
 
-            db.SaveChanges();
-
-            if (eklenen == 0)
+            try
             {
-                TempData["Mesaj"] = "Zaten tüm ürünler başarıyla aktarıldı. Yeni gelen ürün yok!";
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                TempData["Mesaj"] = $"Veritabanına eklerken hata oluştu: {ex.Message}";
+                return RedirectToAction("Index", "HomePanel");
+            }
+
+            if (eklenen > 0)
+            {
+                TempData["Mesaj"] = $"{eklenen} ürün başarıyla aktarıldı.";
             }
             else
             {
-                TempData["Mesaj"] = $"{eklenen} yeni ürün başarıyla aktarıldı.";
+                TempData["Mesaj"] = "Hiç yeni ürün eklenmedi. Zaten tüm ürünler veritabanında olabilir.";
             }
 
             return RedirectToAction("Index", "HomePanel");
         }
-
     }
+
+    
 
 
 
