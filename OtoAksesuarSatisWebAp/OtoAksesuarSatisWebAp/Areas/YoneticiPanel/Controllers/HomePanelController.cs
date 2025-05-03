@@ -14,29 +14,32 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
     public class HomePanelController : Controller
     {
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
-        //sadasfdmsfsssssssssssssssssssssssssssssssssssssssssssssss
+        
         public ActionResult Index()
         {
 
             var yonetici = Session["YoneticiSession"] as Yonetici;
+            var tip = yonetici?.YoneticiIsim.ToLower();
 
-            if (yonetici == null)
+            var urunler = db.Urunler.ToList();
+
+            foreach (var urun in urunler)
             {
-                return RedirectToAction("Index", "YoneticiGiris");
+                switch (tip)
+                {
+                    case "bronz":
+                        urun.Fiyat = urun.BronzFiyat;
+                        break;
+                    case "silver":
+                        urun.Fiyat = urun.SilverFiyat;
+                        break;
+                    case "gold":
+                        urun.Fiyat = urun.GoldFiyat;
+                        break;
+                }
             }
 
-            var urunler = Session["Urunler"] as List<Urun>;
-
-            if (urunler != null)
-            {
-                ViewBag.Urunler = urunler;
-            }
-            else
-            {
-                ViewBag.Urunler = "XML dosyasına ulaşılamadı.";
-            }
-
-            return View();
+            return View(urunler);
         }
         [HttpPost]
         public ActionResult UrunleriAktar()
@@ -48,7 +51,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 return RedirectToAction("Index", "YoneticiGiris");
             }
 
-            string bayiTipi = yonetici.YoneticiIsim;
+            string bayiTipi = yonetici.YoneticiIsim.ToLower(); 
             string xmlDosyaYolu = $@"C:\BayilikXML\{bayiTipi}.xml";
 
             if (!System.IO.File.Exists(xmlDosyaYolu))
@@ -59,18 +62,19 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
 
             var xmlDoc = XDocument.Load(xmlDosyaYolu);
 
-            var xmlUrunler = xmlDoc.Descendants("urun")
-                .Select(x => new
-                {
-                    UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
-                    KategoriAdi = x.Element("Kategori")?.Value ?? "Genel",
-                    MarkaAdi = x.Element("Marka")?.Value ?? "Markasız",
-                    Fiyat = decimal.TryParse(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", "."), out var fiyat) ? fiyat : 0,
-                    Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
-                    Aciklama = x.Element("Aciklama")?.Value ?? "",
-                    Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
-                    EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var tarih) ? tarih : DateTime.Now
-                }).ToList();
+            var xmlUrunler = xmlDoc.Descendants("urun").Select(x => new
+            {
+                UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
+                KategoriAdi = x.Element("Kategori")?.Value ?? "Genel",
+                MarkaAdi = x.Element("Marka")?.Value ?? "Markasız",
+                BronzFiyat = decimal.TryParse(x.Element("BronzFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var b) ? b : 0,
+                SilverFiyat = decimal.TryParse(x.Element("SilverFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var s) ? s : 0,
+                GoldFiyat = decimal.TryParse(x.Element("GoldFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var g) ? g : 0,
+                Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
+                Aciklama = x.Element("Aciklama")?.Value ?? "",
+                Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
+                EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var tarih) ? tarih : DateTime.Now
+            }).ToList();
 
             int eklenen = 0;
 
@@ -93,10 +97,28 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     continue;
                 }
 
+                decimal secilenFiyat;
+
+                switch (bayiTipi)
+                {
+                    case "bronz":
+                        secilenFiyat = x.BronzFiyat;
+                        break;
+                    case "silver":
+                        secilenFiyat = x.SilverFiyat;
+                        break;
+                    case "gold":
+                        secilenFiyat = x.GoldFiyat;
+                        break;
+                    default:
+                        secilenFiyat = x.BronzFiyat;
+                        break;
+                }
+
                 var urun = new Urun
                 {
                     UrunAdi = x.UrunAdi,
-                    Fiyat = x.Fiyat,
+                    Fiyat = secilenFiyat,
                     StokMiktari = x.Stok,
                     Aciklama = x.Aciklama,
                     ResimYolu = x.Resim,
@@ -121,14 +143,9 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 return RedirectToAction("Index", "HomePanel");
             }
 
-            if (eklenen > 0)
-            {
-                TempData["Mesaj"] = $"{eklenen} ürün başarıyla aktarıldı.";
-            }
-            else
-            {
-                TempData["Mesaj"] = "Hiç yeni ürün eklenmedi. Zaten tüm ürünler veritabanında olabilir.";
-            }
+            TempData["Mesaj"] = eklenen > 0
+                ? $"{eklenen} ürün başarıyla aktarıldı."
+                : "Hiç yeni ürün eklenmedi. Zaten tüm ürünler veritabanında olabilir.";
 
             return RedirectToAction("Index", "HomePanel");
         }

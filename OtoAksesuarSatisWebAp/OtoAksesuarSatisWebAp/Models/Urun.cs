@@ -49,5 +49,14 @@ namespace OtoAksesuarSatisWebAp.Models
 
 
         public ICollection<Yorum> Yorumlar { get; set; }
+
+        [NotMapped]
+        public decimal BronzFiyat { get; set; }
+
+        [NotMapped]
+        public decimal SilverFiyat { get; set; }
+
+        [NotMapped]
+        public decimal GoldFiyat { get; set; }
     }
 }
