@@ -2,24 +2,20 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
+    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz"; // Varsayılan Bronz
 }
-<h2>HomePanel Index</h2>
-<<h2>HomePanel Index</h2>
+<h1>ÜRÜNLER</h1>
 <h2>Admin Paneli</h2>
 
 
-<form action="@Url.Action("UrunleriAktar", "HomePanel")" method="post">
-    <button type="submit" class="btn btn-primary">Ürünleri Aktar</button>
-</form>
-
-@if (ViewBag.Urunler != null && ViewBag.Urunler is List<Urun>)
+@if (ViewBag.Urunler != null && ViewBag.Urunler is List<OtoAksesuarSatisWebAp.Models.XMLUrun>)
 {
-    var urunler = ViewBag.Urunler as List<Urun>;
+    var urunler = ViewBag.Urunler as List<OtoAksesuarSatisWebAp.Models.XMLUrun>;
     <table class="table">
         <thead>
             <tr>
                 <th>Ürün Adı</th>
-                <th>Fiyat</th>
+                <th>@fiyatSeviyesi Fiyat</th> <!-- Dinamik başlık -->
                 <th>Stok</th>
                 <th>Açıklama</th>
                 <th>Resim</th>
@@ -28,13 +24,28 @@
         <tbody>
             @foreach (var urun in urunler)
             {
+                decimal fiyat = 0;
+
+                switch (fiyatSeviyesi.ToLower())
+                {
+                    case "bronz":
+                        fiyat = urun.BronzFiyat;
+                        break;
+                    case "silver":
+                        fiyat = urun.SilverFiyat;
+                        break;
+                    case "gold":
+                        fiyat = urun.GoldFiyat;
+                        break;
+                }
+
                 <tr>
                     <td>@urun.UrunAdi</td>
-                    <td>@urun.Fiyat.ToString("F2")</td> <!-- Fiyatı doğru formatta görüntülüyoruz -->
-                    <td>@urun.StokMiktari</td>
+                    <td>@fiyat.ToString("C2")</td>
+                    <td>@urun.Stok</td>
                     <td>@urun.Aciklama</td>
                     <td>
-                        <img src="@Url.Content("~/Content/Images/" + urun.ResimYolu)" alt="@urun.UrunAdi" width="50" />
+                        <img src="@Url.Content("~/Content/Images/" + urun.Resim)" alt="@urun.UrunAdi" width="50" />
                     </td>
                 </tr>
             }

@@ -51,13 +51,6 @@ namespace OtoAksesuarSatisWebAp.Models
         public ICollection<Yorum> Yorumlar { get; set; }
 
 
-        [Display(Name = "Bronz Fiyat")]
-        public decimal BronzFiyat { get; set; }
-
-        [Display(Name = "Silver Fiyat")]
-        public decimal SilverFiyat { get; set; }
-
-        [Display(Name = "Gold Fiyat")]
-        public decimal GoldFiyat { get; set; }
+        
     }
 }

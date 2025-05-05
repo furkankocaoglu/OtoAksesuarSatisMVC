@@ -12,7 +12,10 @@ namespace OtoAksesuarSatisWebAp.Controllers
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
         public ActionResult Index()
         {
-            return View(db.Urunler.Where(x => x.Silinmis == false && x.AktifMi == true));
+            var urunler = db.Urunler.Where(x => x.Silinmis == false && x.AktifMi == true).ToList();
+
+           
+            return View(urunler);
         }
     }
 }

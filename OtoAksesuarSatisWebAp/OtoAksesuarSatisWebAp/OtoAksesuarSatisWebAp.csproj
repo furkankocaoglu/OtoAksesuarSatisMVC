@@ -130,6 +130,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505052031088_RemoveFiyatAlanlari.cs" />
+    <Compile Include="Migrations\202505052031088_RemoveFiyatAlanlari.Designer.cs">
+      <DependentUpon>202505052031088_RemoveFiyatAlanlari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Favori.cs" />
     <Compile Include="Models\Kategori.cs" />
@@ -140,6 +144,7 @@
     <Compile Include="Models\Uye.cs" />
     <Compile Include="Models\ViewModels\MemberLoginViewModel.cs" />
     <Compile Include="Models\ViewModels\OdemeViewModel.cs" />
+    <Compile Include="Models\XMLUrun.cs" />
     <Compile Include="Models\Yonetici.cs" />
     <Compile Include="Models\Yorum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -197,6 +202,11 @@
     <Folder Include="Assets\CSS\" />
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">
+      <DependentUpon>202505052031088_RemoveFiyatAlanlari.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

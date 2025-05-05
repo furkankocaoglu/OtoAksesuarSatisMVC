@@ -28,79 +28,87 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(YoneticiLoginViewModel model)
         {
-            // Model geçerliyse işleme başla
             if (ModelState.IsValid)
             {
-                // Kullanıcıyı veritabanından sorguluyoruz
-                Yonetici y = db.Yoneticiler.FirstOrDefault(x => x.Eposta == model.Eposta && x.Sifre == model.Sifre);
+                // Kullanıcı doğrulama
+                var y = db.Yoneticiler.FirstOrDefault(x => x.Eposta == model.Eposta && x.Sifre == model.Sifre);
 
-                // Kullanıcı bulunduysa ve aktifse giriş yapılıyor
-                if (y != null)
+                if (y != null && y.AktifMi)
                 {
-                    if (y.AktifMi)
+                    Session["YoneticiSession"] = y;
+                    Session["FiyatSeviyesi"] = y.YoneticiIsim;
+
+                    string xmlDosyaYolu = @"C:\BayilikXML\Urunler.xml";
+
+                    if (System.IO.File.Exists(xmlDosyaYolu))
                     {
-                        // Kullanıcıyı session'a atıyoruz
-                        Session["YoneticiSession"] = y;
-
-                        // Kullanıcının adını küçük harfe çevirip xml dosya yolunu oluşturuyoruz
-                        var segment = y.YoneticiIsim.ToLower();
-                        string xmlKlasorYolu = @"C:\BayilikXML\";
-
-                        // Eğer XML klasörü yoksa oluşturuyoruz
-                        if (!Directory.Exists(xmlKlasorYolu))
-                            Directory.CreateDirectory(xmlKlasorYolu);
-
-                        // XML dosyasının tam yolu
-                        string xmlPath = Path.Combine(xmlKlasorYolu, $"{segment}.xml");
-
-                        // XML dosyasına erişiyoruz
-                        if (System.IO.File.Exists(xmlPath))
+                        try
                         {
-                            XDocument xmlDoc = XDocument.Load(xmlPath);
+                            XDocument xmlDoc = XDocument.Load(xmlDosyaYolu);
 
-                            // XML'den ürün verilerini alıyoruz
-                            var urunler = xmlDoc.Descendants("urun")
-                                .Select(x => new Urun
+                            var xmlUrunler = xmlDoc.Descendants("urun")
+                                .Select(x => new XMLUrun
                                 {
-                                    UrunAdi = x.Element("UrunAdi")?.Value,
-                                    Fiyat = Convert.ToDecimal(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", ".")),
-                                    StokMiktari = int.Parse(x.Element("Stok")?.Value),
-                                    Aciklama = x.Element("Aciklama")?.Value,
-                                    ResimYolu = x.Element("Resim")?.Value,
-
-                                    // EklenmeZamani'na nullable kontrolü ekliyoruz
-                                    EklenmeTarihi = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out DateTime parsedDate)
-                                        ? parsedDate
-                                        : DateTime.MinValue // Eğer null ise varsayılan tarih değerini kullanıyoruz
+                                    UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
+                                    Kategori = x.Element("Kategori")?.Value ?? "Genel",
+                                    Marka = x.Element("Marka")?.Value ?? "Markasız",
+                                    BronzFiyat = decimal.TryParse(x.Element("BronzFiyat")?.Value.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var b) ? b : 0,
+                                    SilverFiyat = decimal.TryParse(x.Element("SilverFiyat")?.Value.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var s) ? s : 0,
+                                    GoldFiyat = decimal.TryParse(x.Element("GoldFiyat")?.Value.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out var g) ? g : 0,
+                                    Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
+                                    Aciklama = x.Element("Aciklama")?.Value ?? "Açıklama yok",
+                                    Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
+                                    EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var dt) ? dt : DateTime.Now
                                 }).ToList();
 
-                            // Ürünleri session'a atıyoruz
-                            Session["Urunler"] = urunler;
+                            // Yeni ürünleri XMLUrunler tablosuna ekle (aynı ada sahip olanlar atlanır)
+                            int eklenen = 0;
+                            foreach (var urun in xmlUrunler)
+                            {
+                                bool varMi = db.XMLUrunler.Any(x =>
+                                    x.UrunAdi == urun.UrunAdi &&
+                                    x.Marka == urun.Marka &&
+                                    x.Kategori == urun.Kategori);
 
-                            // Anasayfaya yönlendiriyoruz
+                                if (!varMi)
+                                {
+                                    db.XMLUrunler.Add(urun);
+                                    eklenen++;
+                                }
+                            }
+
+                            if (eklenen > 0)
+                            {
+                                db.SaveChanges();
+                                TempData["Mesaj"] = $"{eklenen} ürün XMLUrunler tablosuna başarıyla aktarıldı.";
+                            }
+                            else
+                            {
+                                TempData["Mesaj"] = "Zaten tüm XML ürünleri eklenmişti. Yeni ürün bulunamadı.";
+                            }
+
                             return RedirectToAction("Index", "HomePanel");
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            // XML dosyasına erişilemediyse mesaj veriyoruz
-                            ViewBag.mesaj = "XML dosyasına ulaşılamadı.";
+                            ViewBag.mesaj = "XML dosyası işlenirken bir hata oluştu: " + ex.Message;
                         }
                     }
                     else
                     {
-                        // Kullanıcı aktif değilse mesaj veriyoruz
-                        ViewBag.mesaj = "Kullanıcı hesabınız askıya alınmıştır.";
+                        ViewBag.mesaj = "Urunler.xml dosyası bulunamadı.";
                     }
                 }
                 else
                 {
-                    // Kullanıcı bulunamazsa mesaj veriyoruz
-                    ViewBag.mesaj = "Kullanıcı bulunamadı.";
+                    ViewBag.mesaj = y == null
+                        ? "Kullanıcı bulunamadı."
+                        : "Kullanıcı hesabınız askıya alınmıştır.";
                 }
             }
 
-            // Model geçerli değilse veya hata oluştuysa tekrar formu gösteriyoruz
             return View(model);
+
         }
 
         public ActionResult LogOut()

@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\views\\anasayfa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\views\\anasayfa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\controllers\\anasayfacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\controllers\\anasayfacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\yoneticigiris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\yoneticigiris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\controllers\\yoneticigiriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\controllers\\yoneticigiriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\homepanel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\homepanel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -27,12 +11,44 @@
       "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\controllers\\homepanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\urun\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\urun\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\yoneticigiris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\yoneticigiris\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\models\\urun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\controllers\\yoneticigiriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\controllers\\yoneticigiriscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\views\\anasayfa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\views\\anasayfa\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\models\\xmlurun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\models\\xmlurun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\migrations\\202505052031088_removefiyatalanlari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\migrations\\202505052031088_removefiyatalanlari.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\models\\otoaksesuarsatisdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\models\\otoaksesuarsatisdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\controllers\\anasayfacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\controllers\\anasayfacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|c:\\users\\user\\documents\\github\\otoaksesuarsatismvc\\otoaksesuarsatiswebap\\otoaksesuarsatiswebap\\models\\urun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\models\\urun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\urun\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|solutionrelative:otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\urun\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E505B3DA-ACD6-48DC-A61D-F1712EB19E78}|OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp.csproj|C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\otoaksesuarsatiswebap\\areas\\yoneticipanel\\views\\kategori\\_create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -62,19 +78,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 255,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
-              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
-              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAhAAAA",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-03T17:46:13.222Z",
+              "WhenOpened": "2025-05-03T17:47:05.224Z",
               "EditorCaption": ""
             },
             {
@@ -85,66 +101,131 @@
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\YoneticiGirisController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\YoneticiGirisController.cs",
               "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\YoneticiGirisController.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAAUwGYAAAAfAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAkwG4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T18:22:01.079Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
-              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
-              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
-              "ViewState": "AQIAABcAAAAAAAAAAAAuwDgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-03T18:26:53.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
-              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
-              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Views\\AnaSayfa\\Index.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-03T17:47:05.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AnaSayfaController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
-              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
-              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAA3wA4AAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T06:05:25.988Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "HomePanelController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\HomePanelController.cs",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\HomePanelController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\HomePanelController.cs",
               "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Controllers\\HomePanelController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T18:22:09.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\YoneticiGiris\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T17:46:13.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\HomePanel\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T18:26:53.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "XMLUrun.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\XMLUrun.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Models\\XMLUrun.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\XMLUrun.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Models\\XMLUrun.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAkwAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T20:35:42.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "202505052031088_RemoveFiyatAlanlari.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Migrations\\202505052031088_RemoveFiyatAlanlari.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Migrations\\202505052031088_RemoveFiyatAlanlari.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Migrations\\202505052031088_RemoveFiyatAlanlari.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Migrations\\202505052031088_RemoveFiyatAlanlari.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T20:31:18.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OtoAksesuarSatisDB.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\OtoAksesuarSatisDB.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Models\\OtoAksesuarSatisDB.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\OtoAksesuarSatisDB.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Models\\OtoAksesuarSatisDB.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBUAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T20:35:01.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Migrations\\Configuration.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Migrations\\Configuration.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAgwA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T20:25:43.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AnaSayfaController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Controllers\\AnaSayfaController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwBAAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T06:05:25.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Urun.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\Urun.cs",
+              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Models\\Urun.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\Urun.cs",
+              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Models\\Urun.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwBAAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T18:29:28.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Urun\\Index.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Urun\\Index.cshtml",
@@ -152,25 +233,11 @@
               "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Urun\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-04T01:46:31.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T01:46:31.066Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Urun.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\Urun.cs",
-              "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Models\\Urun.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Models\\Urun.cs",
-              "RelativeToolTip": "OtoAksesuarSatisWebAp\\Models\\Urun.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T18:29:28.496Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "_Create.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Kategori\\_Create.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Kategori\\_Create.cshtml",
@@ -178,12 +245,11 @@
               "RelativeToolTip": "OtoAksesuarSatisWebAp\\Areas\\YoneticiPanel\\Views\\Kategori\\_Create.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-04T01:44:44.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-04T01:44:44.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "_LayoutPage1.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\Shared1\\_LayoutPage1.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\Shared1\\_LayoutPage1.cshtml",
@@ -195,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\DetayUrun\\Detail.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\DetayUrun\\Detail.cshtml",
@@ -207,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\Favori\\Index.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\Favori\\Index.cshtml",
@@ -219,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "_Index.cshtml",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\OtoAksesuarSatisMVC\\OtoAksesuarSatisWebAp\\OtoAksesuarSatisWebAp\\Views\\Menu\\_Index.cshtml",
               "RelativeDocumentMoniker": "OtoAksesuarSatisWebAp\\Views\\Menu\\_Index.cshtml",
