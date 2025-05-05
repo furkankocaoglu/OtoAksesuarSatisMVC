@@ -17,29 +17,25 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
         
         public ActionResult Index()
         {
-
             var yonetici = Session["YoneticiSession"] as Yonetici;
-            var tip = yonetici?.YoneticiIsim.ToLower();
 
-            var urunler = db.Urunler.ToList();
-
-            foreach (var urun in urunler)
+            if (yonetici == null)
             {
-                switch (tip)
-                {
-                    case "bronz":
-                        urun.Fiyat = urun.BronzFiyat;
-                        break;
-                    case "silver":
-                        urun.Fiyat = urun.SilverFiyat;
-                        break;
-                    case "gold":
-                        urun.Fiyat = urun.GoldFiyat;
-                        break;
-                }
+                return RedirectToAction("Index", "YoneticiGiris");
             }
 
-            return View(urunler);
+            var urunler = Session["Urunler"] as List<Urun>;
+
+            if (urunler != null)
+            {
+                ViewBag.Urunler = urunler;
+            }
+            else
+            {
+                ViewBag.Urunler = "XML dosyasına ulaşılamadı.";
+            }
+
+            return View();
         }
         [HttpPost]
         public ActionResult UrunleriAktar()
@@ -51,7 +47,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 return RedirectToAction("Index", "YoneticiGiris");
             }
 
-            string bayiTipi = yonetici.YoneticiIsim.ToLower(); 
+            string bayiTipi = yonetici.YoneticiIsim;
             string xmlDosyaYolu = $@"C:\BayilikXML\{bayiTipi}.xml";
 
             if (!System.IO.File.Exists(xmlDosyaYolu))
@@ -62,63 +58,60 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
 
             var xmlDoc = XDocument.Load(xmlDosyaYolu);
 
-            var xmlUrunler = xmlDoc.Descendants("urun").Select(x => new
-            {
-                UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
-                KategoriAdi = x.Element("Kategori")?.Value ?? "Genel",
-                MarkaAdi = x.Element("Marka")?.Value ?? "Markasız",
-                BronzFiyat = decimal.TryParse(x.Element("BronzFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var b) ? b : 0,
-                SilverFiyat = decimal.TryParse(x.Element("SilverFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var s) ? s : 0,
-                GoldFiyat = decimal.TryParse(x.Element("GoldFiyat")?.Value.Replace("₺", "").Replace(",", "."), out var g) ? g : 0,
-                Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
-                Aciklama = x.Element("Aciklama")?.Value ?? "",
-                Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
-                EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var tarih) ? tarih : DateTime.Now
-            }).ToList();
+            var xmlUrunler = xmlDoc.Descendants("urun")
+                .Select(x => new
+                {
+                    UrunID = int.TryParse(x.Element("UrunID")?.Value, out var urunId) ? urunId : 0,
+                    UrunAdi = x.Element("UrunAdi")?.Value ?? "Bilinmeyen",
+                    KategoriAdi = x.Element("Kategori")?.Value ?? "Bilinmeyen Kategori",
+                    MarkaAdi = x.Element("Marka")?.Value ?? "Bilinmeyen Marka",
+                    Fiyat = decimal.TryParse(x.Element("Fiyat")?.Value.Replace("₺", "").Replace(",", "."), out var fiyat) ? fiyat : 0,
+                    Stok = int.TryParse(x.Element("Stok")?.Value, out var stok) ? stok : 0,
+                    Aciklama = x.Element("Aciklama")?.Value ?? "Açıklama yok",
+                    Resim = x.Element("Resim")?.Value ?? "resim_yok.jpg",
+                    EklenmeZamani = DateTime.TryParse(x.Element("EklenmeZamani")?.Value, out var eklenmeZamani) ? eklenmeZamani : DateTime.Now
+                }).ToList();
 
             int eklenen = 0;
 
             foreach (var x in xmlUrunler)
             {
-                var kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriAdi == x.KategoriAdi)
-                    ?? db.Kategoriler.FirstOrDefault(k => k.KategoriID == 1);
+                // Kategori bul
+                var kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriAdi == x.KategoriAdi);
+                if (kategori == null)
+                {
+                    kategori = db.Kategoriler.FirstOrDefault(k => k.KategoriID == 1); // Genel kategori
+                    if (kategori == null)
+                    {
+                        TempData["Mesaj"] = "Kategori bulunamadı ve ID 1 olan 'Genel' kategori yok.";
+                        continue;
+                    }
+                }
 
-                var marka = db.Markalar.FirstOrDefault(m => m.MarkaAdi == x.MarkaAdi)
-                    ?? db.Markalar.FirstOrDefault(m => m.MarkaID == 1);
+                // Marka bul
+                var marka = db.Markalar.FirstOrDefault(m => m.MarkaAdi == x.MarkaAdi);
+                if (marka == null)
+                {
+                    marka = db.Markalar.FirstOrDefault(m => m.MarkaID == 1); // Genel marka
+                    if (marka == null)
+                    {
+                        TempData["Mesaj"] = "Marka bulunamadı ve ID 1 olan 'Genel' marka yok.";
+                        continue;
+                    }
+                }
 
-                if (kategori == null || marka == null) continue;
-
-                string xmlUrunAdi = x.UrunAdi.Trim().ToLower();
-                bool urunVarMi = db.Urunler.Any(u => u.UrunAdi.Trim().ToLower() == xmlUrunAdi);
-
+                // Aynı ürün zaten eklenmiş mi kontrol et (sadece ürün adına ve kategoriye göre)
+                bool urunVarMi = db.Urunler.Any(u => u.UrunAdi == x.UrunAdi && u.KategoriID == kategori.KategoriID);
                 if (urunVarMi)
                 {
-                    Debug.WriteLine($"Ürün zaten var: {x.UrunAdi}");
                     continue;
                 }
 
-                decimal secilenFiyat;
-
-                switch (bayiTipi)
-                {
-                    case "bronz":
-                        secilenFiyat = x.BronzFiyat;
-                        break;
-                    case "silver":
-                        secilenFiyat = x.SilverFiyat;
-                        break;
-                    case "gold":
-                        secilenFiyat = x.GoldFiyat;
-                        break;
-                    default:
-                        secilenFiyat = x.BronzFiyat;
-                        break;
-                }
-
+                // Ürünü oluştur
                 var urun = new Urun
                 {
                     UrunAdi = x.UrunAdi,
-                    Fiyat = secilenFiyat,
+                    Fiyat = x.Fiyat,
                     StokMiktari = x.Stok,
                     Aciklama = x.Aciklama,
                     ResimYolu = x.Resim,
@@ -129,23 +122,28 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     MarkaID = marka.MarkaID
                 };
 
-                db.Urunler.Add(urun);
-                eklenen++;
+                try
+                {
+                    db.Urunler.Add(urun);
+                    db.SaveChanges();
+                    eklenen++;
+                }
+                catch (Exception ex)
+                {
+                    TempData["Mesaj"] = "Veritabanı hatası: " + ex.Message;
+                    continue;
+                }
             }
 
-            try
+            if (eklenen == 0)
             {
-                db.SaveChanges();
+                TempData["Mesaj"] = "Zaten tüm ürünler aktarılmış. Yeni ürün bulunamadı.";
             }
-            catch (Exception ex)
+            else
             {
-                TempData["Mesaj"] = $"Veritabanına eklerken hata oluştu: {ex.Message}";
-                return RedirectToAction("Index", "HomePanel");
+                TempData["Mesaj"] = $"{eklenen} yeni ürün başarıyla aktarıldı.";
             }
-
-            TempData["Mesaj"] = eklenen > 0
-                ? $"{eklenen} ürün başarıyla aktarıldı."
-                : "Hiç yeni ürün eklenmedi. Zaten tüm ürünler veritabanında olabilir.";
+            Session["Urunler"] = null;
 
             return RedirectToAction("Index", "HomePanel");
         }

@@ -50,13 +50,14 @@ namespace OtoAksesuarSatisWebAp.Models
 
         public ICollection<Yorum> Yorumlar { get; set; }
 
-        [NotMapped]
+
+        [Display(Name = "Bronz Fiyat")]
         public decimal BronzFiyat { get; set; }
 
-        [NotMapped]
+        [Display(Name = "Silver Fiyat")]
         public decimal SilverFiyat { get; set; }
 
-        [NotMapped]
+        [Display(Name = "Gold Fiyat")]
         public decimal GoldFiyat { get; set; }
     }
 }

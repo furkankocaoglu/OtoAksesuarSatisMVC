@@ -1,47 +1,56 @@
-﻿
+﻿@using OtoAksesuarSatisWebAp.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
 }
-
 <h2>HomePanel Index</h2>
+<<h2>HomePanel Index</h2>
 <h2>Admin Paneli</h2>
 
-@if (TempData["Mesaj"] != null)
+
+<form action="@Url.Action("UrunleriAktar", "HomePanel")" method="post">
+    <button type="submit" class="btn btn-primary">Ürünleri Aktar</button>
+</form>
+
+@if (ViewBag.Urunler != null && ViewBag.Urunler is List<Urun>)
 {
-    <div class="alert alert-success">
-        @TempData["Mesaj"]
+    var urunler = ViewBag.Urunler as List<Urun>;
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>Açıklama</th>
+                <th>Resim</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var urun in urunler)
+            {
+                <tr>
+                    <td>@urun.UrunAdi</td>
+                    <td>@urun.Fiyat.ToString("F2")</td> <!-- Fiyatı doğru formatta görüntülüyoruz -->
+                    <td>@urun.StokMiktari</td>
+                    <td>@urun.Aciklama</td>
+                    <td>
+                        <img src="@Url.Content("~/Content/Images/" + urun.ResimYolu)" alt="@urun.UrunAdi" width="50" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        @ViewBag.Urunler
     </div>
 }
 
-@if (ViewBag.Urunler != null)
+@if (TempData["Mesaj"] != null)
 {
-    if (ViewBag.Urunler is string message)
-    {
-        <div>@message</div>
-    }
-    else
-    {
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Ürün Adı</th>
-                    <th>Fiyat</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var urun in (List<OtoAksesuarSatisWebAp.Models.Urun>)ViewBag.Urunler)
-                {
-                    <tr>
-                        <td>@urun.UrunAdi</td>
-                        <td>@urun.Fiyat.ToString("C2")</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-        <form method="post" action="@Url.Action("UrunleriAktar", "HomePanel", new { area = "YoneticiPanel" })">
-            <button type="submit" class="btn btn-success">XML Verilerini Aktar</button>
-        </form>
-    }
+    <div class="alert alert-info">
+        @TempData["Mesaj"]
+    </div>
 }
