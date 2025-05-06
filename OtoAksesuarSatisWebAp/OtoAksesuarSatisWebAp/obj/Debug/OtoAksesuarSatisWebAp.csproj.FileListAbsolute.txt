@@ -74,8 +74,6 @@ C:\Users\user\source\repos\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug
 C:\Users\user\source\repos\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAkses.CABA6F68.Up2Date
 C:\Users\user\source\repos\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.dll
 C:\Users\user\source\repos\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.pdb
-C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.AssemblyReference.cache
-C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\OtoAksesuarSatisWebAp.dll.config
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\OtoAksesuarSatisWebAp.dll
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\OtoAksesuarSatisWebAp.pdb
@@ -147,8 +145,10 @@ C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAkse
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\System.Web.Helpers.xml
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\System.Web.Mvc.xml
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.Migrations.RemoveFiyatAlanlari.resources
+C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.GenerateResource.cache
+C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAkses.CABA6F68.Up2Date
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.dll
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.pdb
-C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.Migrations.RemoveFiyatAlanlari.resources
-C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.csproj.GenerateResource.cache

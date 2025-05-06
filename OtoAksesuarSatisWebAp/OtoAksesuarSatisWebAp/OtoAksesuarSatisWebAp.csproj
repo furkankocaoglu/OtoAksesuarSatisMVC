@@ -126,6 +126,7 @@
     <Compile Include="Controllers\FavoriController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
+    <Compile Include="Controllers\xmlUrunController.cs" />
     <Compile Include="Filters\UyeLoginRequiredFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,6 +189,8 @@
     <Content Include="Views\DetayUrun\Detail.cshtml" />
     <Content Include="Views\Menu\_Index.cshtml" />
     <Content Include="Views\Favori\Index.cshtml" />
+    <Content Include="Views\xmlUrun\Index.cshtml" />
+    <Content Include="Views\xmlUrun\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

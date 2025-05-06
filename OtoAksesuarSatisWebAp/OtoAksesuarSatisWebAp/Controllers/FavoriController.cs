@@ -17,7 +17,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
             Uye u = Session["uye"] as Uye;
             return View(db.Favoriler.Where(x => x.UyeID == u.UyeID).ToList());
         }
-        public ActionResult Add(int? id)
+        public ActionResult Add(int? id )
         {
             if (Session["uye"] != null)
             {
@@ -39,7 +39,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
                         }
                         else
                         {
-                            TempData["info"] = "Favorilerinizde Zaten Ekli";
+                            TempData["info"] = "Favorilerinize Zaten Ekli";
                         }
 
                     }
@@ -57,7 +57,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("Index", "Favori");
+                return RedirectToAction("Index", "Favorite");
             }
 
             Favori favorite = db.Favoriler.Find(id);
@@ -66,5 +66,8 @@ namespace OtoAksesuarSatisWebAp.Controllers
             TempData["info"] = "Favorilerinizden çıkarıldı";
             return RedirectToAction("Index", "Favori");
         }
+        
+
+        
     }
 }

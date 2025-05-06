@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
-    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz"; // Varsayılan Bronz
+    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz"; 
 }
 <h1>ÜRÜNLER</h1>
 <h2>Admin Paneli</h2>
@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>Ürün Adı</th>
-                <th>@fiyatSeviyesi Fiyat</th> <!-- Dinamik başlık -->
+                <th>@fiyatSeviyesi Fiyat</th> 
                 <th>Stok</th>
                 <th>Açıklama</th>
                 <th>Resim</th>

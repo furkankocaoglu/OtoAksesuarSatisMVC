@@ -1,0 +1,84 @@
+﻿@using OtoAksesuarSatisWebAp.Models;
+@model IEnumerable<XMLUrun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+
+    
+    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz";
+
+    
+    var yonetici = Session["YoneticiSession"] as Yonetici;
+
+    if (yonetici != null)
+    {
+        
+        fiyatSeviyesi = yonetici.YoneticiIsim;
+    }
+    else
+    {
+        
+        fiyatSeviyesi = "Bronz";
+    }
+}
+
+<h2>Ürünler Listesi</h2>
+
+<div class="productList">
+    @foreach (var urun in Model)
+    {
+        decimal fiyat = 0;
+
+        
+        switch (fiyatSeviyesi.ToLower())
+        {
+            case "bronz":
+                fiyat = urun.BronzFiyat;
+                break;
+            case "silver":
+                fiyat = urun.SilverFiyat;
+                break;
+            case "gold":
+                fiyat = urun.GoldFiyat;
+                break;
+            default:
+                fiyat = urun.BronzFiyat; 
+                break;
+        }
+
+        <div class="productContainer">
+            <a href="@Url.Action("Detail", "xmlUrun", new { id = urun.XmlUrunID })" style="color:inherit; text-decoration:none;">
+                <div class="productImage">
+                   
+                    <img src="~/Assets/ProductImages/@urun.Resim" style="width:20%" alt="Ürün Resmi" />
+                </div>
+                <div>
+                    <h3><strong>@urun.Marka</strong> @urun.UrunAdi</h3>
+                    <hr />
+                    <div style="padding:10px 0;">
+                        @urun.Kategori - @urun.Marka
+                    </div>
+                    <div style="padding:10px 0;">
+                        @{
+                            decimal fakeprice = fiyat + 500;  
+                        }
+                        <label style="text-decoration:line-through">@fakeprice ₺</label>
+                        <strong>@fiyat ₺</strong>
+                    </div>
+                </div>
+            </a>
+            <div style="padding:5px 0px; text-align:center">
+              
+                <a class="addcart" href="@Url.Action("Add", "Cart", new { id = urun.XmlUrunID })">Sepete Ekle</a>
+                <a href="@Url.Action("Add", "Favori", new { id = urun.XmlUrunID })">Favorilere Ekle</a>
+            </div>
+        </div>
+    }
+</div>
+
+@if (TempData["Mesaj"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Mesaj"]
+    </div>
+}

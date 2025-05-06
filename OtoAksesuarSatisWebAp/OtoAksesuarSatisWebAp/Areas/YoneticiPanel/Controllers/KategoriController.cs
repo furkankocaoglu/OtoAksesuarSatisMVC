@@ -12,7 +12,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
     public class KategoriController : Controller
     {
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
-        // GET: YoneticiPanel/Kategori
+       
         public ActionResult Index()
         {
             return View(db.Kategoriler.Where(x => x.Silinmis == false).ToList());
