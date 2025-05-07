@@ -12,10 +12,15 @@ namespace OtoAksesuarSatisWebAp.Models
         [Key]
         public int FavoriID { get; set; }
 
-        public int  UrunID { get; set; }
+        public int? UrunID { get; set; }
 
         [ForeignKey("UrunID")]
         public virtual Urun Urun { get; set; }
+
+        public int? XmlUrunID { get; set; }
+
+        [ForeignKey("XmlUrunID")]
+        public virtual XMLUrun XMLUrun { get; set; }
 
         public int UyeID { get; set; }
 

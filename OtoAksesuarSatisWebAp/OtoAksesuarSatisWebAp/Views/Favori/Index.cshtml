@@ -8,36 +8,46 @@
 {
     <div class="validation-summary-warning">
         @TempData["info"]
-        @{
-            TempData["info"] = null;
-        }
     </div>
 }
+
 <div class="pageTitle">
     <h3>Favorilerim</h3>
 </div>
-<table class="tablo" cellpadding="0" cellspacing="0">
 
+<table class="tablo" cellpadding="0" cellspacing="0">
     @foreach (Favori item in Model)
     {
         <tr>
+            <td>
+                @if (item.Urun != null)
+                {
+                    <img src="~/Assets/ProductImages/@item.Urun.ResimYolu" width="56" />
+                }
+                else if (item.XMLUrun != null)
+                {
+                    <img src="~/Assets/ProductImages/@item.XMLUrun.Resim" width="56" />
+                }
+            </td>
 
             <td>
-                <img src="~/Assets/ProductImages/@item.Urun.ResimYolu" width="56" />
-            </td>
-            <td>
-                <a href="@Url.Action("Detail","DetayUrun")">@item.Urun.UrunAdi</a>
+                @if (item.Urun != null)
+                {
+                    <a href="@Url.Action("Detail", "DetayUrun", new { id = item.Urun.UrunID })">
+                        @item.Urun.UrunAdi
+                    </a>
+                }
+                else if (item.XMLUrun != null)
+                {
+                    <a href="@Url.Action("Detail", "xmlUrun", new { id = item.XMLUrun.XmlUrunID })">
+                        @item.XMLUrun.UrunAdi
+                    </a>
+                }
             </td>
 
             <td>
-                @{ decimal fakeprice = item.Urun.Fiyat + 500; }
-                <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
-                <strong style="color: #7e0490"> @item.Urun.Fiyat ₺</strong>
-            </td>
-            <td>
-                <a href="@Url.Action("Remove","Favori", new {id = item.FavoriID})">Favorilerimden Kaldır</a>
+                <a href="@Url.Action("Remove", "Favori", new { id = item.FavoriID })">Favorilerimden Kaldır</a>
             </td>
         </tr>
     }
 </table>
-

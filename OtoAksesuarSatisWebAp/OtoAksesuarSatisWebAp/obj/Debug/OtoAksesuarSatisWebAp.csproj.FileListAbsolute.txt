@@ -152,3 +152,4 @@ C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAkse
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAkses.CABA6F68.Up2Date
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.dll
 C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.pdb
+C:\Users\user\Documents\GitHub\OtoAksesuarSatisMVC\OtoAksesuarSatisWebAp\OtoAksesuarSatisWebAp\obj\Debug\OtoAksesuarSatisWebAp.Migrations.RemoveXMLFavori.resources

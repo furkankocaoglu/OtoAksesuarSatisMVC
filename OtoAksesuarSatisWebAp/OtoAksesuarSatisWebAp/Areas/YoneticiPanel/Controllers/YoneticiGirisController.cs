@@ -69,17 +69,35 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     int eklenen = 0;
                     int guncellenen = 0;
 
+                    var tumDbUrunler = db.XMLUrunler.ToList();
+
+                    
+                    foreach (var dbUrun in tumDbUrunler)
+                    {
+                        bool xmldeVarMi = xmlUrunler.Any(x =>
+                            x.UrunAdi.ToLower().Trim() == dbUrun.UrunAdi.ToLower().Trim() &&
+                            x.Kategori.ToLower().Trim() == dbUrun.Kategori.ToLower().Trim() &&
+                            x.Marka.ToLower().Trim() == dbUrun.Marka.ToLower().Trim());
+
+                        if (!xmldeVarMi)
+                        {
+                            db.XMLUrunler.Remove(dbUrun); 
+                        }
+                    }
+
+                    
                     foreach (var urun in xmlUrunler)
                     {
                         var mevcut = db.XMLUrunler.FirstOrDefault(x =>
-                            x.UrunAdi == urun.UrunAdi &&
-                            x.Marka == urun.Marka &&
-                            x.Kategori == urun.Kategori);
+                            x.UrunAdi.ToLower().Trim() == urun.UrunAdi.ToLower().Trim() &&
+                            x.Kategori.ToLower().Trim() == urun.Kategori.ToLower().Trim() &&
+                            x.Marka.ToLower().Trim() == urun.Marka.ToLower().Trim());
 
                         if (mevcut != null)
                         {
                             bool degisti = false;
 
+                            
                             if (mevcut.BronzFiyat != urun.BronzFiyat) { mevcut.BronzFiyat = urun.BronzFiyat; degisti = true; }
                             if (mevcut.SilverFiyat != urun.SilverFiyat) { mevcut.SilverFiyat = urun.SilverFiyat; degisti = true; }
                             if (mevcut.GoldFiyat != urun.GoldFiyat) { mevcut.GoldFiyat = urun.GoldFiyat; degisti = true; }
@@ -88,17 +106,21 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                             if (mevcut.Resim != urun.Resim) { mevcut.Resim = urun.Resim; degisti = true; }
                             if (mevcut.EklenmeZamani != urun.EklenmeZamani) { mevcut.EklenmeZamani = urun.EklenmeZamani; degisti = true; }
 
-                            if (degisti) { guncellenen++; }
+                            if (degisti)
+                            {
+                                guncellenen++;
+                            }
                         }
                         else
                         {
-                            db.XMLUrunler.Add(urun);
+                            db.XMLUrunler.Add(urun); 
                             eklenen++;
                         }
                     }
 
-                    db.SaveChanges();
-                    TempData["Mesaj"] = $"{eklenen} ürün eklendi, {guncellenen} ürün güncellendi.";
+                    db.SaveChanges(); 
+
+                    TempData["Mesaj"] = $"{eklenen} ürün eklendi, {guncellenen} ürün güncellendi. XML'de olmayan ürünler silindi.";
                     return RedirectToAction("Index", "HomePanel");
                 }
                 catch (Exception ex)

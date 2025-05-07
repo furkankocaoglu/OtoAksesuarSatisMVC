@@ -135,6 +135,10 @@
     <Compile Include="Migrations\202505052031088_RemoveFiyatAlanlari.Designer.cs">
       <DependentUpon>202505052031088_RemoveFiyatAlanlari.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505062152223_RemoveXMLFavori.cs" />
+    <Compile Include="Migrations\202505062152223_RemoveXMLFavori.Designer.cs">
+      <DependentUpon>202505062152223_RemoveXMLFavori.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Favori.cs" />
     <Compile Include="Models\Kategori.cs" />
@@ -209,6 +213,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">
       <DependentUpon>202505052031088_RemoveFiyatAlanlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505062152223_RemoveXMLFavori.resx">
+      <DependentUpon>202505062152223_RemoveXMLFavori.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
