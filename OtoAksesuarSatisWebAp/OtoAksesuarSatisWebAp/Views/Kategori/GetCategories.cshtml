@@ -1,0 +1,12 @@
+﻿@model IEnumerable<OtoAksesuarSatisWebAp.Models.Kategori>
+
+<ul>
+    @foreach (var kategori in Model)
+    {
+        <li>
+            <a href="@Url.Action("Urunler", "Kategori", new { kategoriId = kategori.KategoriID })">
+                @kategori.KategoriAdi
+            </a>
+        </li>
+    }
+</ul>

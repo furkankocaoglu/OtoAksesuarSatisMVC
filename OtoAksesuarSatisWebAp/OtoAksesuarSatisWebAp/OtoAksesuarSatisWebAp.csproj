@@ -124,6 +124,7 @@
     <Compile Include="Controllers\AnaSayfaController.cs" />
     <Compile Include="Controllers\DetayUrunController.cs" />
     <Compile Include="Controllers\FavoriController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Controllers\xmlUrunController.cs" />
@@ -195,6 +196,9 @@
     <Content Include="Views\Favori\Index.cshtml" />
     <Content Include="Views\xmlUrun\Index.cshtml" />
     <Content Include="Views\xmlUrun\Detail.cshtml" />
+    <Content Include="Views\Kategori\_CategoryList.cshtml" />
+    <Content Include="Views\Kategori\GetCategories.cshtml" />
+    <Content Include="Views\Kategori\Urunler.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

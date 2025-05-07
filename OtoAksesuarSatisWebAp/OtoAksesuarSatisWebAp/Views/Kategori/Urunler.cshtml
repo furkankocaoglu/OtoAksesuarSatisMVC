@@ -1,0 +1,44 @@
+﻿@using OtoAksesuarSatisWebAp.Models
+@model IEnumerable<Urun>
+
+@if (TempData["info"] != null)
+{
+    <div class="validation-summary-success">
+        @TempData["info"]
+        @{
+            TempData["info"] = null;
+        }
+    </div>
+}
+
+<div class="productList">
+    @foreach (Urun item in Model)
+    {
+        <div class="productContainer">
+          
+            <a href="@Url.Action("Detail", "DetayUrun", new { id = item.UrunID })" style="color:inherit; text-decoration:none;">
+                <div class="productImage">
+                    <img src="~/Assets/ProductImages/@item.ResimYolu" style="width:20%" />
+                </div>
+                <div>
+                    <h3><strong>@item.Marka.MarkaAdi</strong> @item.UrunAdi</h3>
+                    <hr />
+                    <div style="padding:10px 0;">
+                        @item.Kategori.KategoriAdi - @item.Marka.MarkaAdi
+                    </div>
+                    <div style="padding:10px 0;">
+                        @{ decimal fakeprice = item.Fiyat + 500; }
+                        <label style="text-decoration:line-through">@fakeprice ₺</label>
+                        <strong>@item.Fiyat ₺</strong>
+                    </div>
+                </div>
+            </a>
+
+            
+            <div style="padding:5px 0px; text-align:center">
+                <a class="addcart" href="@Url.Action("Add", "Cart", new { id = item.UrunID })">Sepete Ekle</a>
+                <a href="@Url.Action("Add", "Favori", new { id = item.UrunID })">Favorilere Ekle</a>
+            </div>
+        </div>
+    }
+</div>
