@@ -1,0 +1,185 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    font-family: 'Segoe UI', sans-serif;
+    color: #e5e5e5;
+    overflow-x: hidden; 
+}
+
+
+.pagetitle {
+    margin: 30px 0;
+    background-color: #222;
+    border-left: 6px solid #4fc3f7;
+    padding: 18px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+    .pagetitle h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+
+.formContainer {
+    background-color: #1e1f23;
+    padding: 25px 30px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #c0c0c0;
+}
+
+
+.textbox {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #2c2f34;
+    color: #fff;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    width: 100%; 
+}
+
+    .textbox:focus {
+        outline: none;
+        border-color: #4fc3f7;
+    }
+
+
+.validationmesage {
+    color: #ff6f61;
+    font-size: 13px;
+}
+
+
+.formbutton {
+    background: linear-gradient(to right, #00bcd4, #2196f3);
+    color: #fff;
+    padding: 12px 18px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 100%; 
+}
+
+    .formbutton:hover {
+        background: linear-gradient(to right, #00acc1, #1976d2);
+    }
+
+
+.tablo {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #1f2023;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+    .tablo th, .tablo td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    .tablo th {
+        background-color: #27292d;
+        color: #fff;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .tablo td {
+        border-top: 1px solid #333;
+        color: #e0e0e0;
+        font-size: 14px;
+    }
+
+    .tablo tr:hover {
+        background-color: #2a2c30;
+    }
+
+
+.editbutton, .deletebutton {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 6px;
+    transition: background 0.3s;
+}
+
+.editbutton {
+    background-color: #ffca28;
+    color: #222;
+}
+
+    .editbutton:hover {
+        background-color: #f4b400;
+    }
+
+.deletebutton {
+    background-color: #ef5350;
+    color: #fff;
+}
+
+    .deletebutton:hover {
+        background-color: #e53935;
+    }
+
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+ 
+    .formContainer {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .tablo th, .tablo td {
+        padding: 12px;
+    }
+
+    .editbutton, .deletebutton {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+
+    .tablo {
+        display: block;
+        overflow-x: auto;
+    }
+}

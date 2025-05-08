@@ -3,6 +3,10 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
 }
+@section styles
+{
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/Urun.css" rel="stylesheet" />
+}
 <div class="pagetitle">
     <h2>Ürün Düzenle</h2>
 </div>
@@ -35,7 +39,7 @@
                 <label>Açıklama</label>
                 @Html.EditorFor(x => x.Aciklama, new { htmlAttributes = new { @class = "textbox" } })
                 @Html.ValidationMessageFor(x => x.Aciklama, "", new { @class = "validationmesage" })
-            </div>        
+            </div>
         </div>
         <div class="sag">
             <div class="row">

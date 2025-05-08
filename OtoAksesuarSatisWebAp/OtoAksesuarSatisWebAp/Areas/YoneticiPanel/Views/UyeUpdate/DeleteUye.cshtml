@@ -3,7 +3,10 @@
     ViewBag.Title = "DeleteUye";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
 }
-
+@section styles
+{
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/Uye.css" rel="stylesheet" />
+}
 <h2>Üye Listesi</h2>
 
 @if (TempData["mesaj"] != null)

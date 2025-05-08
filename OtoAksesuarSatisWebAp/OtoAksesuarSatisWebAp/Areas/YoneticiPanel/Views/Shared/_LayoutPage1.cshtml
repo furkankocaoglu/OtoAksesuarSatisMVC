@@ -12,40 +12,40 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/YoneticiLayout.css" rel="stylesheet" />
+    @RenderSection("styles", false)
 </head>
 <body>
-    <div>
-        <h1>Hoşgeldiniz...</h1>
-        <a href="#" style="color:gray">@y.YoneticiIsim</a>
-        <a href="@Url.Action("LogOut","YoneticiGiris")">Çıkış Yap</a>
-        <a href="@Url.Action("Index","HomePanel")">Anasayfa</a>
-        <br />
-        <br />
+    <div class="menuContainer">
+        <div class="userBase">
+            <span style="color:lightgray">@y.YoneticiIsim</span>
+            <a href="@Url.Action("LogOut", "YoneticiGiris")">Çıkış Yap</a>
+        </div>
+        <div class="clearfix"></div>
     </div>
-    <div>
-        <label>Kategori İşlemleri</label>
-        <a href="@Url.Action("Create","Kategori")">Kategori Ekle</a>
-        <a href="@Url.Action("Index","Kategori")">Kategori Listele</a>
-        <br />
-        <br />
-        <label>Marka İşlemleri</label>
-        <a href="@Url.Action("Create","Marka")">Marka Ekle</a>
-        <a href="@Url.Action("Index","Marka")">Marka Listele</a>
-        <br />
-        <br />
-        <label>Ürün İşlemleri</label>
-        <a href="@Url.Action("Create","Urun")">Ürün Ekle</a>
-        <a href="@Url.Action("Index","Urun")">Ürün Listele</a>
-        <br />
-        <br />
-        <label>Üye İşlemleri</label>
-        <a href="@Url.Action("Index","UyeUpdate")">Aktif Üyeleri Listele</a>
-        <a href="@Url.Action("DeleteUye","UyeUpdate")">Silinmiş Üyeleri Listele</a>
-        <br />
-        <br />
+    <div class="sideMenu">
+        <a href="@Url.Action("Index", "HomePanel")">Anasayfa</a>
+        <br/>
+        <label>Kategori</label>
+        <a href="@Url.Action("Index", "Kategori")">Kategori Listele</a>
+        <a href="@Url.Action("Create", "Kategori")">Kategori Ekle</a>
+
+        <label>Marka</label>
+        <a href="@Url.Action("Index", "Marka")">Marka Listele</a>
+        <a href="@Url.Action("Create", "Marka")">Marka Ekle</a>
+
+        <label>Ürün</label>
+        <a href="@Url.Action("Index", "Urun")">Ürün Listele</a>
+        <a href="@Url.Action("Create", "Urun")">Ürün Ekle</a>
+
+        <label>Üye</label>
+        <a href="@Url.Action("Index", "UyeUpdate")">Aktif Üyeleri Listele</a>
+        <a href="@Url.Action("DeleteUye", "UyeUpdate")">Silinmiş Üyeleri Listele</a>
     </div>
-    <div>
+    <div class="mainContainer">
         @RenderBody()
     </div>
+    <div class="clearfix"></div>
+    @RenderSection("scripts", false)
 </body>
 </html>

@@ -1,0 +1,168 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden; 
+}
+
+
+.pagetitle {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(90deg, #3f2b96, #a8c0ff);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+    .pagetitle h2 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+
+.formContainer {
+    background-color: #242526;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+}
+
+
+.row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #bcbcbc;
+}
+
+.textbox {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #303134;
+    color: #fff;
+    font-size: 15px;
+    transition: border 0.3s ease;
+}
+
+    .textbox:focus {
+        border-color: #6eafff;
+        outline: none;
+    }
+
+
+.formbutton {
+    padding: 14px;
+    background-color: #6eafff;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .formbutton:hover {
+        background-color: #5599f5;
+    }
+
+
+.validationmesage {
+    color: #ff6b6b;
+    font-size: 13px;
+}
+
+
+.tablo {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1f2023;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+    .tablo th, .tablo td {
+        padding: 16px;
+        text-align: left;
+    }
+
+    .tablo th {
+        background-color: #2b2c30;
+        color: #f1f1f1;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .tablo tr {
+        border-bottom: 1px solid #333;
+    }
+
+        .tablo tr:hover {
+            background-color: #2a2b2e;
+        }
+
+    .tablo td {
+        font-size: 14px;
+    }
+
+
+.editbutton, .deletebutton {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 8px;
+    transition: 0.3s ease;
+}
+
+.editbutton {
+    background-color: #fdd835;
+    color: #222;
+}
+
+    .editbutton:hover {
+        background-color: #fbc02d;
+    }
+
+.deletebutton {
+    background-color: #e53935;
+    color: white;
+}
+
+    .deletebutton:hover {
+        background-color: #c62828;
+    }
+
+
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .tablo th, .tablo td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .editbutton, .deletebutton {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}

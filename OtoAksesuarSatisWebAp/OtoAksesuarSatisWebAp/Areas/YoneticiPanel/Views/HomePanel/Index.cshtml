@@ -2,65 +2,66 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
-    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz"; 
+    string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz";
 }
-<h1>XML GELEN ÜRÜN BİLGİLERİ</h1>
-
+@section styles
+{
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/YoneticiAnasayfa.css" rel="stylesheet" />
+}
+<div class="pageTitle">
+    <h2>XML Gelen Ürün Bilgileri</h2>
+</div>
 
 @if (ViewBag.Urunler != null && ViewBag.Urunler is List<OtoAksesuarSatisWebAp.Models.XMLUrun>)
 {
     var urunler = ViewBag.Urunler as List<OtoAksesuarSatisWebAp.Models.XMLUrun>;
     <table class="table">
-        <thead>
-            <tr>
-                <th>Ürün Adı</th>
-                <th>@fiyatSeviyesi Fiyat</th> 
-                <th>Stok</th>
-                <th>Açıklama</th>
-                <th>Resim</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var urun in urunler)
+        <tr>
+            <th>Ürün Adı</th>
+            <th>@fiyatSeviyesi Fiyat</th>
+            <th>Stok</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+        </tr>
+        @foreach (var urun in urunler)
+        {
+            decimal fiyat = 0;
+
+            switch (fiyatSeviyesi.ToLower())
             {
-                decimal fiyat = 0;
-
-                switch (fiyatSeviyesi.ToLower())
-                {
-                    case "bronz":
-                        fiyat = urun.BronzFiyat;
-                        break;
-                    case "silver":
-                        fiyat = urun.SilverFiyat;
-                        break;
-                    case "gold":
-                        fiyat = urun.GoldFiyat;
-                        break;
-                }
-
-                <tr>
-                    <td>@urun.UrunAdi</td>
-                    <td>@fiyat.ToString("C2")</td>
-                    <td>@urun.Stok</td>
-                    <td>@urun.Aciklama</td>
-                    <td>
-                        <img src="@Url.Content("~/Content/Images/" + urun.Resim)" width="50" />
-                    </td>
-                </tr>
+                case "bronz":
+                    fiyat = urun.BronzFiyat;
+                    break;
+                case "silver":
+                    fiyat = urun.SilverFiyat;
+                    break;
+                case "gold":
+                    fiyat = urun.GoldFiyat;
+                    break;
             }
-        </tbody>
+
+            <tr>
+                <td>@urun.UrunAdi</td>
+                <td>@fiyat.ToString("C2")</td>
+                <td>@urun.Stok</td>
+                <td>@urun.Aciklama</td>
+                <td>
+                    <img src="@Url.Content("~/Content/Images/" + urun.Resim)" width="50" />
+                </td>
+            </tr>
+        }
     </table>
 }
 else
 {
-    <div class="alert alert-warning">
+    <div class="uyariMesaji">
         @ViewBag.Urunler
     </div>
 }
 
 @if (TempData["Mesaj"] != null)
 {
-    <div class="alert alert-info">
+    <div class="bilgiMesaji">
         @TempData["Mesaj"]
     </div>
 }

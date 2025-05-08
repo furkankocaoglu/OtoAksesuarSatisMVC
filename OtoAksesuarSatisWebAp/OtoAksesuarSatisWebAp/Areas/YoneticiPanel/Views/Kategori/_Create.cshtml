@@ -3,7 +3,10 @@
     ViewBag.Title = "_Create";
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
 }
-
+@section styles
+{
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/Kategori.css" rel="stylesheet" />
+}
 <div class="formContainer">
     @using (Html.BeginForm("Create", "Kategori", FormMethod.Post))
     {

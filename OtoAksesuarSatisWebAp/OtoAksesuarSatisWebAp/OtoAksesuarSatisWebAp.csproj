@@ -97,7 +97,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\Kategori.css" />
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\Marka.css" />
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\Urun.css" />
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\Uye.css" />
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\YoneticiAnasayfa.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\YoneticiGiris.css" />
+    <Content Include="Areas\YoneticiPanel\Assets\CSS\YoneticiLayout.css" />
     <Content Include="Areas\YoneticiPanel\Assets\Images\Ekran Alıntısı.PNG" />
     <Content Include="Areas\YoneticiPanel\Assets\Images\KS4fSTQC7T.gif" />
     <Content Include="Content\Site.css" />
