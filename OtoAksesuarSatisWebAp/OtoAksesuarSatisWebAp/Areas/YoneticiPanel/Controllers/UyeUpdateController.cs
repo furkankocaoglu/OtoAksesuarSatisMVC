@@ -29,7 +29,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 }
             }
             TempData["mesaj"] = "Düzenlenecek üye bulunamadı.";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "UyeUpdate");
         }
         [HttpPost]
         public ActionResult Edit(Uye model)
@@ -64,6 +64,11 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 }
             }
             return RedirectToAction("Index", "UyeUpdate");
+        }
+        public ActionResult DeleteUye()
+        {
+            var uyeler = db.Uyeler.Where(u => u.Silinmis == true).ToList();
+            return View(uyeler);
         }
     }
 

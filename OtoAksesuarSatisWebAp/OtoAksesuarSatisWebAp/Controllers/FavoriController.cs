@@ -14,8 +14,17 @@ namespace OtoAksesuarSatisWebAp.Controllers
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
         public ActionResult Index()
         {
-            Uye u = Session["uye"] as Uye;
-            return View(db.Favoriler.Where(x => x.UyeID == u.UyeID).ToList());
+            if (Session["uye"] == null)
+            {
+                return RedirectToAction("Login", "Uye");
+            }
+
+            var uye = Session["uye"] as Uye;
+            var urunFavoriler = db.Favoriler
+                .Where(x => x.UyeID == uye.UyeID && x.UrunID != null && x.Silinmis == false)
+                .ToList();
+
+            return View(urunFavoriler);
         }
         public ActionResult Add(int? id )
         {
@@ -103,7 +112,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
                 return RedirectToAction("Login", "Uye");
             }
 
-            return RedirectToAction("Index", "AnaSayfa");
+            return RedirectToAction("Index", "xmlUrun");
         }
         public ActionResult RemoveXml(int? id)
         {
@@ -128,7 +137,7 @@ namespace OtoAksesuarSatisWebAp.Controllers
                 TempData["info"] = "Favori bulunamadı.";
             }
 
-            return RedirectToAction("Index", "Favori");
+            return RedirectToAction("XmlFavoriler", "Favori");
         }
         public ActionResult XmlFavoriler()
         {

@@ -12,25 +12,19 @@ namespace OtoAksesuarSatisWebAp.Controllers
         OtoAksesuarSatisDB db = new OtoAksesuarSatisDB();
 
         public ActionResult Index()
-        {
-            
+        { 
             try
-            {
-               
+            { 
                 var urunler = db.XMLUrunler.ToList();
 
-                
                 if (urunler == null || urunler.Count == 0)
                 {
                     TempData["Mesaj"] = "Veritabanında hiç ürün bulunamadı!";
                 }
-
-                
                 return View(urunler);
             }
             catch (Exception ex)
-            {
-               
+            {     
                 TempData["Mesaj"] = "Bir hata oluştu: " + ex.Message;
                 return View();
             }

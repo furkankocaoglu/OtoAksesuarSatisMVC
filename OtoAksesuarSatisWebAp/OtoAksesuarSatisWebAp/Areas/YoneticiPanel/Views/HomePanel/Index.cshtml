@@ -4,8 +4,7 @@
     Layout = "~/Areas/YoneticiPanel/Views/Shared/_LayoutPage1.cshtml";
     string fiyatSeviyesi = Session["FiyatSeviyesi"]?.ToString() ?? "Bronz"; 
 }
-<h1>ÜRÜNLER</h1>
-<h2>Admin Paneli</h2>
+<h1>XML GELEN ÜRÜN BİLGİLERİ</h1>
 
 
 @if (ViewBag.Urunler != null && ViewBag.Urunler is List<OtoAksesuarSatisWebAp.Models.XMLUrun>)
@@ -45,7 +44,7 @@
                     <td>@urun.Stok</td>
                     <td>@urun.Aciklama</td>
                     <td>
-                        <img src="@Url.Content("~/Content/Images/" + urun.Resim)" alt="@urun.UrunAdi" width="50" />
+                        <img src="@Url.Content("~/Content/Images/" + urun.Resim)" width="50" />
                     </td>
                 </tr>
             }

@@ -9,9 +9,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Yönetici Giriş</title>
+    <link href="~/Areas/YoneticiPanel/Assets/CSS/YoneticiGiris.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
+        <div class="logo">
+            <img src="~/Areas/YoneticiPanel/Assets/Images/Ekran Alıntısı.PNG" />
+        </div>
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
