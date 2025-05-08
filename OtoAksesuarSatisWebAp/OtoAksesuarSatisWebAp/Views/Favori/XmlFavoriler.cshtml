@@ -1,0 +1,44 @@
+﻿@using OtoAksesuarSatisWebAp.Models
+@model IEnumerable<OtoAksesuarSatisWebAp.Models.Favori>
+
+@{
+    ViewBag.Title = "XML Favorilerim";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+}
+
+@if (TempData["info"] != null)
+{
+    <div class="validation-summary-warning">
+        @TempData["info"]
+    </div>
+}
+
+<div class="pageTitle">
+    <h3>XML Ürün Favorilerim</h3>
+</div>
+
+<table class="tablo" cellpadding="0" cellspacing="0">
+    @foreach (var item in Model)
+    {
+        if (item.XMLUrun != null)
+        {
+            <tr>
+                <td>
+                    <img src="~/Assets/ProductImages/@item.XMLUrun.Resim" width="56" />
+                </td>
+
+                <td>
+                    <a href="@Url.Action("Detail", "xmlUrun", new { id = item.XMLUrun.XmlUrunID })">
+                        @item.XMLUrun.UrunAdi
+                    </a>
+                </td>
+
+                <td>
+                    <a href="@Url.Action("RemoveXml", "Favori", new { id = item.XMLUrun.XmlUrunID })">
+                        Favorilerimden Kaldır
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+</table>

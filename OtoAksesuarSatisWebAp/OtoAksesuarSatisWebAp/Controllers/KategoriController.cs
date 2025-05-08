@@ -16,14 +16,21 @@ namespace OtoAksesuarSatisWebAp.Controllers
         }
         public ActionResult GetCategories()
         {
-            var kategoriler = db.Kategoriler.Where(k => k.Silinmis == false).ToList(); // 
+            var kategoriler = db.Kategoriler.Where(k => k.Silinmis == false).ToList();  
             return PartialView(kategoriler); 
         }
-        public ActionResult Urunler(int kategoriId)
+        public ActionResult Urunler(int? kategoriId)
         {
+            if (kategoriId == null)
+            {
+                TempData["info"] = "Geçersiz kategori seçimi.";
+                return RedirectToAction("Index","AnaSayfa");
+            }
+
             var urunler = db.Urunler
-                     .Where(u => u.KategoriID == kategoriId && u.Silinmis == false)
-                     .ToList();
+                .Where(u => u.KategoriID == kategoriId && u.Silinmis == false)
+                .ToList();
+
             return View(urunler);
         }
     }

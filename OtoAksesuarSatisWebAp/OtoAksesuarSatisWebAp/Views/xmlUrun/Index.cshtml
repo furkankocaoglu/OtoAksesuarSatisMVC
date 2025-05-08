@@ -70,7 +70,9 @@
             <div style="padding:5px 0px; text-align:center">
               
                 <a class="addcart" href="@Url.Action("Add", "Cart", new { id = urun.XmlUrunID })">Sepete Ekle</a>
-                <a href="@Url.Action("Add", "Favori", new { id = urun.XmlUrunID })">Favorilere Ekle</a>
+                <a href="@Url.Action("AddXml", "Favori", new { id = urun.XmlUrunID })">
+                    Favorilere Ekle
+                </a>
             </div>
         </div>
     }

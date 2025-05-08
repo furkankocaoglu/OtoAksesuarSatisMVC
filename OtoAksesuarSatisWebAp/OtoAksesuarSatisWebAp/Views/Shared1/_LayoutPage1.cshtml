@@ -37,6 +37,7 @@
                     <a href="@Url.Action("Index", "xmlUrun")">TOPTANCI ÜRÜNLERİ</a>
                     <a href="@Url.Action("LogOut","Uye")">Çıkış Yap</a>
                     <a href="@Url.Action("Index","Favori")">Favoriler</a>
+                    <a href="@Url.Action("XmlFavoriler", "Favori")">XML Favorilerim</a>
                     <a href="~/UyePanel/AnaSayfa/Index">Hesabım</a>
                 </div>
                 <div class="clearfix"></div>
@@ -52,7 +53,7 @@
         }
     </div>
     <div class="categoryBar">
-        @Html.Action("GetCategories", "Kategori") <!-- GetCategories action'ını çağırıyoruz -->
+        @Html.Action("GetCategories", "Kategori") 
     </div>
     <div>
         @RenderBody()
