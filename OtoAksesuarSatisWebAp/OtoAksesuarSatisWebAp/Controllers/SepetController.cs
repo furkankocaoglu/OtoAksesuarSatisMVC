@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace OtoAksesuarSatisWebAp.Controllers
 {
@@ -55,11 +56,13 @@ namespace OtoAksesuarSatisWebAp.Controllers
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
+
             Urun u = db.Urunler.Find(id);
             if (u == null)
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
+
             int mid = (Session["uye"] as Uye).UyeID;
             int count = db.Sepetler.Count(x => x.UyeID == mid && x.UrunID == id);
             if (count == 0)
@@ -76,9 +79,10 @@ namespace OtoAksesuarSatisWebAp.Controllers
             {
                 int cid = db.Sepetler.FirstOrDefault(x => x.UyeID == mid && x.UrunID == id).ID;
                 Sepet c = db.Sepetler.Find(cid);
-                c.Adet = c.Adet + 1;
+                c.Adet = c.Adet + quantity;
                 db.SaveChanges();
             }
+
             return RedirectToAction("Index", "Sepet");
         }
         public ActionResult Increase(int? id)
@@ -147,11 +151,13 @@ namespace OtoAksesuarSatisWebAp.Controllers
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
-            Urun u = db.Urunler.Find(id);
+
+            XMLUrun u = db.XMLUrunler.Find(id);
             if (u == null)
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
+
             int mid = (Session["uye"] as Uye).UyeID;
             int count = db.Sepetler.Count(x => x.UyeID == mid && x.XmlUrunID == id);
             if (count == 0)
@@ -168,9 +174,10 @@ namespace OtoAksesuarSatisWebAp.Controllers
             {
                 int cid = db.Sepetler.FirstOrDefault(x => x.UyeID == mid && x.XmlUrunID == id).ID;
                 Sepet c = db.Sepetler.Find(cid);
-                c.Adet = c.Adet + 1;
+                c.Adet = c.Adet + quantity;
                 db.SaveChanges();
             }
+
             return RedirectToAction("Index", "Sepet");
         }
         public ActionResult xmlIncrease(int? id)

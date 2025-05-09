@@ -1,0 +1,134 @@
+﻿body {
+    background-color: #121212; 
+    color: #e0e0e0; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 24px;
+    color: #fff; 
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.table, .tablo {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+    .table th, .tablo th, .table td, .tablo td {
+        border: 1px solid #444;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .table th, .tablo th {
+        background-color: #333; 
+        color: #fff; 
+    }
+
+    .table td, .tablo td {
+        background-color: #1d1d1d; 
+        color: #e0e0e0;
+    }
+
+
+img {
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+.decreasebutton, .increasebutton, .deletebutton {
+    background-color: #7e0490; 
+    color: #fff; 
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+    .decreasebutton:hover, .increasebutton:hover, .deletebutton:hover {
+        background-color: #9d0db6; 
+    }
+
+
+label {
+    color: #b0b0b0; 
+    text-decoration: none; 
+}
+
+    
+    label.line-through {
+        text-decoration: line-through; 
+    }
+
+strong {
+    color: pink;
+}
+.totalTable {
+    width: 100%;
+    background-color: #222; 
+    border-radius: 10px;
+}
+
+    .totalTable th, .totalTable td {
+        padding: 10px;
+    }
+
+    .totalTable th {
+        color: #fff; 
+        background-color: #333; 
+    }
+
+    .totalTable td {
+        color: #e0e0e0; 
+    }
+
+    .totalTable .total {
+        font-size: 18px;
+        font-weight: bold;
+        color: #7e0490; 
+    }
+
+    .totalTable .last {
+        text-align: center;
+    }
+
+    .totalTable .gotobuy {
+        background-color: #7e0490;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+        .totalTable .gotobuy:hover {
+            background-color: #9d0db6;
+        }
+
+
+.validation-summary-warning {
+    background-color: #ff9800; 
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pageTitle {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.quantity {
+    font-size: 14px;
+    color: #e0e0e0;
+}

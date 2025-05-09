@@ -114,6 +114,7 @@
     <Content Include="Assets\CSS\GetCategories.css" />
     <Content Include="Assets\CSS\IndexXML.css" />
     <Content Include="Assets\CSS\KategoriUrunler.css" />
+    <Content Include="Assets\CSS\Sepet.css" />
     <Content Include="Assets\CSS\UrunDetay.css" />
     <Content Include="Assets\CSS\UyeLogin.css" />
     <Content Include="Assets\CSS\UyeRegister.css" />

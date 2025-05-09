@@ -35,11 +35,13 @@ namespace OtoAksesuarSatisWebAp.Controllers
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
+
             XMLUrun u = db.XMLUrunler.Find(id);
             if (u == null)
             {
                 return RedirectToAction("Index", "AnaSayfa");
             }
+
             return View(u);
         }
     }

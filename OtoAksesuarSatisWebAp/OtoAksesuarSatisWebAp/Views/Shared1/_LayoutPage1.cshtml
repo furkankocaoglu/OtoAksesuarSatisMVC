@@ -22,13 +22,13 @@
                 OtoAksesuar.com
             </a>
         </h3>
-
-        <a href="#" style="color:hotpink">
+        <a href="#" style="color:hotpink; margin-left: 20px;">
             @u.Isim
         </a>
         @if (Session["uye"] != null)
         {
             <a href="@Url.Action("LogOut","Uye")" class="logout-link">Çıkış Yap</a>
+            <a href="@Url.Action("Index","Sepet")">Sepetim (@Html.Action("_GetCartCount", "AnaSayfa")) </a>
         }
         <br />
         <br />
@@ -38,8 +38,8 @@
         {
             <div class="topbarRight">
                 <div>
-                    <a href="@Url.Action("Index", "xmlUrun")"> V.I.P Ürünler</a>
-                    <a href="@Url.Action("XmlFavoriler", "Favori")">V.I.P Ürün Favorilerim</a>
+                    <a href="@Url.Action("Index", "xmlUrun")"> VIP Ürünler</a>
+                    <a href="@Url.Action("XmlFavoriler", "Favori")">VIP Ürün Favorilerim</a>
                     <a href="@Url.Action("Index","Favori")">Favoriler</a>
                     <a href="~/UyePanel/AnaSayfa/Index">Hesabım</a>
                 </div>
@@ -56,6 +56,7 @@
         }
     </div>
     <div class="categoryBar">
+        <label>Kategoriler</label>
         @Html.Action("GetCategories", "Kategori") 
     </div>
     <div>

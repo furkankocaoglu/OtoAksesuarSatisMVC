@@ -3,26 +3,22 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+
     decimal allTotal = 0;
-    string fiyatSeviyesi = "Bronz"; 
+    string fiyatSeviyesi = "Bronz";
     var yonetici = Session["YoneticiSession"] as Yonetici;
     if (yonetici != null)
     {
         fiyatSeviyesi = yonetici.YoneticiIsim;
     }
 
-    
+
     foreach (Sepet item in Model)
     {
         decimal fiyat = 0;
 
-       
-        if (item.Urun != null)
-        {
-            fiyat = item.XMLUrun.BronzFiyat; 
-        }
-       
-        else if (item.XMLUrun != null)
+
+        if (item.XMLUrun != null)
         {
             switch (fiyatSeviyesi.ToLower())
             {
@@ -41,12 +37,20 @@
             }
         }
 
-        
-        decimal fakeprice = fiyat + 500;
+        else if (item.Urun != null)
+        {
 
-        allTotal += item.Adet * fiyat;  
+            fiyat = item.Urun.Fiyat;
+        }
+
+        decimal fakeprice = fiyat + 500;
+        allTotal += item.Adet * fiyat;
     }
 }
+@section styles {
+    <link href="~/Assets/CSS/Sepet.css" rel="stylesheet" />
+}
+
 @if (TempData["info"] != null)
 {
     <div class="validation-summary-warning">
@@ -68,19 +72,29 @@
                 {
                     <img src="~/Assets/ProductImages/@item.XMLUrun.Resim" width="56" />
                 }
+                else if (item.Urun != null)
+                {
+                    <img src="~/Assets/ProductImages/@item.Urun.ResimYolu" width="56" />
+                }
             </td>
+
             <td>
                 @if (item.XMLUrun != null)
                 {
-                    <a href="@Url.Action("Detail","DetayUrun", new {id=item.XmlUrunID})" style="text-decoration:none; color:#7e0490; font-size:13pt">@item.XMLUrun.UrunAdi</a>
+                    <a href="@Url.Action("Detail", "xmlUrun", new { id = item.XmlUrunID })" style="text-decoration:none; color:#7e0490; font-size:13pt">@item.XMLUrun.UrunAdi</a>
+                }
+                else if (item.Urun != null)
+                {
+                    <a href="@Url.Action("Detail", "DetayUrun", new { id = item.UrunID })" style="text-decoration:none; color:#7e0490; font-size:13pt">@item.Urun.UrunAdi</a>
                 }
             </td>
+
             <td>
                 @{
                     decimal fakeprice = 0;
                     decimal productPrice = 0;
 
-                    
+
                     if (item.XMLUrun != null)
                     {
                         switch (fiyatSeviyesi.ToLower())
@@ -103,18 +117,29 @@
                                 break;
                         }
                     }
+
+                    else if (item.Urun != null)
+                    {
+
+                        productPrice = item.Urun.Fiyat;
+                        fakeprice = productPrice + 500;
+                    }
                 }
-                <label style="text-decoration:line-through"> @fakeprice ₺</label>
-                <strong style="color: #7e0490"> @productPrice ₺</strong>
+                <label style="text-decoration:line-through">@fakeprice ₺</label>
+                <strong style="color: #7e0490">@productPrice ₺</strong>
             </td>
+
             <td>
-                <a href="@Url.Action("Decrease","Sepet", new {id = item.ID})" class="decreasebutton">-</a><label class="quantity">@item.Adet</label><a href="@Url.Action("Increase","Sepet", new {id = item.ID})" class="increasebutton">+</a>
+                <a href="@Url.Action("Decrease", "Sepet", new { id = item.ID })" class="decreasebutton">-</a>
+                <label class="quantity">@item.Adet</label>
+                <a href="@Url.Action("Increase", "Sepet", new { id = item.ID })" class="increasebutton">+</a>
             </td>
+
             <td>
                 @{
                     decimal total = 0;
 
-                    
+
                     if (item.XMLUrun != null)
                     {
                         switch (fiyatSeviyesi.ToLower())
@@ -133,14 +158,22 @@
                                 break;
                         }
                     }
+
+                    else if (item.Urun != null)
+                    {
+
+                        total = item.Urun.Fiyat * item.Adet;
+                    }
                 }
                 <strong>@total ₺</strong>
             </td>
+
             <td>
-                <a href="@Url.Action("Remove","Sepet", new {id = item.ID})" class="deletebutton">X</a>
+                <a href="@Url.Action("Remove", "Sepet", new { id = item.ID })" class="deletebutton">X</a>
             </td>
         </tr>
     }
+
     <tr>
         <td colspan="3" style="border:none"></td>
         <td colspan="3" style="border:none">
@@ -158,7 +191,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <label>Vergi % 20 </label>
+                        <label>Vergi % 20</label>
                     </th>
                     <th align="center">
                         @{
@@ -177,7 +210,7 @@
                 </tr>
                 <tr class="last">
                     <td colspan="2" align="center">
-                        <a href="@Url.Action("Payment","Odeme")" class="gotobuy">Ödemeye Geç</a>
+                        <a href="@Url.Action("Payment", "Odeme")" class="gotobuy">Ödemeye Geç</a>
                     </td>
                 </tr>
             </table>
