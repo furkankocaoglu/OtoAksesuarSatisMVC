@@ -82,18 +82,18 @@ strong {
     }
 
     .totalTable th {
-        color: #fff; 
+        color: pink; 
         background-color: #333; 
     }
 
     .totalTable td {
-        color: #e0e0e0; 
+        color: pink;
     }
 
     .totalTable .total {
         font-size: 18px;
         font-weight: bold;
-        color: #7e0490; 
+        color: pink;
     }
 
     .totalTable .last {
@@ -102,7 +102,7 @@ strong {
 
     .totalTable .gotobuy {
         background-color: #7e0490;
-        color: #fff;
+        color: pink;
         padding: 10px 20px;
         text-decoration: none;
         border-radius: 5px;

@@ -53,7 +53,6 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
 
             if (urunId == null)
             {
-                TempData["mesaj"] = "Geçersiz ürün.";
                 return RedirectToAction("Index", "Siparis");
             }
 

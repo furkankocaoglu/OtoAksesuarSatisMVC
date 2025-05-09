@@ -97,6 +97,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\UyePanel\Assets\CSS\EditYorum.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\EkleYorum.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\IndexYorum.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\Profil.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\Siparis.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\UyeLayout.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Kategori.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Marka.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Urun.css" />
@@ -226,6 +232,7 @@
     <Content Include="Views\Favori\XmlFavoriler.cshtml" />
     <Content Include="Views\Sepet\Index.cshtml" />
     <Content Include="Views\AnaSayfa\_GetCartCount.cshtml" />
+    <Content Include="Views\Odeme\PaymentSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -235,10 +242,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\UyePanel\Assets\Images\" />
     <Folder Include="Areas\UyePanel\Views\Shared\" />
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
-    <Folder Include="Views\Odeme\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">

@@ -22,5 +22,10 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
 
             return View(uye); 
         }
+        public ActionResult UyeLogout()
+        {
+            Session["uye"] = null;
+            return RedirectToAction("Login", "Uye", new { area = "" });
+        }
     }
 }

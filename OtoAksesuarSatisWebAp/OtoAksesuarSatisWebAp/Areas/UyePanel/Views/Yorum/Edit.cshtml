@@ -3,6 +3,9 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
 }
+@section styles {
+    <link href="~/Areas/UyePanel/Assets/CSS/EditYorum.css" rel="stylesheet" />
+}
 <div class="pagetitle">
     <h2>Yorum Düzenle</h2>
 </div>
@@ -21,11 +24,13 @@
             <label class="validationmesage">@ViewBag.mesaj</label>
         }
 
-        <div class="row">
-            <label>Yorum</label>
-            @Html.TextAreaFor(x => x.YorumMetni, new { @class = "textbox", rows = 5 })
-            @Html.ValidationMessageFor(x => x.YorumMetni, "", new { @class = "validationmesage" })
-        </div>
+<div class="row">
+    <label>Yorum</label>
+    <br />
+    <br />
+    @Html.TextAreaFor(x => x.YorumMetni, new { @class = "textbox", rows = 5 })
+    @Html.ValidationMessageFor(x => x.YorumMetni, "", new { @class = "validationmesage" })
+</div>
 
         <div class="row">
             <button type="submit" class="formbutton">Güncelle</button>

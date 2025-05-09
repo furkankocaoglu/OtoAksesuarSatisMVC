@@ -7,7 +7,9 @@
 <div class="pagetitle">
     <h2>Yorumlarım</h2>
 </div>
-
+@section styles {
+    <link href="~/Areas/UyePanel/Assets/CSS/IndexYorum.css" rel="stylesheet" />
+}
 @if (TempData["mesaj"] != null)
 {
     <div class="alert alert-success">
@@ -30,7 +32,7 @@ else
                 <p>@item.Urun.UrunAdi - Yorum: @item.YorumMetni</p>
                 <p>Sipariş Tarihi: @item.YorumTarihi.ToString("dd/MM/yyyy")</p>
 
-                
+
                 <a href="@Url.Action("Edit", "Yorum", new { id = item.YorumID })" class="btn btn-warning">Yorumu Düzenle</a>
                 <a href="@Url.Action("Delete", "Yorum", new { id = item.YorumID })" class="btn btn-danger">Yorumu Sil</a>
             </div>

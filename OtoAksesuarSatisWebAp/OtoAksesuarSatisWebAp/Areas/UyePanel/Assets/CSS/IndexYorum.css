@@ -1,0 +1,93 @@
+﻿.pagetitle h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+.alert {
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #2e7d32;
+    color: #d0f8ce;
+}
+
+.alert-info {
+    background-color: #1565c0;
+    color: #e3f2fd;
+}
+
+
+.orderList {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.orderItem {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+    .orderItem p {
+        color: #e0e0e0;
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+        .orderItem p:first-child {
+            font-weight: bold;
+        }
+
+    .orderItem a {
+        margin-right: 10px;
+        text-decoration: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+
+    .orderItem .btn-warning {
+        background-color: #d81b60;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .orderItem .btn-warning:hover {
+            background-color: pink;
+        }
+
+
+    .orderItem .btn-danger {
+        background-color: #d81b60;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .orderItem .btn-danger:hover {
+            background-color: pink;
+        }
