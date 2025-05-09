@@ -3,6 +3,9 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
 }
+@section styles {
+    <link href="~/Assets/CSS/UrunDetay.css" rel="stylesheet" />
+}
 <div class="detailContainer">
     <div class="image">
         <img src="~/Assets/ProductImages/@Model.ResimYolu" />
@@ -14,8 +17,8 @@
             @Model.Kategori.KategoriAdi @Model.Marka.MarkaAdi
         </div>
         <div class="row priceRow">
-            @{ decimal fakeprice = Model.Fiyat + 500; }
-            <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
+            @{ decimal fakeprice = Model.Fiyat + 300; }
+            <label style="text-decoration:line-through"> @fakeprice ₺</label>
             <strong style="color: #7e0490"> @Model.Fiyat ₺</strong>
         </div>
 
@@ -36,5 +39,5 @@
         @Model.Aciklama
     </div>
 </div>
-<a href="#top">Yukarıya Çık</a>
+
 

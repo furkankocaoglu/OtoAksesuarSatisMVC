@@ -1,0 +1,120 @@
+﻿body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.detailContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image {
+    flex: 1;
+    max-width: 500px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+    .image img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+.detail {
+    flex: 2;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+    .detail h2 {
+        color: #ffca28;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+.row {
+    margin: 10px 0;
+}
+
+.priceRow {
+    margin-top: 15px;
+}
+
+    .priceRow label {
+        text-decoration: line-through;
+        color: #757575;
+        font-size: 1rem;
+    }
+
+    .priceRow strong {
+        font-size: 1.5rem;
+        color: #7e0490;
+    }
+
+.buyText {
+    width: 80px;
+    padding: 8px;
+    font-size: 1rem;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+    .buyText:focus {
+        outline: none;
+        border-color: #ffca28;
+    }
+
+.buyButton {
+    background-color: #1565c0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+    .buyButton:hover {
+        background-color: #0d47a1;
+    }
+
+.description {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+    .description h3 {
+        color: #ffca28;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+.descriptionContainer {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.clearfix {
+    clear: both;
+}

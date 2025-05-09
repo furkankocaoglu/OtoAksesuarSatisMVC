@@ -4,6 +4,9 @@
     ViewBag.Title = "Türkiyenin Oto Aksesuar Satış Sitesi";
     Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
 }
+@section styles {
+    <link href="~/Assets/CSS/AnaSayfaIndex.css" rel="stylesheet" />
+}
 @if (TempData["info"] != null)
 {
     <div class="validation-summary-success">
@@ -35,7 +38,7 @@
                 </div>
             </a>
             <div style="padding:5px 0px; text-align:center">
-                <a class="addcart" href="@Url.Action("Add", "Cart", new { id = item.UrunID })">Sepete Ekle</a>
+                <a class="addcart" href="@Url.Action("Add", "Sepet", new { id = item.UrunID })">Sepete Ekle</a>
                 <a href="@Url.Action("Add", "Favori", new { id = item.UrunID })">Favorilere Ekle</a>
             </div>
         </div>

@@ -5,7 +5,9 @@
     ViewBag.Title = "XML Favorilerim";
     Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
 }
-
+@section styles {
+    <link href="~/Assets/CSS/FavoriXML.css" rel="stylesheet" />
+}
 @if (TempData["info"] != null)
 {
     <div class="validation-summary-warning">
@@ -14,7 +16,7 @@
 }
 
 <div class="pageTitle">
-    <h3>XML Ürün Favorilerim</h3>
+    <h3>V.I.P Ürün Favorilerim</h3>
 </div>
 
 <table class="tablo" cellpadding="0" cellspacing="0">

@@ -21,6 +21,7 @@ namespace OtoAksesuarSatisWebAp.Models
         public DbSet<Siparis> Siparisler { get; set; }
         public DbSet<Yorum> Yorumlar { get; set; }
         public DbSet<XMLUrun> XMLUrunler { get; set; }
+        public DbSet<Sepet> Sepetler { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

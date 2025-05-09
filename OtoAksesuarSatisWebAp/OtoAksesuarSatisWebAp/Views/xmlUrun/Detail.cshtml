@@ -4,10 +4,10 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
 
-    
+
     string fiyatSeviyesi = "Bronz";
 
-    
+
     var yonetici = Session["YoneticiSession"] as Yonetici;
     if (yonetici != null)
     {
@@ -15,8 +15,8 @@
     }
     else
     {
-        
-        fiyatSeviyesi = "Bronz"; 
+
+        fiyatSeviyesi = "Bronz";
     }
 
 
@@ -33,18 +33,21 @@
             fiyat = Model.GoldFiyat;
             break;
         default:
-            
+
             fiyat = Model.BronzFiyat;
             break;
     }
 
-    
+
     decimal fakeprice = fiyat + 500;
+}
+@section styles {
+    <link href="~/Assets/CSS/DetailXML.css" rel="stylesheet" />
 }
 
 <div class="detailContainer">
     <div class="image">
-        
+
         <img src="~/Assets/ProductImages/@Model.Resim" alt="@Model.UrunAdi" />
     </div>
     <div class="detail">
@@ -54,12 +57,12 @@
             @Model.Kategori
         </div>
         <div class="row priceRow">
-            
+
             <label style="text-decoration:line-through"> @fakeprice ₺</label>&nbsp;&nbsp;&nbsp;
             <strong style="color: #7e0490"> @fiyat ₺</strong>
         </div>
 
-        
+
         @using (Html.BeginForm("DetailAdd", "Cart", FormMethod.Post, new { id = Model.XmlUrunID }))
         {
             <div class="row">
@@ -79,7 +82,7 @@
     </div>
 </div>
 
-<a href="#top">Yukarıya Çık</a>
+
 
 
 

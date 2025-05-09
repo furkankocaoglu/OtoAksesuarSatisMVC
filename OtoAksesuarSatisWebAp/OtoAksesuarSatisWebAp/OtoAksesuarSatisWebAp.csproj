@@ -106,6 +106,17 @@
     <Content Include="Areas\YoneticiPanel\Assets\CSS\YoneticiLayout.css" />
     <Content Include="Areas\YoneticiPanel\Assets\Images\Ekran Alıntısı.PNG" />
     <Content Include="Areas\YoneticiPanel\Assets\Images\KS4fSTQC7T.gif" />
+    <Content Include="Assets\CSS\AnaSayfaIndex.css" />
+    <Content Include="Assets\CSS\AnasayfaLayout.css" />
+    <Content Include="Assets\CSS\DetailXML.css" />
+    <Content Include="Assets\CSS\FavoriIndex.css" />
+    <Content Include="Assets\CSS\FavoriXML.css" />
+    <Content Include="Assets\CSS\GetCategories.css" />
+    <Content Include="Assets\CSS\IndexXML.css" />
+    <Content Include="Assets\CSS\KategoriUrunler.css" />
+    <Content Include="Assets\CSS\UrunDetay.css" />
+    <Content Include="Assets\CSS\UyeLogin.css" />
+    <Content Include="Assets\CSS\UyeRegister.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -134,6 +145,8 @@
     <Compile Include="Controllers\FavoriController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\OdemeController.cs" />
+    <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Controllers\xmlUrunController.cs" />
     <Compile Include="Filters\UyeLoginRequiredFilterAttribute.cs" />
@@ -153,6 +166,7 @@
     <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Marka.cs" />
     <Compile Include="Models\OtoAksesuarSatisDB.cs" />
+    <Compile Include="Models\Sepet.cs" />
     <Compile Include="Models\Siparis.cs" />
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\Uye.cs" />
@@ -209,6 +223,8 @@
     <Content Include="Views\Kategori\GetCategories.cshtml" />
     <Content Include="Views\Kategori\Urunler.cshtml" />
     <Content Include="Views\Favori\XmlFavoriler.cshtml" />
+    <Content Include="Views\Sepet\Index.cshtml" />
+    <Content Include="Views\AnaSayfa\_GetCartCount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -219,9 +235,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\UyePanel\Views\Shared\" />
-    <Folder Include="Assets\CSS\" />
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
+    <Folder Include="Views\Odeme\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">

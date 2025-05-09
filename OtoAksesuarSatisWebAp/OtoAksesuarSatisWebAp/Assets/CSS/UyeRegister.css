@@ -1,0 +1,80 @@
+﻿body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+h2 {
+    color: #ffca28;
+    margin-bottom: 10px;
+}
+
+.row {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.formTextbox {
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+    .formTextbox::placeholder {
+        color: #aaa;
+    }
+
+.loginButton {
+    background-color: #1565c0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .loginButton:hover {
+        background-color: #0d47a1;
+    }
+
+.validation-summary-success {
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.validation-summary-errors {
+    background-color: #c62828;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.validationmesage {
+    color: #ef5350;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+}

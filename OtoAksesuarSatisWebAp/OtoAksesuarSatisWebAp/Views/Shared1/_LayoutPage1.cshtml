@@ -11,21 +11,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title> Oto Aksesuar Satış Platformu @ViewBag.Title</title>
+    <title> OtoAksesuar.com @ViewBag.Title</title>
+    <link href="~/Assets/CSS/AnasayfaLayout.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
 <body>
     <div>
         <h3>
-            <a href="@Url.Action("Index", "AnaSayfa")" style="text-decoration:none; color:blue;">
-                OTO AKSESUAR SATIŞ PLATFORMU
+            <a href="@Url.Action("Index", "AnaSayfa")" class="logo-link">
+                OtoAksesuar.com
             </a>
-          
         </h3>
 
-        <a href="#" style="color:darkblue">
+        <a href="#" style="color:hotpink">
             @u.Isim
         </a>
+        @if (Session["uye"] != null)
+        {
+            <a href="@Url.Action("LogOut","Uye")" class="logout-link">Çıkış Yap</a>
+        }
         <br />
         <br />
     </div>
@@ -34,10 +38,9 @@
         {
             <div class="topbarRight">
                 <div>
-                    <a href="@Url.Action("Index", "xmlUrun")">TOPTANCI ÜRÜNLERİ</a>
-                    <a href="@Url.Action("LogOut","Uye")">Çıkış Yap</a>
+                    <a href="@Url.Action("Index", "xmlUrun")"> V.I.P Ürünler</a>
+                    <a href="@Url.Action("XmlFavoriler", "Favori")">V.I.P Ürün Favorilerim</a>
                     <a href="@Url.Action("Index","Favori")">Favoriler</a>
-                    <a href="@Url.Action("XmlFavoriler", "Favori")">XML Favorilerim</a>
                     <a href="~/UyePanel/AnaSayfa/Index">Hesabım</a>
                 </div>
                 <div class="clearfix"></div>
@@ -48,7 +51,7 @@
     <div class="topbarRight">
         <a href="@Url.Action("Login","Uye")">Hoşgeldiniz, Giriş Yap</a>
         <a href="@Url.Action("Register","Uye")">Üye Ol</a>
-        <a href="@Url.Action("Index","xmlUrun")">TOPTANCI ÜRÜNLERİ</a>
+        <a href="@Url.Action("Index","xmlUrun")">V.I.P Ürünler</a>
     </div>
         }
     </div>

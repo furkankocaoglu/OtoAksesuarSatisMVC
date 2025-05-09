@@ -1,0 +1,186 @@
+﻿@using OtoAksesuarSatisWebAp.Models;
+@model IEnumerable<Sepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+    decimal allTotal = 0;
+    string fiyatSeviyesi = "Bronz"; 
+    var yonetici = Session["YoneticiSession"] as Yonetici;
+    if (yonetici != null)
+    {
+        fiyatSeviyesi = yonetici.YoneticiIsim;
+    }
+
+    
+    foreach (Sepet item in Model)
+    {
+        decimal fiyat = 0;
+
+       
+        if (item.Urun != null)
+        {
+            fiyat = item.XMLUrun.BronzFiyat; 
+        }
+       
+        else if (item.XMLUrun != null)
+        {
+            switch (fiyatSeviyesi.ToLower())
+            {
+                case "bronz":
+                    fiyat = item.XMLUrun.BronzFiyat;
+                    break;
+                case "silver":
+                    fiyat = item.XMLUrun.SilverFiyat;
+                    break;
+                case "gold":
+                    fiyat = item.XMLUrun.GoldFiyat;
+                    break;
+                default:
+                    fiyat = item.XMLUrun.BronzFiyat;
+                    break;
+            }
+        }
+
+        
+        decimal fakeprice = fiyat + 500;
+
+        allTotal += item.Adet * fiyat;  
+    }
+}
+@if (TempData["info"] != null)
+{
+    <div class="validation-summary-warning">
+        @TempData["info"]
+        @{
+            TempData["info"] = null;
+        }
+    </div>
+}
+<div class="pageTitle">
+    <h3>Sepetim</h3>
+</div>
+<table class="tablo" cellpadding="0" cellspacing="0">
+    @foreach (Sepet item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.XMLUrun != null)
+                {
+                    <img src="~/Assets/ProductImages/@item.XMLUrun.Resim" width="56" />
+                }
+            </td>
+            <td>
+                @if (item.XMLUrun != null)
+                {
+                    <a href="@Url.Action("Detail","DetayUrun", new {id=item.XmlUrunID})" style="text-decoration:none; color:#7e0490; font-size:13pt">@item.XMLUrun.UrunAdi</a>
+                }
+            </td>
+            <td>
+                @{
+                    decimal fakeprice = 0;
+                    decimal productPrice = 0;
+
+                    
+                    if (item.XMLUrun != null)
+                    {
+                        switch (fiyatSeviyesi.ToLower())
+                        {
+                            case "bronz":
+                                productPrice = item.XMLUrun.BronzFiyat;
+                                fakeprice = productPrice + 500;
+                                break;
+                            case "silver":
+                                productPrice = item.XMLUrun.SilverFiyat;
+                                fakeprice = productPrice + 500;
+                                break;
+                            case "gold":
+                                productPrice = item.XMLUrun.GoldFiyat;
+                                fakeprice = productPrice + 500;
+                                break;
+                            default:
+                                productPrice = item.XMLUrun.BronzFiyat;
+                                fakeprice = productPrice + 500;
+                                break;
+                        }
+                    }
+                }
+                <label style="text-decoration:line-through"> @fakeprice ₺</label>
+                <strong style="color: #7e0490"> @productPrice ₺</strong>
+            </td>
+            <td>
+                <a href="@Url.Action("Decrease","Sepet", new {id = item.ID})" class="decreasebutton">-</a><label class="quantity">@item.Adet</label><a href="@Url.Action("Increase","Sepet", new {id = item.ID})" class="increasebutton">+</a>
+            </td>
+            <td>
+                @{
+                    decimal total = 0;
+
+                    
+                    if (item.XMLUrun != null)
+                    {
+                        switch (fiyatSeviyesi.ToLower())
+                        {
+                            case "bronz":
+                                total = item.XMLUrun.BronzFiyat * item.Adet;
+                                break;
+                            case "silver":
+                                total = item.XMLUrun.SilverFiyat * item.Adet;
+                                break;
+                            case "gold":
+                                total = item.XMLUrun.GoldFiyat * item.Adet;
+                                break;
+                            default:
+                                total = item.XMLUrun.BronzFiyat * item.Adet;
+                                break;
+                        }
+                    }
+                }
+                <strong>@total ₺</strong>
+            </td>
+            <td>
+                <a href="@Url.Action("Remove","Sepet", new {id = item.ID})" class="deletebutton">X</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="3" style="border:none"></td>
+        <td colspan="3" style="border:none">
+            <table width="100%" cellpadding="0" cellspacing="0" class="totalTable">
+                <tr>
+                    <th>
+                        <label>Ara Toplam</label>
+                    </th>
+                    <th align="center">
+                        @{
+                            decimal tax = allTotal * Convert.ToDecimal(0.80);
+                        }
+                        <label>@tax ₺</label>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Vergi % 20 </label>
+                    </th>
+                    <th align="center">
+                        @{
+                            decimal tax1 = allTotal * Convert.ToDecimal(0.20);
+                        }
+                        <label>@tax1 ₺</label>
+                    </th>
+                </tr>
+                <tr class="total">
+                    <th>
+                        <strong>Toplam </strong>
+                    </th>
+                    <th align="center">
+                        <strong>@allTotal ₺</strong>
+                    </th>
+                </tr>
+                <tr class="last">
+                    <td colspan="2" align="center">
+                        <a href="@Url.Action("Payment","Odeme")" class="gotobuy">Ödemeye Geç</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

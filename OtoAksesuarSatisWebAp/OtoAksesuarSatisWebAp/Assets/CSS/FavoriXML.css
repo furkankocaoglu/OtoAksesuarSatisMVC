@@ -1,0 +1,80 @@
+﻿body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.validation-summary-warning {
+    background-color: #ffa000;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 900px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pageTitle h3 {
+    text-align: center;
+    color: #ffca28;
+    font-size: 1.6rem;
+    margin: 30px 0 20px;
+}
+
+.tablo {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .tablo tr {
+        border-bottom: 1px solid #333;
+    }
+
+    .tablo td {
+        padding: 12px 15px;
+        vertical-align: middle;
+        color: #e0e0e0;
+    }
+
+    .tablo img {
+        width: 56px;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+
+    .tablo a {
+        color: #90caf9;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        .tablo a:hover {
+            text-decoration: underline;
+            color: #bbdefb;
+        }
+
+@media (max-width: 768px) {
+    .tablo, .tablo tr, .tablo td {
+        display: block;
+        width: 100%;
+    }
+
+        .tablo td {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+            .tablo td img {
+                margin-bottom: 10px;
+            }
+}
