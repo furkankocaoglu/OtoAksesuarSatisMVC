@@ -1,0 +1,118 @@
+﻿@model OtoAksesuarSatisWebAp.Models.ViewModels.OdemeViewModel
+@using OtoAksesuarSatisWebAp.Models
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+    decimal allTotal = 0;
+
+    
+    var sepet = ViewBag.sepet as List<Sepet>;
+
+    if (sepet != null)
+    {
+        
+        foreach (Sepet item in sepet)
+        {
+            if (item.Urun != null)
+            {
+                allTotal += item.Adet * item.Urun.Fiyat;
+            }
+        }
+    }
+}
+@section styles {
+    <link href="~/Assets/CSS/Odeme.css" rel="stylesheet" />
+}
+<div class="paymentcontainer">
+    <div class="title">
+        <h2>Ödeme Yap</h2>
+    </div>
+
+    <div class="content">
+        <div>
+            @if (ViewBag.hata != null)
+            {
+                <label style="color:orangered">
+                    @ViewBag.hata
+                </label>
+            }
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="form">
+                <div class="row">
+                    <label>Kart Üzerindeki</label>
+                    @Html.EditorFor(x => x.IsimSoyisim, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "Adınız Soyadınız" } })
+                    @Html.ValidationMessageFor(x => x.IsimSoyisim, "", new { @class = "validationmesage" })
+                </div>
+                <div class="row">
+                    <label>Kart Numarası</label>
+                    @Html.EditorFor(x => x.KartNumarasi, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "_ _ _ _   _ _ _ _   _ _ _ _   _ _ _ _" } })
+                    @Html.ValidationMessageFor(x => x.KartNumarasi, "", new { @class = "validationmesage" })
+                </div>
+                <div class="row">
+                    <div class="half">
+                        <label>Ay</label>
+                        @Html.EditorFor(x => x.Ay, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "12" } })
+                        @Html.ValidationMessageFor(x => x.Ay, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="half">
+                        <label>Yıl</label>
+                        @Html.EditorFor(x => x.Yıl, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = DateTime.Now.Year.ToString() } })
+                        @Html.ValidationMessageFor(x => x.Yıl, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="half">
+                        <label>CVV</label>
+                        @Html.EditorFor(x => x.Cvv, "", new { htmlAttributes = new { @class = "formTextbox", @placeholder = "_ _ _" } })
+                        @Html.ValidationMessageFor(x => x.Cvv, "", new { @class = "validationmesage" })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="info">
+                <table width="100%" cellpadding="0" cellspacing="0" class="totalTable">
+                    <tr>
+                        <th>
+                            <label>Ara Toplam</label>
+                        </th>
+                        <th align="center">
+                            @{
+                                decimal tax = allTotal * Convert.ToDecimal(0.80);
+                            }
+                            <label>@tax ₺</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label>Vergi % 20 </label>
+                        </th>
+                        <th align="center">
+                            @{
+                                decimal tax1 = allTotal * Convert.ToDecimal(0.20);
+                            }
+                            <label>@tax1 ₺</label>
+                        </th>
+                    </tr>
+                    <tr class="total">
+                        <th>
+                            <strong>Toplam </strong>
+                        </th>
+                        <th align="center">
+                            <strong>@allTotal ₺</strong>
+                        </th>
+                    </tr>
+                    <tr class="last">
+                        <td colspan="2" align="center">
+                            <input type="submit" class="gotobuy" value="Ödeme Yap" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        }
+    </div>
+</div>
+
+
+

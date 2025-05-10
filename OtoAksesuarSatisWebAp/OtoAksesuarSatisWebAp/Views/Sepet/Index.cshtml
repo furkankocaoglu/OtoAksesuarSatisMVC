@@ -17,7 +17,6 @@
     {
         decimal fiyat = 0;
 
-
         if (item.XMLUrun != null)
         {
             switch (fiyatSeviyesi.ToLower())
@@ -36,10 +35,8 @@
                     break;
             }
         }
-
         else if (item.Urun != null)
         {
-
             fiyat = item.Urun.Fiyat;
         }
 
@@ -59,9 +56,11 @@
         }
     </div>
 }
+
 <div class="pageTitle">
     <h3>Sepetim</h3>
 </div>
+
 <table class="tablo" cellpadding="0" cellspacing="0">
     @foreach (Sepet item in Model)
     {
@@ -93,7 +92,6 @@
                     decimal fakeprice = 0;
                     decimal productPrice = 0;
 
-
                     if (item.XMLUrun != null)
                     {
                         switch (fiyatSeviyesi.ToLower())
@@ -116,10 +114,8 @@
                                 break;
                         }
                     }
-
                     else if (item.Urun != null)
                     {
-
                         productPrice = item.Urun.Fiyat;
                         fakeprice = productPrice + 500;
                     }
@@ -137,7 +133,6 @@
             <td>
                 @{
                     decimal total = 0;
-
 
                     if (item.XMLUrun != null)
                     {
@@ -157,10 +152,8 @@
                                 break;
                         }
                     }
-
                     else if (item.Urun != null)
                     {
-
                         total = item.Urun.Fiyat * item.Adet;
                     }
                 }
@@ -209,7 +202,25 @@
                 </tr>
                 <tr class="last">
                     <td colspan="2" align="center">
-                        <a href="@Url.Action("Payment", "Odeme")" class="gotobuy">Ödemeye Geç</a>
+                        <br />
+                        @if (Model.Any(item => item.XMLUrun != null) && Model.Any(item => item.Urun != null))
+                        {
+                            <a href="@Url.Action("Payment", "Odeme")" class="gotobuy">Ödemeye Geç (Normal Ürünler)</a>
+                            <br />
+                            <br />
+                            <br />
+                            <a href="@Url.Action("PaymentXML", "Odeme")" class="gotobuy">Ödemeye Geç (VIP Ürünler)</a>
+                        }
+                        else if (Model.Any(item => item.XMLUrun != null))
+                        {
+                            <a href="@Url.Action("PaymentXML", "Odeme")" class="gotobuy">Ödemeye Geç (VIP Ürünler)</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Payment", "Odeme")" class="gotobuy">Ödemeye Geç (Normal Ürünler)</a>
+                        }
+                        <br />
+                        <br />
                     </td>
                 </tr>
             </table>

@@ -22,5 +22,7 @@ namespace OtoAksesuarSatisWebAp.Models.ViewModels
 
         [Required(ErrorMessage = "Bu alan zorunlu")]
         public string Cvv { get; set; }
+
+        public decimal Bakiye { get; set; }
     }
 }

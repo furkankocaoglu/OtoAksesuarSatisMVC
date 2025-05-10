@@ -1,0 +1,158 @@
+﻿@model OtoAksesuarSatisWebAp.Models.ViewModels.OdemeViewModel
+@using OtoAksesuarSatisWebAp.Models
+@{
+    ViewBag.Title = "PaymentXML";
+    Layout = "~/Views/Shared1/_LayoutPage1.cshtml";
+
+    decimal allTotal = 0;
+
+    
+    if (ViewBag.sepet != null && ViewBag.sepet is List<OtoAksesuarSatisWebAp.Models.Sepet>)
+    {
+        var sepet = ViewBag.sepet as List<OtoAksesuarSatisWebAp.Models.Sepet>;
+
+
+        foreach (var item in sepet)
+        {
+            if (item.XMLUrun != null)
+            {
+                decimal urunFiyati = 0;
+                string itemFiyatSeviyesi = "Bronz";
+
+
+                var yonetici = Session["YoneticiSession"] as OtoAksesuarSatisWebAp.Models.Yonetici;
+                if (yonetici != null)
+                {
+                    itemFiyatSeviyesi = yonetici.YoneticiIsim;
+                }
+
+
+                if (itemFiyatSeviyesi.ToLower() == "bronz")
+                {
+                    urunFiyati = item.XMLUrun.BronzFiyat;
+                }
+                else if (itemFiyatSeviyesi.ToLower() == "silver")
+                {
+                    urunFiyati = item.XMLUrun.SilverFiyat;
+                }
+                else if (itemFiyatSeviyesi.ToLower() == "gold")
+                {
+                    urunFiyati = item.XMLUrun.GoldFiyat;
+                }
+                else
+                {
+                    urunFiyati = item.XMLUrun.BronzFiyat;
+                }
+
+
+                allTotal += urunFiyati * item.Adet;
+            }
+        }
+    }
+
+
+    ViewBag.Total = allTotal;
+
+}
+@section styles {
+    <link href="~/Assets/CSS/OdemeXML.css" rel="stylesheet" />
+}
+@if (ViewBag.hata != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.hata
+    </div>
+}
+
+@if (ViewBag.sepet == null || !(ViewBag.sepet is List<OtoAksesuarSatisWebAp.Models.Sepet>) || !((List<OtoAksesuarSatisWebAp.Models.Sepet>)ViewBag.sepet).Any())
+{
+    <div>Sepetinizde ürün bulunmamaktadır.</div>
+}
+else
+{
+    <div class="sepet-detay">
+        <h3>Sepetiniz</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>Adet</th>
+                    <th>Toplam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.sepet as List<OtoAksesuarSatisWebAp.Models.Sepet>)
+                {
+                    if (item.XMLUrun != null)
+                    {
+                        decimal urunFiyati = 0;
+                        string itemFiyatSeviyesi = "Bronz"; 
+
+                        
+                        var yonetici = Session["YoneticiSession"] as OtoAksesuarSatisWebAp.Models.Yonetici;
+                        if (yonetici != null)
+                        {
+                            itemFiyatSeviyesi = yonetici.YoneticiIsim;
+                        }
+
+                       
+                        if (itemFiyatSeviyesi.ToLower() == "bronz")
+                        {
+                            urunFiyati = item.XMLUrun.BronzFiyat;
+                        }
+                        else if (itemFiyatSeviyesi.ToLower() == "silver")
+                        {
+                            urunFiyati = item.XMLUrun.SilverFiyat;
+                        }
+                        else if (itemFiyatSeviyesi.ToLower() == "gold")
+                        {
+                            urunFiyati = item.XMLUrun.GoldFiyat;
+                        }
+                        else
+                        {
+                            urunFiyati = item.XMLUrun.BronzFiyat;
+                        }
+
+                        <tr>
+                            <td>@item.XMLUrun.UrunAdi</td>
+                            <td>@urunFiyati ₺</td>
+                            <td>@item.Adet</td>
+                            <td>@(urunFiyati * item.Adet) ₺</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <hr />
+        <h4>Toplam: @ViewBag.Total ₺</h4>
+    </div>
+}
+
+<h3>Ödeme Bilgileri</h3>
+<form action="@Url.Action("PaymentXML", "Odeme")" method="post">
+    <div class="form-group">
+        <label for="KartNumarasi">Kart Numarası:</label>
+        <input type="text" class="form-control" id="KartNumarasi" name="KartNumarasi" placeholder="Kart Numarası" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Ay">Son Kullanma Ayı:</label>
+        <input type="number" class="form-control" id="Ay" name="Ay" min="1" max="12" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Yıl">Son Kullanma Yılı:</label>
+        <input type="number" class="form-control" id="Yıl" name="Yıl" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Cvv">CVV:</label>
+        <input type="text" class="form-control" id="Cvv" name="Cvv" placeholder="CVV" required />
+    </div>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Ödemeyi Tamamla</button>
+</form>
