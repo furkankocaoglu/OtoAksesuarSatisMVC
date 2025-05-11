@@ -49,18 +49,17 @@
         <div class="productContainer">
             <a href="@Url.Action("Detail", "xmlUrun", new { id = urun.XmlUrunID })" style="color:inherit; text-decoration:none;">
                 <div class="productImage">
-
-                    <img src="~/Assets/ProductImages/@urun.Resim" style="width:20%" alt="Ürün Resmi" />
+                    <img src="@Url.Content(string.IsNullOrWhiteSpace(urun.Resim) ? "~/Images/resim_yok.jpg" : urun.Resim)" width="100" alt="@urun.UrunAdi" />
                 </div>
                 <div>
-                    <h3><strong>@urun.Marka</strong> @urun.UrunAdi</h3>
+                    <h3><strong>@urun.UrunAdi</strong>&nbsp;@urun.Marka</h3>
                     <hr />
                     <div style="padding:10px 0;">
-                        @urun.Kategori - @urun.Marka
+                        @urun.Kategori
                     </div>
                     <div style="padding:10px 0;">
                         @{
-                            decimal fakeprice = fiyat + 500;
+                            decimal fakeprice = fiyat + 200;
                         }
                         <label style="text-decoration:line-through">@fakeprice ₺</label>
                         <strong>@fiyat ₺</strong>

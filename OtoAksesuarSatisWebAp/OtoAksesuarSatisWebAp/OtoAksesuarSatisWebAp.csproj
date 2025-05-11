@@ -289,7 +289,7 @@
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
     <Folder Include="Images\" />
-    <Folder Include="Views\PayTest\" />
+    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">

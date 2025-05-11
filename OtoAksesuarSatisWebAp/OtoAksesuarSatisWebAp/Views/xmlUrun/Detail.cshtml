@@ -39,7 +39,7 @@
     }
 
 
-    decimal fakeprice = fiyat + 500;
+    decimal fakeprice = fiyat + 200;
 }
 @section styles {
     <link href="~/Assets/CSS/DetailXML.css" rel="stylesheet" />
@@ -47,8 +47,7 @@
 
 <div class="detailContainer">
     <div class="image">
-
-        <img src="~/Assets/ProductImages/@Model.Resim" alt="@Model.UrunAdi" />
+        <img src="@Url.Content(string.IsNullOrWhiteSpace(Model.Resim) ? "~/Images/resim_yok.jpg" : Model.Resim)" alt="@Model.UrunAdi" width="300" />
     </div>
     <div class="detail">
         <h2>@Model.Marka - @Model.UrunAdi</h2>

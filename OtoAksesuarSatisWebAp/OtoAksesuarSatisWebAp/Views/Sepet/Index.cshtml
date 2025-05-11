@@ -68,7 +68,7 @@
             <td>
                 @if (item.XMLUrun != null)
                 {
-                    <img src="~/Assets/ProductImages/@item.XMLUrun.Resim" width="56" />
+                    <img src="@Url.Content(string.IsNullOrWhiteSpace(item.XMLUrun.Resim) ? "~/Images/resim_yok.jpg" : item.XMLUrun.Resim)" width="56" />
                 }
                 else if (item.Urun != null)
                 {
@@ -170,28 +170,6 @@
         <td colspan="3" style="border:none"></td>
         <td colspan="3" style="border:none">
             <table width="100%" cellpadding="0" cellspacing="0" class="totalTable">
-                <tr>
-                    <th>
-                        <label>Ara Toplam</label>
-                    </th>
-                    <th align="center">
-                        @{
-                            decimal tax = allTotal * Convert.ToDecimal(0.80);
-                        }
-                        <label>@tax ₺</label>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Vergi % 20</label>
-                    </th>
-                    <th align="center">
-                        @{
-                            decimal tax1 = allTotal * Convert.ToDecimal(0.20);
-                        }
-                        <label>@tax1 ₺</label>
-                    </th>
-                </tr>
                 <tr class="total">
                     <th>
                         <strong>Toplam </strong>

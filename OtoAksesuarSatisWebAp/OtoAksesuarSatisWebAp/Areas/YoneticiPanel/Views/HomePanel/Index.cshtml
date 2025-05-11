@@ -46,7 +46,7 @@
                 <td>@urun.Stok</td>
                 <td>@urun.Aciklama</td>
                 <td>
-                    <img src="~/Assets/Images/@urun.Resim" width="100" />
+                    <img src="@Url.Content(string.IsNullOrWhiteSpace(urun.Resim) ? "~/Images/resim_yok.jpg" : urun.Resim)" width="100" alt="@urun.UrunAdi" />
                 </td>
             </tr>
         }

@@ -96,8 +96,14 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                         if (mevcut != null)
                         {
                             bool degisti = false;
+                           
+                            if (mevcut.UrunAdi != urun.UrunAdi)
+                            {
+                                mevcut.UrunAdi = urun.UrunAdi;
+                                degisti = true;
+                            }
 
-                            
+
                             if (mevcut.BronzFiyat != urun.BronzFiyat) { mevcut.BronzFiyat = urun.BronzFiyat; degisti = true; }
                             if (mevcut.SilverFiyat != urun.SilverFiyat) { mevcut.SilverFiyat = urun.SilverFiyat; degisti = true; }
                             if (mevcut.GoldFiyat != urun.GoldFiyat) { mevcut.GoldFiyat = urun.GoldFiyat; degisti = true; }
