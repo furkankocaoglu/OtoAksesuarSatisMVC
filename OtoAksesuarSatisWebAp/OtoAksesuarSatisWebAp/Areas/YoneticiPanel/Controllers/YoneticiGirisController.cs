@@ -116,7 +116,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                             if (degisti && !string.IsNullOrEmpty(urun.Resim) && urun.Resim != "resim_yok.jpg")
                             {
                               
-                                string kaynakYolu = Path.Combine(@"C:\Images", Path.GetFileName(urun.Resim));
+                                string kaynakYolu = Path.Combine(@"C:\Imagess", Path.GetFileName(urun.Resim));
 
                              
                                 string hedefKlasor = Server.MapPath("~/Images/");

@@ -63,19 +63,3 @@ nav {
             border-radius: 4px;
         }
 
-
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-        nav a {
-            margin: 5px 0;
-        }
-
-    .user-info {
-        text-align: left;
-        margin-top: 10px;
-    }
-}

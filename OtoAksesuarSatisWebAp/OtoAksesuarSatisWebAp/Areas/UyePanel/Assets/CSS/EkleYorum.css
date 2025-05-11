@@ -8,7 +8,7 @@
 
 
 .formContainer {
-    width: 80%;
+    width: 40%;
     margin: 30px auto;
     background-color: #333;
     padding: 20px;
@@ -28,7 +28,7 @@
     }
 
 .textbox {
-    width: 100%;
+    width: 96%;
     padding: 10px;
     background-color: #444;
     color: #e0e0e0;
@@ -36,6 +36,7 @@
     border-radius: 4px;
     font-size: 14px;
     transition: border 0.3s ease;
+   
 }
 
   
@@ -59,7 +60,7 @@
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
     transition: background-color 0.3s, color 0.3s;
 }
 

@@ -158,33 +158,3 @@ tr:hover {
 }
 
 
-@media (max-width: 768px) {
-   
-    .formContainer {
-        padding: 20px;
-        margin: 0 10px;
-    }
-
-
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-
-    
-    th, td {
-        padding: 10px;
-        font-size: 12px;
-    }
-
-    
-    .formbutton {
-        width: 100%;
-    }
-
-    
-    .editbutton, .deletebutton {
-        width: 100%;
-        margin-bottom: 8px;
-    }
-}

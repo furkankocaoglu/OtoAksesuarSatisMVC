@@ -11,6 +11,12 @@
 <div class="pageTitle">
     <h2>XML Gelen Ürün Bilgileri</h2>
 </div>
+@if (TempData["Mesaj"] != null)
+{
+    <div class="bilgiMesaji">
+        @TempData["Mesaj"]
+    </div>
+}
 
 @if (ViewBag.Urunler != null && ViewBag.Urunler is List<OtoAksesuarSatisWebAp.Models.XMLUrun>)
 {
@@ -21,7 +27,6 @@
             <th>@fiyatSeviyesi Fiyat</th>
             <th>Stok</th>
             <th>Açıklama</th>
-            <th>Resim</th>
         </tr>
         @foreach (var urun in urunler)
         {
@@ -45,9 +50,6 @@
                 <td>@fiyat.ToString("C2")</td>
                 <td>@urun.Stok</td>
                 <td>@urun.Aciklama</td>
-                <td>
-                    <img src="@Url.Content(string.IsNullOrWhiteSpace(urun.Resim) ? "~/Images/resim_yok.jpg" : urun.Resim)" width="100" alt="@urun.UrunAdi" />
-                </td>
             </tr>
         }
     </table>
@@ -58,10 +60,6 @@ else
         @ViewBag.Urunler
     </div>
 }
+<br />
+<a href="#top" style="color: white; text-decoration:none">Yukarıya Çık </a>
 
-@if (TempData["Mesaj"] != null)
-{
-    <div class="bilgiMesaji">
-        @TempData["Mesaj"]
-    </div>
-}

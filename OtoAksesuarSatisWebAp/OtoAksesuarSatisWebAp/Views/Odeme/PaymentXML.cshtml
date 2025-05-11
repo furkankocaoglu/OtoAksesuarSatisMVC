@@ -132,22 +132,22 @@ else
 
 <h3>Ödeme Bilgileri</h3>
 <form action="@Url.Action("PaymentXML", "Odeme")" method="post">
-    <div class="form-group">
+    <div class="half">
         <label for="KartNumarasi">Kart Numarası:</label>
         <input type="text" class="form-control" id="KartNumarasi" name="KartNumarasi" placeholder="Kart Numarası" required />
     </div>
 
-    <div class="form-group">
+    <div class="half">
         <label for="Ay">Son Kullanma Ayı:</label>
         <input type="number" class="form-control" id="Ay" name="Ay" min="1" max="12" required />
     </div>
 
-    <div class="form-group">
+    <div class="half">
         <label for="Yıl">Son Kullanma Yılı:</label>
         <input type="number" class="form-control" id="Yıl" name="Yıl" required />
     </div>
 
-    <div class="form-group">
+    <div class="half">
         <label for="Cvv">CVV:</label>
         <input type="text" class="form-control" id="Cvv" name="Cvv" placeholder="CVV" required />
     </div>

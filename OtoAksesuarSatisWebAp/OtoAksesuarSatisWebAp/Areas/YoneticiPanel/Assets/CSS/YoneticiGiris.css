@@ -83,13 +83,3 @@ body {
             margin: 5px 0;
         }
 
-@media (max-width: 480px) {
-    .container {
-        margin: 20px;
-        padding: 20px;
-    }
-
-    .loginButton {
-        font-size: 14px;
-    }
-}

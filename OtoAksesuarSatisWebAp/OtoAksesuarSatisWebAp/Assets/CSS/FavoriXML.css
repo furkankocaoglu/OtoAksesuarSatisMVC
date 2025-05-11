@@ -63,18 +63,3 @@
             color: #bbdefb;
         }
 
-@media (max-width: 768px) {
-    .tablo, .tablo tr, .tablo td {
-        display: block;
-        width: 100%;
-    }
-
-        .tablo td {
-            padding: 10px;
-            border-bottom: 1px solid #444;
-        }
-
-            .tablo td img {
-                margin-bottom: 10px;
-            }
-}

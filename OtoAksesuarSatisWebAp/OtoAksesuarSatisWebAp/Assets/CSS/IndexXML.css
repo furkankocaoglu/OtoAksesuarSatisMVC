@@ -103,21 +103,3 @@ a {
     text-align: center;
     font-size: 1rem;
 }
-
-@media (max-width: 768px) {
-    .productList {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    .productContainer {
-        padding: 10px;
-    }
-
-        .productContainer div strong {
-            font-size: 1rem;
-        }
-}

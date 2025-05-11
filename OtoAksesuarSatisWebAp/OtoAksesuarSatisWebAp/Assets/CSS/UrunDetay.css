@@ -125,17 +125,3 @@ a[href="#top"] {
         text-decoration: underline;
     }
 
-@media (max-width: 768px) {
-    .detailContainer {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .image, .detail {
-        padding: 10px;
-    }
-
-        .detail h2 {
-            font-size: 1.4rem;
-        }
-}

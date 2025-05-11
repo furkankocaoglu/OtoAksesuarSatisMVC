@@ -79,8 +79,9 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 {
                     if (!u.Silinmis)
                     {
-                        ViewBag.Kategori_ID = new SelectList(db.Kategoriler.Where(x => !x.Silinmis), "KategoriID", "KategoriAdi");
-                        ViewBag.Marka_ID = new SelectList(db.Markalar.Where(x => !x.Silinmis), "MarkaID", "MarkaAdi");
+                       
+                        ViewBag.Kategori_ID = new SelectList(db.Kategoriler.Where(x => !x.Silinmis), "KategoriID", "KategoriAdi", u.KategoriID); 
+                        ViewBag.Marka_ID = new SelectList(db.Markalar.Where(x => !x.Silinmis), "MarkaID", "MarkaAdi", u.MarkaID); 
                         return View(u);
                     }
                     else
@@ -108,15 +109,17 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 try
                 {
                     bool isvalidimage = true;
+
+                    
                     if (image != null)
                     {
                         FileInfo fi = new FileInfo(image.FileName);
-                        string extension = fi.Extension;
+                        string extension = fi.Extension.ToLower();
                         if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
                         {
                             string name = Guid.NewGuid().ToString() + extension;
                             Model.ResimYolu = name;
-                            image.SaveAs(Server.MapPath("~/Assets/ProductImages/" + name));
+                            image.SaveAs(Server.MapPath("~/Assets/ProductImages/" + name)); 
                         }
                         else
                         {
@@ -124,6 +127,8 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                             ViewBag.mesaj = "Resim uzantısı .jpg, .jpeg, .png olabilir";
                         }
                     }
+
+                    
                     if (isvalidimage)
                     {
                         db.Entry(Model).State = System.Data.Entity.EntityState.Modified;
@@ -137,6 +142,8 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     ViewBag.mesaj = "Ürün düzenlenirken bir hata oluştu";
                 }
             }
+
+            
             return View(Model);
 
         }

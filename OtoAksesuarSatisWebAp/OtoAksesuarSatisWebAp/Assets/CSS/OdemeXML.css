@@ -113,16 +113,3 @@ hr {
 }
 
 
-@media screen and (max-width: 768px) {
-    table, th, td {
-        font-size: 14px;
-    }
-
-    .form-group {
-        margin-bottom: 10px;
-    }
-
-    button {
-        width: 100%;
-    }
-}

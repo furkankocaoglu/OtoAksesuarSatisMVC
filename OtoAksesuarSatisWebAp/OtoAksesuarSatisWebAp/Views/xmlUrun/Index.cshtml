@@ -49,7 +49,7 @@
         <div class="productContainer">
             <a href="@Url.Action("Detail", "xmlUrun", new { id = urun.XmlUrunID })" style="color:inherit; text-decoration:none;">
                 <div class="productImage">
-                    <img src="@Url.Content(string.IsNullOrWhiteSpace(urun.Resim) ? "~/Images/resim_yok.jpg" : urun.Resim)" width="100" alt="@urun.UrunAdi" />
+                    <img src="@Url.Content(string.IsNullOrWhiteSpace(urun.Resim) ? "~/Images/resim_yok.jpg" : urun.Resim)" width="100"  />
                 </div>
                 <div>
                     <h3><strong>@urun.UrunAdi</strong>&nbsp;@urun.Marka</h3>

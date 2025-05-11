@@ -30,7 +30,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult UrunleriAktar(HttpPostedFileBase[] resimDosyasi)
+        public ActionResult UrunleriAktar()
         {
             var yonetici = Session["YoneticiSession"] as Yonetici;
             if (yonetici == null)
@@ -75,16 +75,16 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     x.Kategori.ToLower().Trim() == urun.Kategori.ToLower().Trim() &&
                     x.Marka.ToLower().Trim() == urun.Marka.ToLower().Trim());
 
+               
                 string kaynakResimYolu = Path.Combine(@"C:\Imagess\", Path.GetFileName(urun.Resim));
-                string hedefResimYolu = Server.MapPath("~/Images/" + Path.GetFileName(urun.Resim)); // Proje içindeki Images klasörü
+                string hedefResimYolu = Server.MapPath("~/Images/" + Path.GetFileName(urun.Resim));
 
-                // Hedef klasör yoksa oluştur
                 if (!Directory.Exists(Server.MapPath("~/Images")))
                 {
                     Directory.CreateDirectory(Server.MapPath("~/Images"));
                 }
 
-                // Kaynak dosya varsa ve hedef dosya yoksa kopyala
+              
                 if (System.IO.File.Exists(kaynakResimYolu) && !System.IO.File.Exists(hedefResimYolu))
                 {
                     try
@@ -125,7 +125,8 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
             }
 
             db.SaveChanges();
-            TempData["Mesaj"] = $"{eklenen} ürün eklendi, {guncellenen} ürün güncellendi.";
+            TempData["Mesaj"] = $"{eklenen} yeni ürün eklendi (isim, kategori veya marka değiştirilmiş olabilir. Bu durumda eklenen bilgisine yansıyacaktır). {guncellenen} ürün güncellendi.";
+
             return RedirectToAction("Index", "HomePanel");
         }
 

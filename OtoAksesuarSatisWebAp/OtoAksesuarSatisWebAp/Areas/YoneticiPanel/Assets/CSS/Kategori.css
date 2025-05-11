@@ -150,19 +150,3 @@ label {
     }
 
 
-@media (max-width: 768px) {
-    .formContainer {
-        padding: 20px;
-        margin: 10px;
-    }
-
-    .tablo th, .tablo td {
-        padding: 12px;
-        font-size: 13px;
-    }
-
-    .editbutton, .deletebutton {
-        width: 100%;
-        margin-bottom: 6px;
-    }
-}

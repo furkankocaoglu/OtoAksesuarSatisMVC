@@ -30,13 +30,3 @@ li {
             color: #ffffff;
         }
 
-@media (max-width: 600px) {
-    ul {
-        max-width: 90%;
-    }
-
-    li a {
-        font-size: 0.95rem;
-        padding: 10px 14px;
-    }
-}

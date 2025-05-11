@@ -40,7 +40,7 @@
             fiyat = item.Urun.Fiyat;
         }
 
-        decimal fakeprice = fiyat + 500;
+        decimal fakeprice = fiyat + 200;
         allTotal += item.Adet * fiyat;
     }
 }
@@ -98,26 +98,26 @@
                         {
                             case "bronz":
                                 productPrice = item.XMLUrun.BronzFiyat;
-                                fakeprice = productPrice + 500;
+                                fakeprice = productPrice + 200;
                                 break;
                             case "silver":
                                 productPrice = item.XMLUrun.SilverFiyat;
-                                fakeprice = productPrice + 500;
+                                fakeprice = productPrice + 200;
                                 break;
                             case "gold":
                                 productPrice = item.XMLUrun.GoldFiyat;
-                                fakeprice = productPrice + 500;
+                                fakeprice = productPrice + 200;
                                 break;
                             default:
                                 productPrice = item.XMLUrun.BronzFiyat;
-                                fakeprice = productPrice + 500;
+                                fakeprice = productPrice + 200;
                                 break;
                         }
                     }
                     else if (item.Urun != null)
                     {
                         productPrice = item.Urun.Fiyat;
-                        fakeprice = productPrice + 500;
+                        fakeprice = productPrice + 200;
                     }
                 }
                 <label style="text-decoration:line-through">@fakeprice ₺</label>

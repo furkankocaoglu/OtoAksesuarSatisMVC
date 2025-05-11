@@ -42,7 +42,7 @@ else
                     <td>@item.SiparisTarihi.ToShortDateString()</td>
                     <td>@item.ToplamFiyat ₺</td>
                     <td>
-                        <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })">Kaldır</a>
+                        <a href="@Url.Action("xmlDelete", "Siparis", new { id = item.SiparisID })">Kaldır</a>
                     </td>
                 </tr>
             }

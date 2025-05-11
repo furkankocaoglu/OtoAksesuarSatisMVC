@@ -95,10 +95,11 @@
 
 .description {
     margin-top: 40px;
-    padding: 20px;
+    padding: 10px;
     background-color: #1e1e1e;
-    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    width:1700px;
+
 }
 
     .description h3 {
@@ -113,6 +114,7 @@
     line-height: 1.6;
     white-space: pre-wrap;
     word-wrap: break-word;
+    
 }
 
 .clearfix {

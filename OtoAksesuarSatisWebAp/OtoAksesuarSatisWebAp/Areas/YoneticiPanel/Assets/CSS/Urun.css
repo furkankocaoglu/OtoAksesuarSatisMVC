@@ -189,36 +189,3 @@ label {
     padding-left: 10px;
 }
 
-@media (max-width: 768px) {
-    .formContainer {
-        padding: 20px;
-        margin: 0 10px;
-    }
-
-    .tablo th, .tablo td {
-        padding: 12px;
-    }
-
-    .editbutton, .deletebutton {
-        width: 100%;
-        margin-bottom: 8px;
-    }
-
-
-    .tablo {
-        display: block;
-        overflow-x: auto;
-    }
-
-    .sol, .sag {
-        width: 100%; 
-        float: none; 
-    }
-
-    .productEditImage, .productEditImageFile {
-        width: 100%;
-        float: none;
-        padding-right: 0;
-        padding-left: 0;
-    }
-}

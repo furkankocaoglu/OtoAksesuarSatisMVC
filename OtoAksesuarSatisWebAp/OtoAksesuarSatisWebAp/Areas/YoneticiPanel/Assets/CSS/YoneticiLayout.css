@@ -80,28 +80,3 @@ body {
 }
 
 
-@media screen and (max-width: 768px) {
-    .menuContainer {
-        height: auto;
-        flex-direction: column;
-    }
-
-    .logoBase,
-    .userBase {
-        float: none;
-        width: 100%;
-        text-align: center;
-    }
-
-    .sideMenu {
-        float: none;
-        width: 100%;
-        position: static;
-        min-height: auto;
-    }
-
-    .mainContainer {
-        margin-left: 0;
-        padding: 20px;
-    }
-}

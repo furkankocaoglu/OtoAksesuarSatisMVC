@@ -46,11 +46,22 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
                 return RedirectToAction("Login", "Uye");
             }
 
-            int siparisSayisi = db.Siparisler.Count(s => s.UyeID == uye.UyeID && s.Silinmis == false);
+            
+            var aktifSiparisler = db.Siparisler
+                                    .Where(s => s.UyeID == uye.UyeID && s.Silinmis == false)
+                                    .ToList();
 
-            ViewBag.SiparisSayisi = siparisSayisi;
+            
+            var silinmisSiparisler = db.Siparisler
+                                       .Where(s => s.UyeID == uye.UyeID && s.Silinmis == true)
+                                       .ToList();
 
-            return View(siparisSayisi);
+            
+            ViewBag.AktifSiparisSayisi = aktifSiparisler.Count();
+            ViewBag.SilinmisSiparisSayisi = silinmisSiparisler.Count();
+
+            return View();
+
         }
         public ActionResult Delete(int? id)
         {
@@ -82,7 +93,24 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
 
             return View(siparisler);
         }
-       
+        public ActionResult xmlDelete(int? id)
+        {
+            if (id != null)
+            {
+                Siparis c = db.Siparisler.Find(id);
+                if (c != null)
+                {
+                    c.Silinmis = true;
+                    db.SaveChanges();
+                    TempData["mesaj"] = "Sipariş kaldırıldı";
+                }
+            }
+            return RedirectToAction("xmlIndex", "Siparis");
+        }
         
+
+
+
     }
+    
 }
