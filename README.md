@@ -1,1 +1,7 @@
 İleri Yazılım MVC E-ticaret sistemi bitirme projesidir.
+Windows Form projesi(ana bayi) 'den alınan ürünler ayrı bir tabloda listelenerek satışa ana sayfada gösterilir. 1 ürün için 3 fiyat segmenti bulunmakta olup yonetım panelinde giriş yapılacak yönetici kullanıcı adı ve yönetici şifre doğrultusunda ürün fiyatları ana sayfada kullanıcıya 3 farklı şekilde gösterilmektedir. Örnek olarak Silver fiyat segmentinde gösterilecek ise Silver kullanıcı adı ve şifre ile giriş yapılarak fiyat seviyeleri değişmektedir. Bu durum projenin yonetıcı ve homepanel controller ve viewlarında  bronz,silver ve gold sessionlarında gösterilmiştir. Ayrıca mvc projesi kendi ürün ekleyip yayınlayabilmektedir. Ana bayiden gelen ürünler ve güncellemeler kullanıcı adı ve şifre girişinden sonra otomatik olarak ilk girişte alınmaktadır. Giriş sayfasının en aşağısında eklenen ürün ve güncellemeler belirtilmiştir. 
+
+--Bronz giriş => Bronz@gmail.com 12345
+--Silver giriş => Silver@gmail.com 12345
+--Gold giriş => Gold@gmail.com 12345
+
