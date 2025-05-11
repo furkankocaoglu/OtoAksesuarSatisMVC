@@ -139,6 +139,7 @@
     <Content Include="Areas\UyePanel\Assets\CSS\Profil.css" />
     <Content Include="Areas\UyePanel\Assets\CSS\Siparis.css" />
     <Content Include="Areas\UyePanel\Assets\CSS\UyeLayout.css" />
+    <Content Include="Areas\UyePanel\Assets\CSS\XMLsiparis.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Kategori.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Marka.css" />
     <Content Include="Areas\YoneticiPanel\Assets\CSS\Urun.css" />
@@ -254,6 +255,7 @@
     <Content Include="Areas\YoneticiPanel\Views\UyeUpdate\Index.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\UyeUpdate\Edit.cshtml" />
     <Content Include="Areas\YoneticiPanel\Views\UyeUpdate\DeleteUye.cshtml" />
+    <Content Include="Areas\UyePanel\Views\Siparis\xmlIndex.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared1\_LayoutPage1.cshtml" />
     <Content Include="Views\Uye\Register.cshtml" />
@@ -286,6 +288,8 @@
     <Folder Include="Areas\UyePanel\Views\Shared\" />
     <Folder Include="Assets\ProductImages\" />
     <Folder Include="Assets\SiteImages\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\PayTest\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202505052031088_RemoveFiyatAlanlari.resx">

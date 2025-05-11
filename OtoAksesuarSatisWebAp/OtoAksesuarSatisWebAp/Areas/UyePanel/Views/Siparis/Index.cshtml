@@ -10,6 +10,9 @@
 <div class="pagetitle">
     <h2>Siparişlerim</h2>
 </div>
+<div class="logo">
+    <a href="@Url.Action("xmlIndex","Siparis")">VIP Siparisleri Listele</a>
+</div>
 
 @if (TempData["mesaj"] != null)
 {
@@ -18,8 +21,8 @@
     </div>
 }
 @{
-    var yorumYapilmisUrunler = ViewBag.YorumYapilmisUrunler as List<int>;
-    var yorumYapilabilirSiparisler = Model.Where(s => !yorumYapilmisUrunler.Contains(s.UrunID)).ToList();
+    var yorumYapilmisUrunler = ViewBag.YorumYapilmisUrunler as List<int> ?? new List<int>();
+    var yorumYapilabilirSiparisler = Model.Where(s => !yorumYapilmisUrunler.Contains(s.UrunID.GetValueOrDefault())).ToList();
 }
 
 @if (!yorumYapilabilirSiparisler.Any())
@@ -40,12 +43,12 @@ else
         @foreach (var item in yorumYapilabilirSiparisler)
         {
             <tr>
-                <td>@item.Urun.UrunAdi</td>
+                <td>@(item.Urun != null ? item.Urun.UrunAdi : "Ürün Bulunamadı")</td>
                 <td>@item.SiparisTarihi.ToShortDateString()</td>
                 <td>@item.ToplamFiyat ₺</td>
                 <td>
                     <a href="@Url.Action("Create", "Yorum", new { urunId = item.UrunID })">Yorum Yap</a>
-                    <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })">Sil</a>
+                    <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })">Kaldır</a>
                 </td>
             </tr>
         }

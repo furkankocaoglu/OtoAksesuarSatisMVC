@@ -85,7 +85,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                         }
                     }
 
-                    
+
                     foreach (var urun in xmlUrunler)
                     {
                         var mevcut = db.XMLUrunler.FirstOrDefault(x =>
@@ -105,6 +105,23 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                             if (mevcut.Aciklama != urun.Aciklama) { mevcut.Aciklama = urun.Aciklama; degisti = true; }
                             if (mevcut.Resim != urun.Resim) { mevcut.Resim = urun.Resim; degisti = true; }
                             if (mevcut.EklenmeZamani != urun.EklenmeZamani) { mevcut.EklenmeZamani = urun.EklenmeZamani; degisti = true; }
+
+                           
+                            if (degisti && !string.IsNullOrEmpty(urun.Resim) && urun.Resim != "resim_yok.jpg")
+                            {
+                              
+                                string kaynakYolu = Path.Combine(@"C:\Images", Path.GetFileName(urun.Resim));
+
+                             
+                                string hedefKlasor = Server.MapPath("~/Images/");
+                                string hedefYolu = Path.Combine(hedefKlasor, Path.GetFileName(urun.Resim));
+
+                                
+                                if (!System.IO.File.Exists(hedefYolu) && System.IO.File.Exists(kaynakYolu))
+                                {
+                                    System.IO.File.Copy(kaynakYolu, hedefYolu);
+                                }
+                            }
 
                             if (degisti)
                             {

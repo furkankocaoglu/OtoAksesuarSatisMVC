@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OtoAksesuarSatisWebAp.Models.Siparis>
+
+@{
+    ViewBag.Title = "xmlIndex";
+    Layout = "~/Areas/UyePanel/Views/_LayoutPage1.cshtml";
+}
+@section styles {
+    <link href="~/Areas/UyePanel/Assets/CSS/XMLsiparis.css" rel="stylesheet" />
+}
+<div class="pagetitle">
+    <h2>VIP Siparişlerim</h2>
+</div>
+@if (TempData["mesaj"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["mesaj"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        VIP ürün siparişiniz bulunmamaktadır.
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Sipariş Tarihi</th>
+                <th>Toplam Fiyat</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@(item.XMLUrun != null ? item.XMLUrun.UrunAdi : "XML Ürün Bilgisi Yok")</td>
+                    <td>@item.SiparisTarihi.ToShortDateString()</td>
+                    <td>@item.ToplamFiyat ₺</td>
+                    <td>
+                        <a href="@Url.Action("Delete", "Siparis", new { id = item.SiparisID })">Kaldır</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -16,9 +16,14 @@ namespace OtoAksesuarSatisWebAp.Models
         [ForeignKey("UyeID")]  
         public virtual Uye Uye { get; set; }
 
-        public int UrunID { get; set; }  
+        public int? UrunID { get; set; }  
         [ForeignKey("UrunID")] 
         public virtual Urun Urun { get; set; }
+
+        public int? XmlUrunID { get; set; }  
+        [ForeignKey("XmlUrunID")]
+        public virtual XMLUrun XMLUrun { get; set; } 
+
 
         [Display(Name = "Miktar")]
         public int Miktar { get; set; }

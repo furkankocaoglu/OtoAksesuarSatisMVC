@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -69,11 +70,39 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     x.Kategori.ToLower().Trim() == urun.Kategori.ToLower().Trim() &&
                     x.Marka.ToLower().Trim() == urun.Marka.ToLower().Trim());
 
+                if (!string.IsNullOrEmpty(urun.Resim))
+                {
+                    try
+                    {
+                        // Masaüstünden kaynağı al
+                        string kaynakResimYolu = Path.Combine(@"C:\Users\user\Desktop\", urun.Resim);
+
+                        // Web uygulaması için hedef yolu belirle
+                        string hedefKlasor = Server.MapPath("~/Images/");
+
+                        // Eğer hedef klasör yoksa oluştur
+                        if (!Directory.Exists(hedefKlasor))
+                            Directory.CreateDirectory(hedefKlasor);
+
+                        // Hedef resim yolunu oluştur
+                        string hedefResimYolu = Path.Combine(hedefKlasor, urun.Resim);
+
+                        // Resim kopyalama işlemi
+                        if (System.IO.File.Exists(kaynakResimYolu) && !System.IO.File.Exists(hedefResimYolu))
+                        {
+                            System.IO.File.Copy(kaynakResimYolu, hedefResimYolu);
+                            urun.Resim = "ProductImages/" + urun.Resim;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Resim kopyalanırken hata oluştu: " + ex.Message);
+                    }
+                }
                 if (mevcut != null)
                 {
                     bool degisti = false;
 
-                   
                     if (mevcut.BronzFiyat != urun.BronzFiyat) { mevcut.BronzFiyat = urun.BronzFiyat; degisti = true; }
                     if (mevcut.SilverFiyat != urun.SilverFiyat) { mevcut.SilverFiyat = urun.SilverFiyat; degisti = true; }
                     if (mevcut.GoldFiyat != urun.GoldFiyat) { mevcut.GoldFiyat = urun.GoldFiyat; degisti = true; }
@@ -89,17 +118,18 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 }
                 else
                 {
-                    db.XMLUrunler.Add(urun); 
+                    db.XMLUrunler.Add(urun);
                     eklenen++;
                 }
             }
 
-            db.SaveChanges(); 
+            db.SaveChanges();
 
             TempData["Mesaj"] = $"{eklenen} ürün eklendi, {guncellenen} ürün güncellendi.";
             return RedirectToAction("Index", "HomePanel");
         }
     }
+    
 
 
 

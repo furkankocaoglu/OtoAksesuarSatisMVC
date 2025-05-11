@@ -34,5 +34,7 @@ namespace OtoAksesuarSatisWebAp.Models
 
         public DateTime EklenmeZamani { get; set; }
         public DateTime? GuncellenmeZamani { get; set; }
+
+        public ICollection<Yorum> Yorumlar { get; set; }
     }
 }

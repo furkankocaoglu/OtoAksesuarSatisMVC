@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
 {
@@ -21,12 +22,16 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
             }
 
             var siparisler = db.Siparisler
-                               .Where(s => s.UyeID == uye.UyeID && s.Silinmis == false)
+                               .Where(s => s.UyeID == uye.UyeID &&
+                                           s.Silinmis == false &&
+                                           s.UrunID != null) 
                                .ToList();
 
             var yorumYapilmisUrunler = db.Yorumlar
-                                         .Where(y => y.UyeID == uye.UyeID && y.Silinmis == false)
-                                         .Select(y => y.UrunID)
+                                         .Where(y => y.UyeID == uye.UyeID &&
+                                                     y.Silinmis == false &&
+                                                     y.UrunID != null) 
+                                         .Select(y => y.UrunID.Value)
                                          .ToList();
 
             ViewBag.YorumYapilmisUrunler = yorumYapilmisUrunler;
@@ -61,5 +66,23 @@ namespace OtoAksesuarSatisWebAp.Areas.UyePanel.Controllers
             }
             return RedirectToAction("Index", "AnaSayfa");
         }
+        public ActionResult xmlIndex()
+        {
+            var uye = Session["uye"] as Uye;
+            if (uye == null)
+                return RedirectToAction("Login", "Uye");
+
+            
+            var siparisler = db.Siparisler
+                .Where(s => s.UyeID == uye.UyeID &&
+                            !s.Silinmis &&
+                            s.UrunID == null &&
+                            s.XmlUrunID != null && s.XmlUrunID > 0)
+                .ToList();
+
+            return View(siparisler);
+        }
+       
+        
     }
 }

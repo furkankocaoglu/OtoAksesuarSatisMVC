@@ -129,13 +129,10 @@ namespace OtoAksesuarSatisWebAp.Controllers
 
                     decimal urunFiyati = 0;
 
-                    
                     if (item.XMLUrun != null)
                     {
-                       
                         itemFiyatSeviyesi = string.IsNullOrEmpty(itemFiyatSeviyesi) ? "bronz" : itemFiyatSeviyesi.ToLower();
 
-                       
                         if (itemFiyatSeviyesi == "bronz")
                         {
                             urunFiyati = item.XMLUrun.BronzFiyat;
@@ -156,19 +153,18 @@ namespace OtoAksesuarSatisWebAp.Controllers
 
                     total += urunFiyati * item.Adet;
                 }
-
+                string musteriNumarasi = "159753";
+                string musteriSifre = "1234";
                 string pricestr = total.ToString().Replace(",", ".");
-                string apiUrl = $"https://localhost:44369/api/Pay?musterino=musteriNumarasi&musterisifre=musteriSifre&kartno={model.KartNumarasi}&sonkullanmaay={model.Ay}&sonkullanmayil={model.Yıl}&cvv={model.Cvv}&bakiye={pricestr}";
 
-               
+                string apiUrl = $"https://localhost:44369/api/Pay?musterino={musteriNumarasi}&musterisifre={musteriSifre}&kartno={model.KartNumarasi}&sonkullanmaay={model.Ay}&sonkullanmayil={model.Yıl}&cvv={model.Cvv}&bakiye={pricestr}";
+
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = client.PostAsync(apiUrl, null).Result;
                 var result = response.Content.ReadAsStringAsync().Result;
 
-                
-                if (result == "\"101\"") 
+                if (result == "\"101\"")
                 {
-                    
                     foreach (Sepet item in memberCart)
                     {
                         db.Sepetler.Remove(item);
@@ -214,7 +210,6 @@ namespace OtoAksesuarSatisWebAp.Controllers
                 }
             }
 
-           
             ViewBag.sepet = memberCart;
             return View(model);
         }
