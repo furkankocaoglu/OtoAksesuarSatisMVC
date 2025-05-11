@@ -75,31 +75,18 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
             if (id != null)
             {
                 Urun u = db.Urunler.Find(id);
-                if (u != null)
+                if (u != null && !u.Silinmis)
                 {
-                    if (!u.Silinmis)
-                    {
-                       
-                        ViewBag.Kategori_ID = new SelectList(db.Kategoriler.Where(x => !x.Silinmis), "KategoriID", "KategoriAdi", u.KategoriID); 
-                        ViewBag.Marka_ID = new SelectList(db.Markalar.Where(x => !x.Silinmis), "MarkaID", "MarkaAdi", u.MarkaID); 
-                        return View(u);
-                    }
-                    else
-                    {
-                        TempData["systemerror"] = "Ürün kaldırılmış";
-                        return RedirectToAction("Error", "Sistem");
-                    }
+                    ViewBag.Category_ID = new SelectList(db.Kategoriler.Where(x => !x.Silinmis), "KategoriID", "KategoriAdi", u.KategoriID);
+                    ViewBag.Brand_ID = new SelectList(db.Markalar.Where(x => !x.Silinmis), "MarkaID", "MarkaAdi", u.MarkaID);
+
+                    return View(u);
                 }
-                else
-                {
-                    TempData["systemerror"] = "Ürün Bulunamadı";
-                    return RedirectToAction("Error", "Sistem");
-                }
+                TempData["systemerror"] = u == null ? "Ürün bulunamadı" : "Ürün silinmiş";
+                return RedirectToAction("Error", "Sistem");
             }
-            else
-            {
-                return RedirectToAction("Index", "Urun");
-            }
+
+            return RedirectToAction("Index", "Urun");
         }
         [HttpPost]
         public ActionResult Edit(Urun Model, HttpPostedFileBase image)
@@ -110,7 +97,6 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                 {
                     bool isvalidimage = true;
 
-                    
                     if (image != null)
                     {
                         FileInfo fi = new FileInfo(image.FileName);
@@ -119,7 +105,7 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                         {
                             string name = Guid.NewGuid().ToString() + extension;
                             Model.ResimYolu = name;
-                            image.SaveAs(Server.MapPath("~/Assets/ProductImages/" + name)); 
+                            image.SaveAs(Server.MapPath("~/Assets/ProductImages/" + name));
                         }
                         else
                         {
@@ -128,12 +114,11 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                         }
                     }
 
-                    
                     if (isvalidimage)
                     {
                         db.Entry(Model).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
-                        TempData["mesaj"] = "Ürün Düzenleme başarılı";
+                        TempData["mesaj"] = "Ürün düzenleme başarılı";
                         return RedirectToAction("Index", "Urun");
                     }
                 }
@@ -142,8 +127,9 @@ namespace OtoAksesuarSatisWebAp.Areas.YoneticiPanel.Controllers
                     ViewBag.mesaj = "Ürün düzenlenirken bir hata oluştu";
                 }
             }
+            ViewBag.Category_ID = new SelectList(db.Kategoriler.Where(x => !x.Silinmis), "KategoriID", "KategoriAdi", Model.KategoriID);
+            ViewBag.Brand_ID = new SelectList(db.Markalar.Where(x => !x.Silinmis), "MarkaID", "MarkaAdi", Model.MarkaID);
 
-            
             return View(Model);
 
         }

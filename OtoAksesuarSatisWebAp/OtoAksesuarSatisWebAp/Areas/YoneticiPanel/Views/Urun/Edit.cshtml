@@ -10,6 +10,7 @@
 <div class="pagetitle">
     <h2>Ürün Düzenle</h2>
 </div>
+
 <div class="formContainer">
     @using (Html.BeginForm("Edit", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -25,19 +26,19 @@
 
         <div class="sol">
             <div class="row">
-                <label>Isim</label>
+                <label>İsim</label>
                 @Html.EditorFor(x => x.UrunAdi, new { htmlAttributes = new { @class = "textbox" } })
                 @Html.ValidationMessageFor(x => x.UrunAdi, "", new { @class = "validationmesage" })
             </div>
 
             <div class="row">
-                <label>Kategori Seçiniz</label>
-                @Html.DropDownList("KategoriID", (SelectList)ViewBag.Kategori_ID, "Kategori Seçiniz", new { @class = "textbox" })
+                <label>Kategori</label>
+                @Html.DropDownListFor(x => x.KategoriID, (IEnumerable<SelectListItem>)ViewBag.Category_ID, new { @class = "textbox" })
             </div>
 
             <div class="row">
-                <label>Marka Seçiniz</label>
-                @Html.DropDownList("MarkaID", (SelectList)ViewBag.Marka_ID, "Marka Seçiniz", new { @class = "textbox" })
+                <label>Marka</label>
+                @Html.DropDownListFor(x => x.MarkaID, (IEnumerable<SelectListItem>)ViewBag.Brand_ID, new { @class = "textbox" })
             </div>
 
             <div class="row">
@@ -77,7 +78,5 @@
         <div class="row">
             <button type="submit" class="formbutton">Güncelle</button>
         </div>
-    
     }
 </div>
-
